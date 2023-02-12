@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */; };
-		B04E138729990F710055CA7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E138629990F710055CA7F /* ContentView.swift */; };
 		B04E138929990F730055CA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138829990F730055CA7F /* Assets.xcassets */; };
 		B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138B29990F730055CA7F /* Preview Assets.xcassets */; };
 		B04E1394299913E30055CA7F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B04E1393299913E30055CA7F /* ComposableArchitecture */; };
+		B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13962999155C0055CA7F /* HomeTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B04E138129990F710055CA7F /* MolkkyScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MolkkyScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyScoreBoardApp.swift; sourceTree = "<group>"; };
-		B04E138629990F710055CA7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B04E138829990F730055CA7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B04E138B29990F730055CA7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B04E13962999155C0055CA7F /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		B04E13982999162A0055CA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +54,9 @@
 		B04E138329990F710055CA7F /* MolkkyScoreBoard */ = {
 			isa = PBXGroup;
 			children = (
+				B04E13982999162A0055CA7F /* Info.plist */,
 				B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */,
-				B04E138629990F710055CA7F /* ContentView.swift */,
+				B04E13962999155C0055CA7F /* HomeTabView.swift */,
 				B04E138829990F730055CA7F /* Assets.xcassets */,
 				B04E138A29990F730055CA7F /* Preview Content */,
 			);
@@ -145,8 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B04E138729990F710055CA7F /* ContentView.swift in Sources */,
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
+				B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +280,7 @@
 				DEVELOPMENT_TEAM = 3W722UE7AL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = MolkkyScoreBoard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -307,7 +309,7 @@
 				DEVELOPMENT_TEAM = 3W722UE7AL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = MolkkyScoreBoard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
