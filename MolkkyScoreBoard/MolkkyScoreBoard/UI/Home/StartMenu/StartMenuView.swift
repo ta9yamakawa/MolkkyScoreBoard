@@ -9,7 +9,11 @@ import SwiftUI
 
 struct StartMenuView: View {
     var body: some View {
-        Text("StartMenu")
+        NavigationView {
+            VStack {
+                Text("StartMenu")
+            }
+        }
     }
 }
 
