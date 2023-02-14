@@ -7,12 +7,11 @@
 
 import SwiftUI
 
+/// プレイスタート画面
 struct StartMenuView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("StartMenu")
-            }
+        VStack {
+            Text("StartMenu")
         }
     }
 }

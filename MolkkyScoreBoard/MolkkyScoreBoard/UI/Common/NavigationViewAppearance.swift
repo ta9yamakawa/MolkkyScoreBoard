@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// ナビゲーションビューの見た目の管理クラス
 final class NavigationViewAppearance {
 
     /// Appearanceの設定
