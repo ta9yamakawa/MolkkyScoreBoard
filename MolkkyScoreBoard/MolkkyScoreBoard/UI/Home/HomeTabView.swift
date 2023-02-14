@@ -10,26 +10,21 @@ import SwiftUI
 /// ホーム画面
 struct HomeTabView: View {
 
-    enum Tabs: String {
+    // MARK: Enumerations
+    /// タブの種類
+    private enum TabType: String {
         case play = "プレイ"
         case information = "インフォメーション"
     }
 
-    init() {
-        let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.configureWithOpaqueBackground()
-        navigationBarAppearance.backgroundColor = UIColor.systemGreen
-        navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white,
-                                                       .font : UIFont.boldSystemFont(ofSize: 20)]
-        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+    /// 選択中のタプ
+    @State private var selectedTab: TabType = .play
 
+    /// Initialize
+    init() {
+        NavigationViewAppearance.configure()
         UITabBar.appearance().backgroundColor = .systemGray6
     }
-
-    @State private var navigationTitle: String = Tabs.play.rawValue
-    @State private var selectedTab: Tabs = .play
 
     var body: some View {
         NavigationStack {
@@ -38,23 +33,24 @@ struct HomeTabView: View {
                     .tabItem {
                         Image(systemName: "pencil.and.outline")
                         Text("プレイ")
-                    }.tag(Tabs.play)
+                    }.tag(TabType.play)
 
                 InformationView()
                     .tabItem {
                         Image(systemName: "info.circle.fill")
                         Text("情報")
-                    }.tag(Tabs.information)
+                    }.tag(TabType.information)
             }
-            .navigationTitle(navigationTitle)
+            .navigationTitle(selectedTab.rawValue)
             .navigationBarTitleDisplayMode(.inline)
             .onChange(of: selectedTab) { tab in
-                navigationTitle = selectedTab.rawValue
+                selectedTab = tab
             }
         }
     }
 }
 
+// MARK: Private Methods
 struct HomeTabView_Previews: PreviewProvider {
     static var previews: some View {
         HomeTabView()

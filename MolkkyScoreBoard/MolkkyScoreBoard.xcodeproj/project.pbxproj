@@ -14,6 +14,7 @@
 		B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13962999155C0055CA7F /* HomeTabView.swift */; };
 		B04E139E299917FD0055CA7F /* StartMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E139D299917FD0055CA7F /* StartMenuView.swift */; };
 		B04E13A0299918120055CA7F /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E139F299918120055CA7F /* InformationView.swift */; };
+		B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		B04E13982999162A0055CA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B04E139D299917FD0055CA7F /* StartMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenuView.swift; sourceTree = "<group>"; };
 		B04E139F299918120055CA7F /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		B04E139C299917A80055CA7F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B04E13A2299BF12C0055CA7F /* Common */,
 				B04E13A12999186E0055CA7F /* Home */,
 				B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */,
 			);
@@ -107,6 +110,14 @@
 				B04E1399299917540055CA7F /* StartMenu */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B04E13A2299BF12C0055CA7F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */,
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
 				B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */,
