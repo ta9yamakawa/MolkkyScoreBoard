@@ -9,22 +9,21 @@ import SwiftUI
 
 /// チーム選択ボタン
 struct TeamSelectButtonView: View {
-
     /// チーム数
     let teamCount: Int
 
     var body: some View {
-        Button(action: {
-            print("tapped")
-        }, label: {
+        NavigationLink(destination: TeamMakeView(),
+                       label: {
             Text("\(teamCount)チーム")
                 .font(Font.system(size: 20))
                 .foregroundColor(.white)
+                .frame(width: 140)
+                .padding(.vertical, 12)
+                .background(Color.orange)
+                .cornerRadius(4)
         })
-        .frame(width: 140)
-        .padding(.vertical, 12)
-        .background(Color.orange)
-        .cornerRadius(4)
+
     }
 }
 
