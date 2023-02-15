@@ -15,6 +15,7 @@
 		B04E139E299917FD0055CA7F /* StartMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E139D299917FD0055CA7F /* StartMenuView.swift */; };
 		B04E13A0299918120055CA7F /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E139F299918120055CA7F /* InformationView.swift */; };
 		B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */; };
+		B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A5299D343D0055CA7F /* TeamSelectButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B04E139D299917FD0055CA7F /* StartMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenuView.swift; sourceTree = "<group>"; };
 		B04E139F299918120055CA7F /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAppearance.swift; sourceTree = "<group>"; };
+		B04E13A5299D343D0055CA7F /* TeamSelectButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				B04E139D299917FD0055CA7F /* StartMenuView.swift */,
+				B04E13A5299D343D0055CA7F /* TeamSelectButtonView.swift */,
 			);
 			path = StartMenu;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */,
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
+				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */,
 				B04E139E299917FD0055CA7F /* StartMenuView.swift in Sources */,
 			);
