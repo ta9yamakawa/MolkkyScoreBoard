@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
+/// チーム作成画面
 struct TeamMakeView: View {
 
     /// チーム数
