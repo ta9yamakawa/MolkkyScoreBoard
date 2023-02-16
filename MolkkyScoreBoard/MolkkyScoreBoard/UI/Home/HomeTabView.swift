@@ -17,7 +17,7 @@ struct HomeTabView: View {
         case information = "インフォメーション"
     }
 
-    /// 選択中のタプ
+    /// 選択中のタブ
     @State private var selectedTab: TabType = .play
 
     /// Initialize
