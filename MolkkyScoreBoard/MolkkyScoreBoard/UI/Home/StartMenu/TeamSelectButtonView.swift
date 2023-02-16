@@ -13,7 +13,7 @@ struct TeamSelectButtonView: View {
     let teamCount: Int
 
     var body: some View {
-        NavigationLink(destination: TeamMakeView(),
+        NavigationLink(destination: TeamMakeView(teamCount: teamCount),
                        label: {
             Text("\(teamCount)チーム")
                 .font(Font.system(size: 20))
@@ -23,7 +23,6 @@ struct TeamSelectButtonView: View {
                 .background(Color.orange)
                 .cornerRadius(4)
         })
-
     }
 }
 

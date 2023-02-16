@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct TeamMakeView: View {
+
+    /// チーム数
+    let teamCount: Int
+
     var body: some View {
-        Text("TeamMakeView")
+        Text("TeamMakeView: \(teamCount)")
     }
 }
 
 struct TeamMakeView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamMakeView()
+        TeamMakeView(teamCount: 1)
     }
 }
