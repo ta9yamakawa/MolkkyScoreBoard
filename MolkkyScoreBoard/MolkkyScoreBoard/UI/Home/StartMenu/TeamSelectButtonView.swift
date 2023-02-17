@@ -13,8 +13,13 @@ struct TeamSelectButtonView: View {
     /// チーム数
     let teamCount: Int
 
+    /// Store
+    private let store = Store(initialState: TeamsMakeFeature.State(),
+                              reducer: TeamsMakeFeature())
+
     var body: some View {
-        NavigationLink(destination: TeamMakeView(teamCount: teamCount),
+        NavigationLink(destination: TeamsMakeView(teamCount: teamCount,
+                                                 store: store),
                        label: {
             Text("\(teamCount)チーム")
                 .font(Font.system(size: 20))

@@ -16,8 +16,8 @@
 		B04E13A0299918120055CA7F /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E139F299918120055CA7F /* InformationView.swift */; };
 		B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */; };
 		B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A5299D343D0055CA7F /* TeamSelectButtonView.swift */; };
-		B04E13A9299D39920055CA7F /* TeamMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A8299D39920055CA7F /* TeamMakeView.swift */; };
-		B0AEE9D2299E963A0026AA42 /* TeamMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamMakeFeature.swift */; };
+		B04E13A9299D39920055CA7F /* TeamsMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A8299D39920055CA7F /* TeamsMakeView.swift */; };
+		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
 		B0AEE9D4299E96CD0026AA42 /* TeamDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* TeamDto.swift */; };
 		B0AEE9D6299E974F0026AA42 /* TeamMemberDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D5299E974F0026AA42 /* TeamMemberDto.swift */; };
 /* End PBXBuildFile section */
@@ -33,8 +33,8 @@
 		B04E139F299918120055CA7F /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewAppearance.swift; sourceTree = "<group>"; };
 		B04E13A5299D343D0055CA7F /* TeamSelectButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectButtonView.swift; sourceTree = "<group>"; };
-		B04E13A8299D39920055CA7F /* TeamMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMakeView.swift; sourceTree = "<group>"; };
-		B0AEE9D1299E963A0026AA42 /* TeamMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMakeFeature.swift; sourceTree = "<group>"; };
+		B04E13A8299D39920055CA7F /* TeamsMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeView.swift; sourceTree = "<group>"; };
+		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
 		B0AEE9D3299E96CD0026AA42 /* TeamDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDto.swift; sourceTree = "<group>"; };
 		B0AEE9D5299E974F0026AA42 /* TeamMemberDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				B0AEE9D7299E97ED0026AA42 /* DTO */,
-				B0AEE9D1299E963A0026AA42 /* TeamMakeFeature.swift */,
-				B04E13A8299D39920055CA7F /* TeamMakeView.swift */,
+				B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */,
+				B04E13A8299D39920055CA7F /* TeamsMakeView.swift */,
 			);
 			path = TeamMake;
 			sourceTree = "<group>";
@@ -228,12 +228,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */,
-				B0AEE9D2299E963A0026AA42 /* TeamMakeFeature.swift in Sources */,
+				B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */,
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* TeamDto.swift in Sources */,
-				B04E13A9299D39920055CA7F /* TeamMakeView.swift in Sources */,
+				B04E13A9299D39920055CA7F /* TeamsMakeView.swift in Sources */,
 				B0AEE9D6299E974F0026AA42 /* TeamMemberDto.swift in Sources */,
 				B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */,
 				B04E139E299917FD0055CA7F /* StartMenuView.swift in Sources */,
