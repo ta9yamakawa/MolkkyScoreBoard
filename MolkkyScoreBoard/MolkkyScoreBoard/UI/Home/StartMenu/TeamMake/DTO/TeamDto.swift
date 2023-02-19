@@ -10,5 +10,5 @@ struct TeamDto: Identifiable, Equatable {
     /// チームID
     let id: Int
     /// チームメイト
-    let members: [TeamDto]
+    var members: [TeamMemberDto]
 }

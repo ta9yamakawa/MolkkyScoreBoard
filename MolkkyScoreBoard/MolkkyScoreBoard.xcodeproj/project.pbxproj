@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B02ED78029A26DFA0037B9DF /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B02ED77F29A26DFA0037B9DF /* Algorithms */; };
 		B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */; };
 		B04E138929990F730055CA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138829990F730055CA7F /* Assets.xcassets */; };
 		B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138B29990F730055CA7F /* Preview Assets.xcassets */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02ED78029A26DFA0037B9DF /* Algorithms in Frameworks */,
 				B04E1394299913E30055CA7F /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +171,7 @@
 			name = MolkkyScoreBoard;
 			packageProductDependencies = (
 				B04E1393299913E30055CA7F /* ComposableArchitecture */,
+				B02ED77F29A26DFA0037B9DF /* Algorithms */,
 			);
 			productName = MolkkyScoreBoard;
 			productReference = B04E138129990F710055CA7F /* MolkkyScoreBoard.app */;
@@ -200,6 +203,7 @@
 			mainGroup = B04E137829990F710055CA7F;
 			packageReferences = (
 				B04E1392299913E30055CA7F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				B02ED77E29A26DFA0037B9DF /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = B04E138229990F710055CA7F /* Products */;
 			projectDirPath = "";
@@ -441,6 +445,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B02ED77E29A26DFA0037B9DF /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		B04E1392299913E30055CA7F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -452,6 +464,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B02ED77F29A26DFA0037B9DF /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B02ED77E29A26DFA0037B9DF /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
 		B04E1393299913E30055CA7F /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B04E1392299913E30055CA7F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;

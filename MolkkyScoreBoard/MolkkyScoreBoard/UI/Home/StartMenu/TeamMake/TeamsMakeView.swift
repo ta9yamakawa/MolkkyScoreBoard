@@ -5,6 +5,7 @@
 //  Created by ta9yamakawa on 2023/02/16.
 //
 
+import Algorithms
 import SwiftUI
 import ComposableArchitecture
 
@@ -21,20 +22,21 @@ struct TeamsMakeView: View {
             VStack {
                 List {
                     VStack {
-                        ForEach(viewStore.state.teams) { team in
+                        ForEach(viewStore.state.teams.indexed(), id: \.index) { teamIndex, team in
                             HStack {
                                 Text("Team\(team.id)")
                                 Spacer()
                             }.padding(.leading)
 
-                            TextField("チーム名を入力",
-                                      text: $inputText)
-                            .onSubmit {
-                                //                                viewStore.binding(send: .didChangedTextFiled(teamId: team, text: inputText))
-                                print(viewStore.displayName)
+                            ForEach(team.members.indexed(), id: \.index) { memberIndex, member in
+                                TextField("チーム名を入力",
+                                          text: viewStore.binding(get: { _ in  member.name }, send: { .didChangedTextFiled(team: teamIndex, member: memberIndex, text: $0) }))
+                                .onSubmit {
+                                    print(viewStore.displayName)
+                                }
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding()
                             }
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding()
 
                             Button(action: {
                                 print("追加")

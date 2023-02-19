@@ -6,7 +6,9 @@
 //
 
 /// チームメンバー DTO
-struct TeamMemberDto: Equatable {
+struct TeamMemberDto: Identifiable, Equatable {
+    /// メンバーID
+    let id: Int
     /// 名前
-    let name: String
+    var name: String
 }
