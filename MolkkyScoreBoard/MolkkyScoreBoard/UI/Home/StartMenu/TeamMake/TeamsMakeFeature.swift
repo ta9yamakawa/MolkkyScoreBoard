@@ -12,7 +12,6 @@ import ComposableArchitecture
 struct TeamsMakeFeature: ReducerProtocol {
     /// State
     struct State: Equatable {
-        @BindableState var displayName = ""
         /// チームの情報
         var teams: [TeamDto]
 

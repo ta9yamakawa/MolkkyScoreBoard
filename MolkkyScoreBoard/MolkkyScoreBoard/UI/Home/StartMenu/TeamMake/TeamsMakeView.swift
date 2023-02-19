@@ -21,20 +21,18 @@ struct TeamsMakeView: View {
         WithViewStore(self.store) { viewStore in
             VStack {
                 List {
-                    VStack {
-                        ForEach(viewStore.state.teams.indexed(), id: \.index) { teamIndex, team in
+                    ForEach(viewStore.state.teams.indexed(), id: \.index) { teamIndex, team in
+                        VStack {
                             HStack {
                                 Text("Team\(team.id)")
                                 Spacer()
                             }.padding(.leading)
 
                             ForEach(team.members.indexed(), id: \.index) { memberIndex, member in
-                                TextField("チーム名を入力",
+                                TextField("メンバー名を入力",
                                           text: viewStore.binding(get: { _ in  member.name }, send: { .didChangedTextFiled(team: teamIndex, member: memberIndex, text: $0) }))
-                                .onSubmit {
-                                    print(viewStore.displayName)
-                                }
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .autocapitalization(.none)
                                 .padding()
                             }
 
@@ -43,9 +41,10 @@ struct TeamsMakeView: View {
                             }, label: {
                                 Image(systemName: "plus.circle")
                                     .resizable()
+                                    .foregroundColor(Color.blue)
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 30, height: 30)
-                            })
+                            }).buttonStyle(PlainButtonStyle())
                         }
                     }
                 }.padding(.top)
