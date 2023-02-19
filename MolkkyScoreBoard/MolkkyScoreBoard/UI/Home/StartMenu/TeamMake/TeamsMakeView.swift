@@ -26,9 +26,9 @@ struct TeamsMakeView: View {
             VStack {
                 List {
                     VStack {
-                        ForEach(0..<teamCount, id: \.self) { team in
+                        ForEach(viewStore.state.teams) { team in
                             HStack {
-                                Text("Team\(team + 1)")
+                                Text("Team\(team.id + 1)")
                                 Spacer()
                             }.padding(.leading)
 
@@ -68,7 +68,7 @@ struct TeamsMakeView: View {
 // MARK: Previews
 struct TeamMakeView_Previews: PreviewProvider {
     static var previews: some View {
-        let store = Store(initialState: TeamsMakeFeature.State(),
+        let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
                           reducer: TeamsMakeFeature())
 
         TeamsMakeView(teamCount: 2, store: store)

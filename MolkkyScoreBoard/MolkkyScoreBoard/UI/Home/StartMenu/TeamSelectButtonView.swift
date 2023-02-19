@@ -13,13 +13,9 @@ struct TeamSelectButtonView: View {
     /// チーム数
     let teamCount: Int
 
-    /// Store
-    private let store = Store(initialState: TeamsMakeFeature.State(),
-                              reducer: TeamsMakeFeature())
-
     var body: some View {
         NavigationLink(destination: TeamsMakeView(teamCount: teamCount,
-                                                 store: store),
+                                                  store: store(with: teamCount)),
                        label: {
             Text("\(teamCount)チーム")
                 .font(Font.system(size: 20))
@@ -29,6 +25,18 @@ struct TeamSelectButtonView: View {
                 .background(Color.orange)
                 .cornerRadius(4)
         })
+    }
+}
+
+// MARK: Private Methods
+private extension TeamSelectButtonView {
+    /// Storeを取得
+    /// - Parameter teamCount: チーム数
+    /// - Returns: StoreOf<TeamsMakeFeature>
+    func store(with teamCount: Int) -> StoreOf<TeamsMakeFeature> {
+        let initialState = TeamsMakeFeature.State(teamCount: teamCount)
+        return Store(initialState: initialState,
+                     reducer: TeamsMakeFeature())
     }
 }
 

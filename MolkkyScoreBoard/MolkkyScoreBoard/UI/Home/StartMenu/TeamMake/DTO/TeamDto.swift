@@ -6,7 +6,7 @@
 //
 
 /// チーム DTO
-struct TeamDto: Equatable {
+struct TeamDto: Identifiable, Equatable {
     /// チームID
     let id: Int
     /// チームメイト

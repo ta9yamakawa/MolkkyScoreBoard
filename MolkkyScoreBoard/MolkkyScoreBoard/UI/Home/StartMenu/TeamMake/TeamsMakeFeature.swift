@@ -14,7 +14,20 @@ struct TeamsMakeFeature: ReducerProtocol {
     struct State: Equatable {
         @BindableState var displayName = ""
         /// チームの情報
-        var teams: [TeamDto] = []
+        var teams: [TeamDto]
+
+        /// Initialize
+        /// - Parameter teamCount: チーム数
+        init(teamCount: Int) {
+            var initialTeams: [TeamDto] = []
+
+            for id in 0..<teamCount {
+                let team = TeamDto(id: id, members: [])
+                initialTeams.append(team)
+            }
+
+            self.teams = initialTeams
+        }
     }
 
     /// Action
