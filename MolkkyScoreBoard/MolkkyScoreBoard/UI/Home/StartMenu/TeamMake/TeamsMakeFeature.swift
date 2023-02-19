@@ -21,8 +21,9 @@ struct TeamsMakeFeature: ReducerProtocol {
         init(teamCount: Int) {
             var initialTeams: [TeamDto] = []
 
-            for id in 0..<teamCount {
-                let team = TeamDto(id: id, members: [])
+            for index in 0..<teamCount {
+                let id = index + 1
+                let team = TeamDto(id: id , members: [])
                 initialTeams.append(team)
             }
 

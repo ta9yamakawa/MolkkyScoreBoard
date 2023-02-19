@@ -11,12 +11,7 @@ import ComposableArchitecture
 /// チーム作成画面
 struct TeamsMakeView: View {
 
-    //    @State var team: TeamDto = ""
-
     @State private var inputText = ""
-
-    /// チーム数
-    let teamCount: Int
 
     /// Team Make Feature
     let store: StoreOf<TeamsMakeFeature>
@@ -28,14 +23,14 @@ struct TeamsMakeView: View {
                     VStack {
                         ForEach(viewStore.state.teams) { team in
                             HStack {
-                                Text("Team\(team.id + 1)")
+                                Text("Team\(team.id)")
                                 Spacer()
                             }.padding(.leading)
 
                             TextField("チーム名を入力",
                                       text: $inputText)
                             .onSubmit {
-    //                                viewStore.binding(send: .didChangedTextFiled(teamId: team, text: inputText))
+                                //                                viewStore.binding(send: .didChangedTextFiled(teamId: team, text: inputText))
                                 print(viewStore.displayName)
                             }
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -71,6 +66,6 @@ struct TeamMakeView_Previews: PreviewProvider {
         let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
                           reducer: TeamsMakeFeature())
 
-        TeamsMakeView(teamCount: 2, store: store)
+        TeamsMakeView(store: store)
     }
 }

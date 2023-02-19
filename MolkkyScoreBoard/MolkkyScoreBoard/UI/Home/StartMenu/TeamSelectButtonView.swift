@@ -14,8 +14,7 @@ struct TeamSelectButtonView: View {
     let teamCount: Int
 
     var body: some View {
-        NavigationLink(destination: TeamsMakeView(teamCount: teamCount,
-                                                  store: store(with: teamCount)),
+        NavigationLink(destination: TeamsMakeView(store: store(with: teamCount)),
                        label: {
             Text("\(teamCount)チーム")
                 .font(Font.system(size: 20))
