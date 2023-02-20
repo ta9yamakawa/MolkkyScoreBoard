@@ -1,5 +1,5 @@
 //
-//  TeamMemberDto.swift
+//  TeamMember.swift
 //  MolkkyScoreBoard
 //
 //  Created by ta9yamakawa on 2023/02/17.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// チームメンバー DTO
-struct TeamMemberDto: Identifiable, Equatable {
+/// チームメンバー
+struct TeamMember: Identifiable, Equatable {
     /// メンバーID
     let id = UUID()
     /// 名前

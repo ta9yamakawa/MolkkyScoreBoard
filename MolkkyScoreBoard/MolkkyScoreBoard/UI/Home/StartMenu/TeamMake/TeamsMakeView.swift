@@ -14,9 +14,6 @@ struct TeamsMakeView: View {
 
     @State private var inputText = ""
 
-    /// チームの最大人数
-    private static let maxTeamMembersCount = 4
-
     /// Team Make Feature
     let store: StoreOf<TeamsMakeFeature>
 
@@ -24,7 +21,8 @@ struct TeamsMakeView: View {
         WithViewStore(self.store) { viewStore in
             VStack {
                 List {
-                    ForEach(viewStore.state.teams.indexed(), id: \.index) { teamIndex, team in
+                    ForEach(viewStore.state.teams.indexed(),
+                            id: \.index) { teamIndex, team in
                         VStack {
                             HStack {
                                 Text("Team\(team.id)")
@@ -36,31 +34,25 @@ struct TeamsMakeView: View {
                                           text: viewStore.binding(get: { _ in  member.name }, send: { .didChangedTextFiled(team: teamIndex, member: memberIndex, text: $0) }))
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .autocapitalization(.none)
-                                .padding()
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
                             }
 
-                            Button(action: {
-                                viewStore.send(.didTapTeamAddButton(team: teamIndex))
-                            }, label: {
-                                Image(systemName: "plus.circle")
-                                    .resizable()
-                                    .foregroundColor(Color.blue)
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 30, height: 30)
-                            })
-                            .buttonStyle(PlainButtonStyle())
-                            .disabled(team.members.count >= type(of: self).maxTeamMembersCount)
+                            TeamMemberCountEditButtonsView(store: store,
+                                                           team: team,
+                                                           teamIndex: teamIndex)
                         }
                     }
                 }.padding(.top)
-
+                
                 Divider().background(Color.black)
 
                 Button(action: {
                     print("決定")
                 }, label: {
                     Text("決定")
-                }).padding(.vertical, 5)
+                })
+                .padding(.vertical, 5)
             }
         }
     }

@@ -13,16 +13,16 @@ struct TeamsMakeFeature: ReducerProtocol {
     /// State
     struct State: Equatable {
         /// チームの情報
-        var teams: [TeamDto]
+        var teams: [Team]
 
         /// Initialize
         /// - Parameter teamCount: チーム数
         init(teamCount: Int) {
-            var initialTeams: [TeamDto] = []
+            var initialTeams: [Team] = []
 
             for index in 0..<teamCount {
                 let id = index + 1
-                let team = TeamDto(id: id , members: [TeamMemberDto(name: "")])
+                let team = Team(id: id , members: [TeamMember(name: "")])
                 initialTeams.append(team)
             }
 
@@ -32,11 +32,14 @@ struct TeamsMakeFeature: ReducerProtocol {
 
     /// Action
     enum Action: Equatable {
+        // チームメイト名入力のテキストフィールドの値変更
         case didChangedTextFiled(team: Int, member: Int , text: String)
-        /// 決定ボタンタップ
-        case didTapDecisionButton
         /// チームメイト追加ボタンタップ
         case didTapTeamAddButton(team: Int)
+        /// チームメイト削減ボタンタップ
+        case didTapTeamRemoveButton(team: Int)
+        /// 決定ボタンタップ
+        case didTapDecisionButton
     }
 
     /// Reduce
@@ -50,16 +53,17 @@ struct TeamsMakeFeature: ReducerProtocol {
             state.teams[teamIndex].members[memberIndex].name = text
             return .none
 
-        case .didTapDecisionButton:
-//            state.teams = []
+        case .didTapTeamAddButton(team: let teamIndex):
+            let newMember = TeamMember(name: "")
+            state.teams[teamIndex].members.append(newMember)
             return .none
 
+        case .didTapTeamRemoveButton(team: let teamIndex):
+            state.teams[teamIndex].members.removeLast()
+            return .none
 
-        case .didTapTeamAddButton(team: let teamIndex):
-            let teamMembers = state.teams[teamIndex].members
-            let memberCount = teamMembers.count
-            let newMember = TeamMemberDto(name: "")
-            state.teams[teamIndex].members.append(newMember)
+        case .didTapDecisionButton:
+            //            state.teams = []
             return .none
         }
     }

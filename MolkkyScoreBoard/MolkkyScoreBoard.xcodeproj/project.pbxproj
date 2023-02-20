@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B02ED78029A26DFA0037B9DF /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B02ED77F29A26DFA0037B9DF /* Algorithms */; };
+		B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */; };
 		B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */; };
 		B04E138929990F730055CA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138829990F730055CA7F /* Assets.xcassets */; };
 		B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138B29990F730055CA7F /* Preview Assets.xcassets */; };
@@ -19,11 +20,12 @@
 		B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A5299D343D0055CA7F /* TeamSelectButtonView.swift */; };
 		B04E13A9299D39920055CA7F /* TeamsMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A8299D39920055CA7F /* TeamsMakeView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
-		B0AEE9D4299E96CD0026AA42 /* TeamDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* TeamDto.swift */; };
-		B0AEE9D6299E974F0026AA42 /* TeamMemberDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D5299E974F0026AA42 /* TeamMemberDto.swift */; };
+		B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* Team.swift */; };
+		B0AEE9D6299E974F0026AA42 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D5299E974F0026AA42 /* TeamMember.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberCountEditButtonsView.swift; sourceTree = "<group>"; };
 		B04E138129990F710055CA7F /* MolkkyScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MolkkyScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyScoreBoardApp.swift; sourceTree = "<group>"; };
 		B04E138829990F730055CA7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,8 +38,8 @@
 		B04E13A5299D343D0055CA7F /* TeamSelectButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectButtonView.swift; sourceTree = "<group>"; };
 		B04E13A8299D39920055CA7F /* TeamsMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
-		B0AEE9D3299E96CD0026AA42 /* TeamDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDto.swift; sourceTree = "<group>"; };
-		B0AEE9D5299E974F0026AA42 /* TeamMemberDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberDto.swift; sourceTree = "<group>"; };
+		B0AEE9D3299E96CD0026AA42 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		B0AEE9D5299E974F0026AA42 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,20 +139,21 @@
 		B04E13A7299D38DA0055CA7F /* TeamMake */ = {
 			isa = PBXGroup;
 			children = (
-				B0AEE9D7299E97ED0026AA42 /* DTO */,
+				B0AEE9D7299E97ED0026AA42 /* Data */,
+				B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */,
 				B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */,
 				B04E13A8299D39920055CA7F /* TeamsMakeView.swift */,
 			);
 			path = TeamMake;
 			sourceTree = "<group>";
 		};
-		B0AEE9D7299E97ED0026AA42 /* DTO */ = {
+		B0AEE9D7299E97ED0026AA42 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B0AEE9D3299E96CD0026AA42 /* TeamDto.swift */,
-				B0AEE9D5299E974F0026AA42 /* TeamMemberDto.swift */,
+				B0AEE9D3299E96CD0026AA42 /* Team.swift */,
+				B0AEE9D5299E974F0026AA42 /* TeamMember.swift */,
 			);
-			path = DTO;
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +239,10 @@
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
-				B0AEE9D4299E96CD0026AA42 /* TeamDto.swift in Sources */,
+				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B04E13A9299D39920055CA7F /* TeamsMakeView.swift in Sources */,
-				B0AEE9D6299E974F0026AA42 /* TeamMemberDto.swift in Sources */,
+				B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */,
+				B0AEE9D6299E974F0026AA42 /* TeamMember.swift in Sources */,
 				B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */,
 				B04E139E299917FD0055CA7F /* StartMenuView.swift in Sources */,
 			);
