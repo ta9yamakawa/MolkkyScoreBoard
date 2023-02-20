@@ -22,7 +22,7 @@ struct TeamsMakeFeature: ReducerProtocol {
 
             for index in 0..<teamCount {
                 let id = index + 1
-                let team = TeamDto(id: id , members: [TeamMemberDto(id: 1, name: "")])
+                let team = TeamDto(id: id , members: [TeamMemberDto(name: "")])
                 initialTeams.append(team)
             }
 
@@ -35,8 +35,8 @@ struct TeamsMakeFeature: ReducerProtocol {
         case didChangedTextFiled(team: Int, member: Int , text: String)
         /// 決定ボタンタップ
         case didTapDecisionButton
-        /// チームメイト名の決定タップ
-        case didTapTeammateName
+        /// チームメイト追加ボタンタップ
+        case didTapTeamAddButton(team: Int)
     }
 
     /// Reduce
@@ -51,12 +51,15 @@ struct TeamsMakeFeature: ReducerProtocol {
             return .none
 
         case .didTapDecisionButton:
-            state.teams = []
+//            state.teams = []
             return .none
 
 
-        case .didTapTeammateName:
-            state.teams = []
+        case .didTapTeamAddButton(team: let teamIndex):
+            let teamMembers = state.teams[teamIndex].members
+            let memberCount = teamMembers.count
+            let newMember = TeamMemberDto(name: "")
+            state.teams[teamIndex].members.append(newMember)
             return .none
         }
     }

@@ -14,6 +14,9 @@ struct TeamsMakeView: View {
 
     @State private var inputText = ""
 
+    /// チームの最大人数
+    private static let maxTeamMembersCount = 4
+
     /// Team Make Feature
     let store: StoreOf<TeamsMakeFeature>
 
@@ -37,14 +40,16 @@ struct TeamsMakeView: View {
                             }
 
                             Button(action: {
-                                print("追加")
+                                viewStore.send(.didTapTeamAddButton(team: teamIndex))
                             }, label: {
                                 Image(systemName: "plus.circle")
                                     .resizable()
                                     .foregroundColor(Color.blue)
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 30, height: 30)
-                            }).buttonStyle(PlainButtonStyle())
+                            })
+                            .buttonStyle(PlainButtonStyle())
+                            .disabled(team.members.count >= type(of: self).maxTeamMembersCount)
                         }
                     }
                 }.padding(.top)
