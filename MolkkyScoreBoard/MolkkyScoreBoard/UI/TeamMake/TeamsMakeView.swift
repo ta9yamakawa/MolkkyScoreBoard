@@ -47,12 +47,10 @@ struct TeamsMakeView: View {
                 
                 Divider().background(Color.black)
 
-                Button(action: {
-                    print("決定")
-                }, label: {
+                NavigationLink(destination: TeamsOrderEditView(teams: viewStore.state.teams),
+                               label: {
                     Text("決定")
-                })
-                .padding(.vertical, 5)
+                }).padding(.vertical, 5)
             }
         }
     }
