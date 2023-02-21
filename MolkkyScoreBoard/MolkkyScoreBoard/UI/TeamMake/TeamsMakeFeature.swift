@@ -31,7 +31,7 @@ struct TeamsMakeFeature: ReducerProtocol {
     }
 
     /// Action
-    enum Action: Equatable {
+    enum Action {
         // チームメイト名入力のテキストフィールドの値変更
         case didChangedTextFiled(team: Int, member: Int , text: String)
         /// チームメイト追加ボタンタップ
