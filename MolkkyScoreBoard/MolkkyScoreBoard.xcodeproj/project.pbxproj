@@ -113,7 +113,9 @@
 			children = (
 				B04E13A2299BF12C0055CA7F /* Common */,
 				B04E13A12999186E0055CA7F /* Home */,
+				B04E139A299917700055CA7F /* Information */,
 				B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */,
+				B04E1399299917540055CA7F /* StartMenu */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -122,8 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				B04E13962999155C0055CA7F /* HomeTabView.swift */,
-				B04E139A299917700055CA7F /* Information */,
-				B04E1399299917540055CA7F /* StartMenu */,
 			);
 			path = Home;
 			sourceTree = "<group>";
