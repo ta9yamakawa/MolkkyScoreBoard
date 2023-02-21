@@ -12,9 +12,7 @@ import ComposableArchitecture
 /// チーム作成画面
 struct TeamsMakeView: View {
 
-    @State private var inputText = ""
-
-    /// Team Make Feature
+    /// Store
     let store: StoreOf<TeamsMakeFeature>
 
     var body: some View {
