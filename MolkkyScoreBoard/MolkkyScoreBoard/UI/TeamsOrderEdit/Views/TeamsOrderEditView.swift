@@ -16,9 +16,21 @@ struct TeamsOrderEditView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            List {
-                ForEach(viewStore.state.teams) { team in
-                    OrderingTeamView(team: team)
+            VStack(spacing: 0) {
+                HStack {
+                    Spacer()
+                    Button("編集", action: {
+                        print("編集")
+                    })
+                    .padding(.trailing, 15.0)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+
+                List {
+                    ForEach(viewStore.state.teams) { team in
+                        OrderingTeamView(team: team)
+                    }
                 }
             }
         }

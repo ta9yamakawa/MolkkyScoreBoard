@@ -29,6 +29,7 @@ struct OrderingTeamView: View {
     }
 }
 
+// MARK: Private Methods
 private extension OrderingTeamView {
     /// チームメンバーの表示文
     /// - Parameter members: チームメンバー
