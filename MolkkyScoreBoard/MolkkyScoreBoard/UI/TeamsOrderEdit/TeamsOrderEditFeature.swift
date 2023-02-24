@@ -19,7 +19,7 @@ struct TeamsOrderEditFeature: ReducerProtocol {
     /// Action
     enum Action {
         /// チームを入れ替えた
-        case didMovedTaamView(source: IndexSet, destination: Int)
+        case didMovedTeamView(source: IndexSet, destination: Int)
     }
 
     /// Reduce
@@ -29,7 +29,7 @@ struct TeamsOrderEditFeature: ReducerProtocol {
     /// - Returns: EffectTask<Action>
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        case .didMovedTaamView(source: let source, destination: let destination):
+        case .didMovedTeamView(source: let source, destination: let destination):
             move(from: source, to: destination, state: &state)
             return .none
         }

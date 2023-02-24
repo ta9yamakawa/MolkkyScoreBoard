@@ -22,12 +22,21 @@ struct TeamsOrderEditView: View {
                         OrderingTeamView(team: team)
                     }
                     .onMove(perform: { source, destination in
-                        viewStore.send(.didMovedTaamView(source: source,
+                        viewStore.send(.didMovedTeamView(source: source,
                                                          destination: destination))
                     })
                 }
                 .environment(\.editMode, .constant(.active))
             }
+
+            Divider().background(Color.black)
+
+            NavigationLink(destination:
+                            // TODO: プレイ画面に遷移させる
+                            TeamsOrderEditView(store: store),
+                           label: {
+                Text("決定")
+            }).padding(.vertical, 5)
         }
     }
 }
