@@ -17,24 +17,16 @@ struct TeamsOrderEditView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack(spacing: 0) {
-                HStack {
-                    Spacer()
-                    EditButton()
-                        .padding(.trailing, 15.0)
-                }
-                .padding()
-                .background(Color(.systemGray6))
-
                 List {
                     ForEach(viewStore.state.teams) { team in
                         OrderingTeamView(team: team)
                     }
-                    .onMove(perform: { indices, newOffset in
-                        var teams = viewStore.state.teams
-                        teams.move(fromOffsets: indices,
-                                   toOffset: newOffset)
+                    .onMove(perform: { source, destination in
+                        viewStore.send(.didMovedTaamView(source: source,
+                                                         destination: destination))
                     })
                 }
+                .environment(\.editMode, .constant(.active))
             }
         }
     }

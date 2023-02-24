@@ -11,4 +11,6 @@ struct Team: Identifiable, Equatable {
     let id: Int
     /// チームメイト
     var members: [TeamMember]
+    /// プレイ順
+    var order = 0
 }
