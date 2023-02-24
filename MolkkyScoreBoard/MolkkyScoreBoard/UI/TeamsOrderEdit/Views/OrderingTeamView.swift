@@ -10,6 +10,7 @@ import SwiftUI
 /// 順番を入れ替える際のチームView
 struct OrderingTeamView: View {
 
+    /// チーム情報
     let team: Team
 
     var body: some View {

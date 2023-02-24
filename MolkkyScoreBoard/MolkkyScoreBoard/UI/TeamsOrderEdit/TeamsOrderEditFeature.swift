@@ -13,12 +13,11 @@ struct TeamsOrderEditFeature: ReducerProtocol {
 
     /// State
     struct State: Equatable {
-        let teams: [Team]
+        var teams: [Team]
     }
 
     /// Action
     enum Action {
-        
     }
 
     /// Reduce

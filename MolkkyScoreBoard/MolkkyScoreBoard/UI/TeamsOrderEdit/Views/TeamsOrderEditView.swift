@@ -19,10 +19,8 @@ struct TeamsOrderEditView: View {
             VStack(spacing: 0) {
                 HStack {
                     Spacer()
-                    Button("編集", action: {
-                        print("編集")
-                    })
-                    .padding(.trailing, 15.0)
+                    EditButton()
+                        .padding(.trailing, 15.0)
                 }
                 .padding()
                 .background(Color(.systemGray6))
@@ -31,6 +29,11 @@ struct TeamsOrderEditView: View {
                     ForEach(viewStore.state.teams) { team in
                         OrderingTeamView(team: team)
                     }
+                    .onMove(perform: { indices, newOffset in
+                        var teams = viewStore.state.teams
+                        teams.move(fromOffsets: indices,
+                                   toOffset: newOffset)
+                    })
                 }
             }
         }
