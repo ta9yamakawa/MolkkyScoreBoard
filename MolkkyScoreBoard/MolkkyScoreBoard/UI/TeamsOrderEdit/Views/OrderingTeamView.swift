@@ -14,17 +14,27 @@ struct OrderingTeamView: View {
     let team: Team
 
     var body: some View {
-        VStack(spacing: 5) {
-            HStack {
-                Text("Team\(team.id)")
-                    .font(Font.system(size: 24))
-                    .fontWeight(.bold)
-                Spacer()
-            }
+        HStack(alignment: .top, spacing: 15) {
+            Text("\(team.order)")
+                .font(Font.system(size: 14))
+                .bold()
+                .foregroundColor(Color.white)
+                .padding(.all, 5)
+                .background(Color.blue.cornerRadius(2))
 
-            HStack {
-                Text(memberText(from: team.members))
-                Spacer()
+            VStack(spacing: 5) {
+                HStack {
+                    Text("Team\(team.id)")
+                        .font(Font.system(size: 24))
+                        .fontWeight(.bold)
+                        .padding(.top, 10)
+                    Spacer()
+                }
+
+                HStack {
+                    Text(memberText(from: team.members))
+                    Spacer()
+                }
             }
         }
     }

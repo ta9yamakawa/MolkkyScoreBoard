@@ -16,8 +16,7 @@ struct TeamsOrderEditView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            VStack(spacing: 0) {
-
+            VStack {
                 Text("プレイするチームの順番に\n並び替えてください")
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
@@ -28,6 +27,10 @@ struct TeamsOrderEditView: View {
                 List {
                     ForEach(viewStore.state.teams) { team in
                         OrderingTeamView(team: team)
+                            .listRowInsets(EdgeInsets(top: .zero,
+                                                      leading: .zero,
+                                                      bottom: 10,
+                                                      trailing: 10))
                     }
                     .onMove(perform: { source, destination in
                         viewStore.send(.didMovedTeamView(source: source,
