@@ -20,6 +20,8 @@ struct TeamsOrderEditFeature: ReducerProtocol {
     enum Action {
         /// チームを入れ替えた
         case didMovedTeamView(source: IndexSet, destination: Int)
+        /// 決定ボタンタップ
+        case didTapDecisionButton
     }
 
     /// Reduce
@@ -31,6 +33,9 @@ struct TeamsOrderEditFeature: ReducerProtocol {
         switch action {
         case .didMovedTeamView(source: let source, destination: let destination):
             move(from: source, to: destination, state: &state)
+            return .none
+
+        case .didTapDecisionButton:
             return .none
         }
     }
@@ -54,8 +59,8 @@ private extension TeamsOrderEditFeature {
         if source < destination {
             for i in (source + 1)...(destination - 1) {
                 state.teams[i].order -= 1
-
             }
+
             state.teams[source].order = destination - 1
 
         // Listの行を上に移動する場合
@@ -63,6 +68,7 @@ private extension TeamsOrderEditFeature {
             for i in (destination...(source - 1)).reversed() {
                 state.teams[i].order += 1
             }
+
             state.teams[source].order = destination
         }
 
