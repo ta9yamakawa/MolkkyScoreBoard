@@ -22,7 +22,7 @@ struct TeamsMakeFeature: ReducerProtocol {
 
             for index in 0..<teamCount {
                 let id = index + 1
-                let team = Team(id: id , members: [TeamMember(name: "")])
+                let team = Team(id: id , members: [TeamMember(name: "")], order: index)
                 initialTeams.append(team)
             }
 
@@ -31,7 +31,7 @@ struct TeamsMakeFeature: ReducerProtocol {
     }
 
     /// Action
-    enum Action: Equatable {
+    enum Action {
         // チームメイト名入力のテキストフィールドの値変更
         case didChangedTextFiled(team: Int, member: Int , text: String)
         /// チームメイト追加ボタンタップ

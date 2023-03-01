@@ -45,12 +45,25 @@ struct TeamsMakeView: View {
                 
                 Divider().background(Color.black)
 
-                NavigationLink(destination: TeamsOrderEditView(teams: viewStore.state.teams),
+                NavigationLink(destination:
+                                TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
                                label: {
                     Text("決定")
                 }).padding(.vertical, 5)
             }
         }
+    }
+}
+
+// MARK: Private Methods
+private extension TeamsMakeView {
+    /// Storeを取得
+    /// - Parameter teams: チーム情報
+    /// - Returns: StoreOf<TeamsOrderEditFeature>
+    func store(teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
+        let initialState = TeamsOrderEditFeature.State(teams: teams)
+        return Store(initialState: initialState,
+                     reducer: TeamsOrderEditFeature())
     }
 }
 
