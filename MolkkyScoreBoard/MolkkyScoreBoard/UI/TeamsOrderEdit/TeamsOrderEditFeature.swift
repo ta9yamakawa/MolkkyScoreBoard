@@ -20,8 +20,6 @@ struct TeamsOrderEditFeature: ReducerProtocol {
     enum Action {
         /// チームを入れ替えた
         case didMovedTeamView(source: IndexSet, destination: Int)
-        /// 決定ボタンタップ
-        case didTapDecisionButton
     }
 
     /// Reduce
@@ -33,9 +31,6 @@ struct TeamsOrderEditFeature: ReducerProtocol {
         switch action {
         case .didMovedTeamView(source: let source, destination: let destination):
             move(from: source, to: destination, state: &state)
-            return .none
-
-        case .didTapDecisionButton:
             return .none
         }
     }

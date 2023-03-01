@@ -11,6 +11,9 @@ import ComposableArchitecture
 /// チームの順番決定画面
 struct TeamsOrderEditView: View {
 
+    /// <#Description#>
+    @State private var isPresented = false
+
     /// Store
     let store: StoreOf<TeamsOrderEditFeature>
 
@@ -41,12 +44,16 @@ struct TeamsOrderEditView: View {
 
                 Divider().background(Color.black)
 
-                NavigationLink(destination:
-                                // TODO: プレイ画面に遷移させる
-                               TeamsOrderEditView(store: store),
-                               label: {
+                Button {
+                    isPresented.toggle()
+                } label: {
                     Text("決定")
-                }).padding(.vertical, 5)
+                }
+                .fullScreenCover(isPresented: $isPresented) {
+                    // TODO: プレイ画面にする
+                    StartMenuView()
+                }
+                .padding(.vertical, 5)
             }
         }
     }
