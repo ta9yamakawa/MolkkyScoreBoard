@@ -18,7 +18,7 @@ struct SkittleView: View {
             // TODO: 選択と非選択のステータス変更をする
             print("Tap")
         }
-        .frame(width: 20)
+        .frame(width: 50, height: 50)
         .font(Font.system(size: 24))
         .bold()
         .foregroundColor(.white)

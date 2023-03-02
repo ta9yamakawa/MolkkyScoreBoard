@@ -14,7 +14,12 @@ struct MolkkyPlayView: View {
     let store: StoreOf<MolkkyPlayFeature>
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 15) {
+            Spacer()
+            SkittlesView()
+            PlayingButtonsView()
+            TeamScoresView()
+        }
     }
 }
 

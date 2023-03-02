@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// <#Description#>
+/// モルックプレイ中のボタンに関するView
 struct PlayingButtonsView: View {
     var body: some View {
         HStack() {
