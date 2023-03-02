@@ -11,16 +11,27 @@ import SwiftUI
 struct TeamScoresView: View {
     var body: some View {
         let bounds = UIScreen.main.bounds
-        HStack(alignment: .top, spacing: .zero) {
-            VStack {
+        VStack(spacing: 10) {
+            HStack(spacing: .zero) {
                 Text("チーム")
-                    .background(Color.orange)
-                HStack {
+                    .frame(width: bounds.width / 2)
+                Text("前半")
+                    .frame(width: bounds.width / 6)
+                Text("後半")
+                    .frame(width: bounds.width / 6)
+                Text("合計")
+                    .frame(width: bounds.width / 6)
+            }
+            .padding(.vertical, 8)
+            .background(Color.orange)
+
+            HStack {
+                HStack(spacing: 20) {
                     Image(systemName: "arrow.right")
                     VStack(alignment: .leading, spacing: 5) {
                         Text("チーム名")
                             .multilineTextAlignment(.leading)
-                        HStack {
+                        HStack(spacing: 5) {
                             Circle()
                                 .frame(width: 20)
                                 .foregroundColor(Color.gray)
@@ -33,27 +44,19 @@ struct TeamScoresView: View {
                         }
                     }
                 }
-            }
-            .frame(width: bounds.width / 2)
-            .background(Color.blue)
+                .frame(width: bounds.width / 2)
 
-            VStack {
-                Text("前半")
-            }
-            .frame(width: bounds.width / 6)
-            .background(Color.yellow)
+                Text("0")
+                    .frame(width: bounds.width / 6)
 
-            VStack {
-                Text("後半")
+                Text("0")
+                    .frame(width: bounds.width / 6)
+                
+                Text("0")
+                    .frame(width: bounds.width / 6)
             }
-            .frame(width: bounds.width / 6)
-            .background(Color.red)
 
-            VStack {
-                Text("合計")
-            }
-            .frame(width: bounds.width / 6)
-            .background(Color.green)
+            Divider()
         }
     }
 }
