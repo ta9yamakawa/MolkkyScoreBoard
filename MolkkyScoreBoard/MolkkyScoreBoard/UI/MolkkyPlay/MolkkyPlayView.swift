@@ -18,7 +18,7 @@ struct MolkkyPlayView: View {
     }
 }
 
-// Previews
+// MARK: Previews
 struct MolkkyPlayView_Previews: PreviewProvider {
     static var previews: some View {
         let teams = [Team(id: 1,

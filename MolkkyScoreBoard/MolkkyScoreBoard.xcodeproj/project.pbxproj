@@ -29,6 +29,7 @@
 		B0DE7F5D29AFAA0900B30CC0 /* MolkkyPlayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F5C29AFAA0900B30CC0 /* MolkkyPlayFeature.swift */; };
 		B0DE7F5F29B0F9A100B30CC0 /* SkittleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F5E29B0F9A100B30CC0 /* SkittleView.swift */; };
 		B0DE7F6129B0FBC500B30CC0 /* SkittlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6029B0FBC500B30CC0 /* SkittlesView.swift */; };
+		B0DE7F6329B0FE2D00B30CC0 /* PlayingButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6229B0FE2D00B30CC0 /* PlayingButtonsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B0DE7F5C29AFAA0900B30CC0 /* MolkkyPlayFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyPlayFeature.swift; sourceTree = "<group>"; };
 		B0DE7F5E29B0F9A100B30CC0 /* SkittleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkittleView.swift; sourceTree = "<group>"; };
 		B0DE7F6029B0FBC500B30CC0 /* SkittlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkittlesView.swift; sourceTree = "<group>"; };
+		B0DE7F6229B0FE2D00B30CC0 /* PlayingButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			children = (
 				B0DE7F5C29AFAA0900B30CC0 /* MolkkyPlayFeature.swift */,
 				B0DE7F5A29AFA9EE00B30CC0 /* MolkkyPlayView.swift */,
+				B0DE7F6229B0FE2D00B30CC0 /* PlayingButtonsView.swift */,
 				B0DE7F6029B0FBC500B30CC0 /* SkittlesView.swift */,
 				B0DE7F5E29B0F9A100B30CC0 /* SkittleView.swift */,
 			);
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DE7F6329B0FE2D00B30CC0 /* PlayingButtonsView.swift in Sources */,
 				B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */,
 				B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */,
 				B02ED78929A510B10037B9DF /* TeamsOrderEditFeature.swift in Sources */,

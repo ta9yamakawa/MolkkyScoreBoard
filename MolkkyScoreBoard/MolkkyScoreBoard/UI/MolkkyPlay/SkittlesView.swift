@@ -38,7 +38,7 @@ struct SkittlesView: View {
     }
 }
 
-// Previews
+// MARK: Previews
 struct SkittlesView_Previews: PreviewProvider {
     static var previews: some View {
         SkittlesView()

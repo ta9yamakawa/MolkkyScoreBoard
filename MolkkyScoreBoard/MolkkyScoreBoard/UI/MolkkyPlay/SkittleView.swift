@@ -27,7 +27,7 @@ struct SkittleView: View {
     }
 }
 
-// Previews
+// MARK: Previews
 struct SkittleView_Previews: PreviewProvider {
     static var previews: some View {
         SkittleView(number: 12)
