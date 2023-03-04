@@ -64,7 +64,7 @@ private extension TeamsOrderEditView {
     /// - Parameter teams: チーム情報
     /// - Returns: StoreOf<MolkkyPlayFeature>
     func store(teams: [Team]) -> StoreOf<MolkkyPlayFeature> {
-        let initialState = MolkkyPlayFeature.State(teams: teams)
+        let initialState = MolkkyPlayFeature.State(teams: teams, isLatterHalf: false)
         return Store(initialState: initialState,
                      reducer: MolkkyPlayFeature())
     }

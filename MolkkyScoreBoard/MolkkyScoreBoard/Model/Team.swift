@@ -13,4 +13,8 @@ struct Team: Identifiable, Equatable {
     var members: [TeamMember]
     /// プレイ順
     var order = 0
+    /// 前半の得点
+    var firstHalfScore = 0
+    /// 後半の得点
+    var latterHalfScore = 0
 }

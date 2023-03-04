@@ -208,6 +208,14 @@
 			isa = PBXGroup;
 			children = (
 				B0DE7F5C29AFAA0900B30CC0 /* MolkkyPlayFeature.swift */,
+				B0DE7F6829B38C7800B30CC0 /* Views */,
+			);
+			path = MolkkyPlay;
+			sourceTree = "<group>";
+		};
+		B0DE7F6829B38C7800B30CC0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				B0DE7F5A29AFA9EE00B30CC0 /* MolkkyPlayView.swift */,
 				B0DE7F6229B0FE2D00B30CC0 /* PlayingButtonsView.swift */,
 				B0DE7F6029B0FBC500B30CC0 /* SkittlesView.swift */,
@@ -215,7 +223,7 @@
 				B0DE7F6629B37EEC00B30CC0 /* TeamScoresTitleView.swift */,
 				B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */,
 			);
-			path = MolkkyPlay;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

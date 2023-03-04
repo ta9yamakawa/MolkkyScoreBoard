@@ -11,14 +11,31 @@ import ComposableArchitecture
 /// モルックプレイ画面
 struct MolkkyPlayView: View {
 
+    @Environment(\.dismiss) var dismiss
+
+    /// Store
     let store: StoreOf<MolkkyPlayFeature>
 
     var body: some View {
         VStack(spacing: 20) {
-            SkittlesView()
-                .padding(.bottom, 10)
-            PlayingButtonsView()
-            TeamScoresView()
+            HStack {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image(systemName: "xmark")
+                })
+                Spacer()
+            }
+            .padding()
+
+            WithViewStore(store) { viewStore in
+                SkittlesView()
+                    .padding(.bottom, 10)
+
+                PlayingButtonsView()
+
+                TeamScoresView(store: store)
+            }
         }
     }
 }
@@ -32,7 +49,9 @@ struct MolkkyPlayView_Previews: PreviewProvider {
                      Team(id: 2,
                           members: [TeamMember(name: "huga")],
                           order: 1)]
-        MolkkyPlayView(store: Store(initialState: MolkkyPlayFeature.State(teams: teams),
+        let state = MolkkyPlayFeature.State(teams: teams,
+                                            isLatterHalf: false)
+        MolkkyPlayView(store: Store(initialState: state,
                                     reducer: MolkkyPlayFeature()))
     }
 }

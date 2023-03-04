@@ -12,7 +12,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
     /// State
     struct State: Equatable {
+        /// チーム情報
         var teams: [Team]
+        /// 後半かどうか
+        let isLatterHalf: Bool
     }
 
     /// Action
