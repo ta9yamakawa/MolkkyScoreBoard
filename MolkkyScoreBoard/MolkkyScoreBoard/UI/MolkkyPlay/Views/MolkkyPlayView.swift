@@ -11,7 +11,8 @@ import ComposableArchitecture
 /// モルックプレイ画面
 struct MolkkyPlayView: View {
 
-    @Environment(\.dismiss) var dismiss
+    /// Dismiss
+    @Environment(\.dismiss) private var dismiss
 
     /// Store
     let store: StoreOf<MolkkyPlayFeature>
@@ -28,14 +29,12 @@ struct MolkkyPlayView: View {
             }
             .padding()
 
-            WithViewStore(store) { viewStore in
-                SkittlesView()
-                    .padding(.bottom, 10)
+            SkittlesView(store: store)
+                .padding(.bottom, 10)
 
-                PlayingButtonsView()
+            PlayingButtonsView()
 
-                TeamScoresView(store: store)
-            }
+            TeamScoresView(store: store)
         }
     }
 }
