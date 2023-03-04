@@ -14,9 +14,9 @@ struct MolkkyPlayView: View {
     let store: StoreOf<MolkkyPlayFeature>
 
     var body: some View {
-        VStack(spacing: 15) {
-            Spacer()
+        VStack(spacing: 20) {
             SkittlesView()
+                .padding(.bottom, 10)
             PlayingButtonsView()
             TeamScoresView()
         }

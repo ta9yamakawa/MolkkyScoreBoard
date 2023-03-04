@@ -12,18 +12,7 @@ struct TeamScoresView: View {
     var body: some View {
         let bounds = UIScreen.main.bounds
         VStack(spacing: 10) {
-            HStack(spacing: .zero) {
-                Text("チーム")
-                    .frame(width: bounds.width / 2)
-                Text("前半")
-                    .frame(width: bounds.width / 6)
-                Text("後半")
-                    .frame(width: bounds.width / 6)
-                Text("合計")
-                    .frame(width: bounds.width / 6)
-            }
-            .padding(.vertical, 8)
-            .background(Color.orange)
+            TeamScoresTitleView()
 
             HStack {
                 HStack(spacing: 20) {
@@ -61,6 +50,7 @@ struct TeamScoresView: View {
     }
 }
 
+// MARK: Previews
 struct TeamScoresView_Previews: PreviewProvider {
     static var previews: some View {
         TeamScoresView()

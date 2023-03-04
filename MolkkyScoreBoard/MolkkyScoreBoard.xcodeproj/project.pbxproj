@@ -31,6 +31,7 @@
 		B0DE7F6129B0FBC500B30CC0 /* SkittlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6029B0FBC500B30CC0 /* SkittlesView.swift */; };
 		B0DE7F6329B0FE2D00B30CC0 /* PlayingButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6229B0FE2D00B30CC0 /* PlayingButtonsView.swift */; };
 		B0DE7F6529B102E200B30CC0 /* TeamScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */; };
+		B0DE7F6729B37EEC00B30CC0 /* TeamScoresTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6629B37EEC00B30CC0 /* TeamScoresTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		B0DE7F6029B0FBC500B30CC0 /* SkittlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkittlesView.swift; sourceTree = "<group>"; };
 		B0DE7F6229B0FE2D00B30CC0 /* PlayingButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingButtonsView.swift; sourceTree = "<group>"; };
 		B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScoresView.swift; sourceTree = "<group>"; };
+		B0DE7F6629B37EEC00B30CC0 /* TeamScoresTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScoresTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,10 +209,11 @@
 			children = (
 				B0DE7F5C29AFAA0900B30CC0 /* MolkkyPlayFeature.swift */,
 				B0DE7F5A29AFA9EE00B30CC0 /* MolkkyPlayView.swift */,
-				B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */,
 				B0DE7F6229B0FE2D00B30CC0 /* PlayingButtonsView.swift */,
 				B0DE7F6029B0FBC500B30CC0 /* SkittlesView.swift */,
 				B0DE7F5E29B0F9A100B30CC0 /* SkittleView.swift */,
+				B0DE7F6629B37EEC00B30CC0 /* TeamScoresTitleView.swift */,
+				B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */,
 			);
 			path = MolkkyPlay;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				B04E13A9299D39920055CA7F /* TeamsMakeView.swift in Sources */,
 				B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */,
 				B0DE7F5D29AFAA0900B30CC0 /* MolkkyPlayFeature.swift in Sources */,
+				B0DE7F6729B37EEC00B30CC0 /* TeamScoresTitleView.swift in Sources */,
 				B0AEE9D6299E974F0026AA42 /* TeamMember.swift in Sources */,
 				B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */,
 				B0DE7F6129B0FBC500B30CC0 /* SkittlesView.swift in Sources */,
