@@ -10,28 +10,25 @@ import ComposableArchitecture
 
 /// スキットル View
 struct SkittleView: View {
-    /// ストア
-    let store: StoreOf<MolkkyPlayFeature>
+    /// View Store
+    let viewStore: ViewStore<MolkkyPlayFeature.State,
+                             MolkkyPlayFeature.Action>
 
     /// スキットルに記載される数（得点）
     let number: Int
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            let selectedSkittles = viewStore.state.selectedSkittles
+        let selectedSkittles = viewStore.state.selectedSkittles
 
-            Button(action: {
-                viewStore.send(.didTapSkittle(Skittle(number: number)))
-            }, label: {
-                Text("\(number)")
-            })
-            .frame(width: 60, height: 60)
-            .font(Font.system(size: 24))
-            .bold()
-            .foregroundColor(foregroundColor(with: selectedSkittles))
-            .background(backgroundColor(with: selectedSkittles))
-            .clipShape(Circle())
+        Button("\(number)") {
+            viewStore.send(.didTapSkittle(Skittle(number: number)))
         }
+        .frame(width: 60, height: 60)
+        .font(Font.system(size: 24))
+        .bold()
+        .foregroundColor(foregroundColor(with: selectedSkittles))
+        .background(backgroundColor(with: selectedSkittles))
+        .clipShape(Circle())
     }
 }
 
@@ -71,8 +68,8 @@ struct SkittleView_Previews: PreviewProvider {
         let state = MolkkyPlayFeature.State(teams: teams,
                                             isLatterHalf: false)
 
-        SkittleView(store: Store(initialState: state,
-                                 reducer: MolkkyPlayFeature()),
-                    number: 12)
+        let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
+                                                             reducer: MolkkyPlayFeature()))
+        SkittleView(viewStore: viewStore, number: 12)
     }
 }

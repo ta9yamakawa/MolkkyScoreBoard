@@ -29,12 +29,14 @@ struct MolkkyPlayView: View {
             }
             .padding()
 
-            SkittlesView(store: store)
-                .padding(.bottom, 10)
+            WithViewStore(store) { viewStore in
+                SkittlesView(viewStore: viewStore)
+                    .padding(.bottom, 10)
 
-            PlayingButtonsView()
+                PlayingButtonsView(viewStore: viewStore)
 
-            TeamScoresView(store: store)
+                TeamScoresView(viewStore: viewStore)
+            }
         }
     }
 }

@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 /// モルックプレイ中のボタンに関するView
 struct PlayingButtonsView: View {
+    /// View Store
+    let viewStore: ViewStore<MolkkyPlayFeature.State,
+                             MolkkyPlayFeature.Action>
+
     var body: some View {
         HStack() {
             Button("戻る") {
@@ -28,8 +33,7 @@ struct PlayingButtonsView: View {
             Spacer()
 
             Button("決定") {
-                // 次の人のターンに行く処理を書く
-                print("undo")
+                viewStore.send(.didTapDecideButton)
             }
             .font(Font.system(size: 20))
             .foregroundColor(.white)
@@ -40,7 +44,6 @@ struct PlayingButtonsView: View {
                                 leading: 0,
                                 bottom: 0,
                                 trailing: 10))
-
         }
     }
 }
@@ -48,6 +51,16 @@ struct PlayingButtonsView: View {
 // MARK: Previews
 struct PlayingButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayingButtonsView()
+        let teams = [Team(id: 1,
+                          members: [TeamMember(name: "hoge")],
+                          order: 0),
+                     Team(id: 2,
+                          members: [TeamMember(name: "huga")],
+                          order: 1)]
+        let state = MolkkyPlayFeature.State(teams: teams,
+                                            isLatterHalf: false)
+        let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
+                                                             reducer: MolkkyPlayFeature()))
+        PlayingButtonsView(viewStore: viewStore)
     }
 }

@@ -10,33 +10,34 @@ import ComposableArchitecture
 
 /// スキットルの配置 View
 struct SkittlesView: View {
-    /// ストア
-    let store: StoreOf<MolkkyPlayFeature>
+    /// View Store
+    let viewStore: ViewStore<MolkkyPlayFeature.State,
+                             MolkkyPlayFeature.Action>
     
     var body: some View {
         VStack {
             HStack {
-                SkittleView(store: store, number: 7)
-                SkittleView(store: store, number: 9)
-                SkittleView(store: store, number: 8)
+                SkittleView(viewStore: viewStore, number: 7)
+                SkittleView(viewStore: viewStore, number: 9)
+                SkittleView(viewStore: viewStore, number: 8)
             }
 
             HStack {
-                SkittleView(store: store, number: 5)
-                SkittleView(store: store, number: 11)
-                SkittleView(store: store, number: 12)
-                SkittleView(store: store, number: 6)
+                SkittleView(viewStore: viewStore, number: 5)
+                SkittleView(viewStore: viewStore, number: 11)
+                SkittleView(viewStore: viewStore, number: 12)
+                SkittleView(viewStore: viewStore, number: 6)
             }
 
             HStack {
-                SkittleView(store: store, number: 3)
-                SkittleView(store: store, number: 10)
-                SkittleView(store: store, number: 4)
+                SkittleView(viewStore: viewStore, number: 3)
+                SkittleView(viewStore: viewStore, number: 10)
+                SkittleView(viewStore: viewStore, number: 4)
             }
 
             HStack {
-                SkittleView(store: store, number: 1)
-                SkittleView(store: store, number: 2)
+                SkittleView(viewStore: viewStore, number: 1)
+                SkittleView(viewStore: viewStore, number: 2)
             }
         }
     }
@@ -53,7 +54,8 @@ struct SkittlesView_Previews: PreviewProvider {
                           order: 1)]
         let state = MolkkyPlayFeature.State(teams: teams,
                                             isLatterHalf: false)
-        SkittlesView(store: Store(initialState: state,
-                                  reducer: MolkkyPlayFeature()))
+        let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
+                                                             reducer: MolkkyPlayFeature()))
+        SkittlesView(viewStore: viewStore)
     }
 }

@@ -18,6 +18,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         let isLatterHalf: Bool
         /// 選択されたスキットル
         var selectedSkittles: [Skittle] = []
+        /// プレイ順
+        var playingOrder = 0
     }
 
     /// Action
@@ -49,7 +51,50 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
 
         case .didTapDecideButton:
+            updateScore(from: &state)
+            updatePlayingOrder(from: &state)
             return .none
+        }
+    }
+}
+
+// MARK: Private Methods
+private extension MolkkyPlayFeature {
+    /// チームの得点を更新する
+    /// - Parameter state: State
+    func updateScore(from state: inout State) {
+        let score = calculatePoint(from: state)
+        let index = state.playingOrder
+
+        if state.isLatterHalf {
+            state.teams[index].latterHalfScore += score
+        } else {
+            state.teams[index].firstHalfScore += score
+        }
+    }
+
+    /// 得点を計算する
+    /// - Parameter state: State
+    /// - Returns: 得点
+    func calculatePoint(from state: State) -> Int {
+        if state.selectedSkittles.isEmpty {
+            return .zero
+        } else if
+            state.selectedSkittles.count == 1,
+            let skittle = state.selectedSkittles.first {
+            return skittle.number
+        } else {
+            return state.selectedSkittles.count
+        }
+    }
+
+    /// プレー順を更新する
+    /// - Parameter state: State
+    func updatePlayingOrder(from state: inout State) {
+        if state.playingOrder < state.teams.count - 1 {
+            state.playingOrder += 1
+        } else {
+            state.playingOrder = .zero
         }
     }
 }
