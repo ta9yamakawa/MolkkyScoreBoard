@@ -67,9 +67,21 @@ private extension MolkkyPlayFeature {
         let index = state.playingOrder
 
         if state.isLatterHalf {
-            state.teams[index].latterHalfScore += score
+            let totalScore = state.teams[index].latterHalfScore + score
+
+            if totalScore > 50 {
+                state.teams[index].latterHalfScore = 25
+            } else {
+                state.teams[index].latterHalfScore = totalScore
+            }
         } else {
-            state.teams[index].firstHalfScore += score
+            let totalScore = state.teams[index].firstHalfScore + score
+
+            if totalScore > 50 {
+                state.teams[index].firstHalfScore = 25
+            } else {
+                state.teams[index].firstHalfScore = totalScore
+            }
         }
     }
 
