@@ -69,21 +69,18 @@ private extension MolkkyPlayFeature {
 
         if state.isLatterHalf {
             let totalScore = state.teams[index].latterHalfScore + score
-
-            if totalScore > 50 {
-                state.teams[index].latterHalfScore = 25
-            } else {
-                state.teams[index].latterHalfScore = totalScore
-            }
+            state.teams[index].latterHalfScore = updayeScoreIfNeeded(totalScore)
         } else {
             let totalScore = state.teams[index].firstHalfScore + score
-
-            if totalScore > 50 {
-                state.teams[index].firstHalfScore = 25
-            } else {
-                state.teams[index].firstHalfScore = totalScore
-            }
+            state.teams[index].firstHalfScore = updayeScoreIfNeeded(totalScore)
         }
+    }
+
+    /// スコア上限を超えているかを確認して正しいスコアを返す
+    /// - Parameter score: 元の得点
+    /// - Returns: 正しいスコア
+    func updayeScoreIfNeeded(_ score: Int) -> Int {
+        return score > 50 ? 25 : score
     }
 
     /// 失敗した回数を更新する
