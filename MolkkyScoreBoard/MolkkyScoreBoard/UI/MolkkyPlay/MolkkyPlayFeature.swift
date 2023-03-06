@@ -10,6 +10,12 @@ import ComposableArchitecture
 /// プレイ画面 Feature
 struct MolkkyPlayFeature: ReducerProtocol {
 
+    /// 得点の最大上限
+    private static let maxLimitScore = 50
+
+    /// 得点の半減値
+    private static let halfScore = 25
+
     /// State
     struct State: Equatable {
         /// チーム情報
@@ -80,7 +86,7 @@ private extension MolkkyPlayFeature {
     /// - Parameter score: 元の得点
     /// - Returns: 正しいスコア
     func updayeScoreIfNeeded(_ score: Int) -> Int {
-        return score > 50 ? 25 : score
+        return score > type(of: self).maxLimitScore ? type(of: self).halfScore : score
     }
 
     /// 失敗した回数を更新する
