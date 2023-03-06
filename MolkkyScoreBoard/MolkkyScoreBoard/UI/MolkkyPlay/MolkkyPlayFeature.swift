@@ -10,6 +10,7 @@ import ComposableArchitecture
 /// プレイ画面 Feature
 struct MolkkyPlayFeature: ReducerProtocol {
 
+    // MARK: Constants
     /// 得点の最大上限
     private static let maxLimitScore = 50
 
@@ -57,9 +58,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
 
         case .didTapDecideButton:
-            updateScore(from: &state)
-            updateMistakeCount(from: &state)
-            updatePlayingOrder(from: &state)
+            update(from: &state)
+            resetSkittles(from: &state)
             return .none
         }
     }
@@ -67,6 +67,15 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
 // MARK: Private Methods
 private extension MolkkyPlayFeature {
+
+    /// 更新系の処理
+    /// - Parameter state: State
+    func update(from state: inout State) {
+        updateScore(from: &state)
+        updateMistakeCount(from: &state)
+        updatePlayingOrder(from: &state)
+    }
+
     /// チームの得点を更新する
     /// - Parameter state: State
     func updateScore(from state: inout State) {
@@ -125,5 +134,11 @@ private extension MolkkyPlayFeature {
         } else {
             state.playingOrder = .zero
         }
+    }
+
+    /// 選択されたスキットルを削除する
+    /// - Parameter state: State
+    func resetSkittles(from state: inout State) {
+        state.selectedSkittles.removeAll()
     }
 }
