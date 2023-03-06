@@ -35,13 +35,16 @@ struct TeamScoresView: View {
                                     HStack(spacing: 5) {
                                         Circle()
                                             .frame(width: 20)
-                                            .foregroundColor(Color.gray)
+                                            .foregroundColor(circleColor(from: team,
+                                                                         count: 1))
                                         Circle()
                                             .frame(width: 20)
-                                            .foregroundColor(Color.gray)
+                                            .foregroundColor(circleColor(from: team,
+                                                                         count: 2))
                                         Circle()
                                             .frame(width: 20)
-                                            .foregroundColor(Color.gray)
+                                            .foregroundColor(circleColor(from: team,
+                                                                         count: 3))
                                     }
                                 }
                             }
@@ -72,6 +75,15 @@ private extension TeamScoresView {
     /// - Returns: 合計点
     func totalScore(from team: Team) -> Int {
         return team.firstHalfScore + team.latterHalfScore
+    }
+
+    /// 円の色を取得する
+    /// - Parameters:
+    ///   - team: Team
+    ///   - count: 得点の上限
+    /// - Returns: 円の色
+    func circleColor(from team: Team, count: Int) -> Color {
+        return team.mistakeCount < count ? .gray : .red
     }
 }
 

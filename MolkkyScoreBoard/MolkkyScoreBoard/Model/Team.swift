@@ -17,4 +17,6 @@ struct Team: Identifiable, Equatable {
     var firstHalfScore = 0
     /// 後半の得点
     var latterHalfScore = 0
+    /// 連続失敗の回数
+    var mistakeCount = 0
 }

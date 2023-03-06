@@ -52,6 +52,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
         case .didTapDecideButton:
             updateScore(from: &state)
+            updateMistakeCount(from: &state)
             updatePlayingOrder(from: &state)
             return .none
         }
@@ -82,6 +83,19 @@ private extension MolkkyPlayFeature {
             } else {
                 state.teams[index].firstHalfScore = totalScore
             }
+        }
+    }
+
+    /// 失敗した回数を更新する
+    /// - Parameter state: State
+    func updateMistakeCount(from state: inout State) {
+        let score = calculatePoint(from: state)
+        let index = state.playingOrder
+
+        if score == .zero {
+            state.teams[index].mistakeCount += 1
+        } else {
+            state.teams[index].mistakeCount = .zero
         }
     }
 
