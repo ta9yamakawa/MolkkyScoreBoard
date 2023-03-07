@@ -22,7 +22,7 @@ struct TeamScoresView: View {
             ScrollView {
                 ForEach(viewStore.state.teams.indexed(),
                         id: \.index) { index, team in
-                    VStack {
+                    VStack(spacing: 0) {
                         HStack {
                             HStack(spacing: 20) {
                                 if viewStore.state.playingOrder == index {
@@ -59,9 +59,10 @@ struct TeamScoresView: View {
                             Text("\(totalScore(from: viewStore.state.teams[index]))")
                                 .frame(width: bounds.width / 6)
                         }
-
                         Divider()
+                            .padding(.top, 10)
                     }
+                    .background(teamBackgroundColor(from: team))
                 }
             }
         }
@@ -85,6 +86,13 @@ private extension TeamScoresView {
     func circleColor(from team: Team, count: Int) -> Color {
         return team.mistakeCount < count ? .gray : .red
     }
+
+    /// チーム行の背景色を取得する
+    /// - Parameter team: Team
+    /// - Returns: チーム行の背景色
+    func teamBackgroundColor(from team: Team) -> Color {
+        return team.isDisqualified ? .gray : .clear
+    }
 }
 
 // MARK: Previews
@@ -92,7 +100,7 @@ struct TeamScoresView_Previews: PreviewProvider {
     static var previews: some View {
         let teams = [Team(id: 1,
                           members: [TeamMember(name: "hoge")],
-                          order: 0),
+                          order: 0, isDisqualified: true),
                      Team(id: 2,
                           members: [TeamMember(name: "huga")],
                           order: 1)]

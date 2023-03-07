@@ -17,6 +17,9 @@ struct MolkkyPlayFeature: ReducerProtocol {
     /// 得点の半減値
     private static let halfScore = 25
 
+    /// 失敗の最大回数
+    private static let maxMistakeCount = 3
+
     /// State
     struct State: Equatable {
         /// チーム情報
@@ -108,6 +111,10 @@ private extension MolkkyPlayFeature {
             state.teams[index].mistakeCount += 1
         } else {
             state.teams[index].mistakeCount = .zero
+        }
+
+        if state.teams[index].mistakeCount == type(of: self).maxMistakeCount {
+            state.teams[index].isDisqualified = true
         }
     }
 
