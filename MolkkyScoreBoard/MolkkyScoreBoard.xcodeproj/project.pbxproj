@@ -12,6 +12,7 @@
 		B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */; };
 		B02ED78929A510B10037B9DF /* TeamsOrderEditFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78829A510B10037B9DF /* TeamsOrderEditFeature.swift */; };
 		B038DE3129B8EC4C0030276E /* TeamScoresRowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DE3029B8EC4C0030276E /* TeamScoresRowsView.swift */; };
+		B038DE3329B8F1F70030276E /* TeamScoresRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DE3229B8F1F70030276E /* TeamScoresRowView.swift */; };
 		B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */; };
 		B04E138929990F730055CA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138829990F730055CA7F /* Assets.xcassets */; };
 		B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138B29990F730055CA7F /* Preview Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditView.swift; sourceTree = "<group>"; };
 		B02ED78829A510B10037B9DF /* TeamsOrderEditFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditFeature.swift; sourceTree = "<group>"; };
 		B038DE3029B8EC4C0030276E /* TeamScoresRowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScoresRowsView.swift; sourceTree = "<group>"; };
+		B038DE3229B8F1F70030276E /* TeamScoresRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScoresRowView.swift; sourceTree = "<group>"; };
 		B04E138129990F710055CA7F /* MolkkyScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MolkkyScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyScoreBoardApp.swift; sourceTree = "<group>"; };
 		B04E138829990F730055CA7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B038DE3029B8EC4C0030276E /* TeamScoresRowsView.swift */,
+				B038DE3229B8F1F70030276E /* TeamScoresRowView.swift */,
 				B0DE7F6629B37EEC00B30CC0 /* TeamScoresTitleView.swift */,
 				B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */,
 			);
@@ -329,6 +332,7 @@
 				B0DE7F6329B0FE2D00B30CC0 /* PlayingButtonsView.swift in Sources */,
 				B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */,
 				B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */,
+				B038DE3329B8F1F70030276E /* TeamScoresRowView.swift in Sources */,
 				B02ED78929A510B10037B9DF /* TeamsOrderEditFeature.swift in Sources */,
 				B0DE7F6529B102E200B30CC0 /* TeamScoresView.swift in Sources */,
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
