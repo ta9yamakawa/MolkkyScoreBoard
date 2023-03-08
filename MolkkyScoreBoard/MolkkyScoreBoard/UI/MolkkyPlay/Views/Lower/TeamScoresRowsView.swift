@@ -18,54 +18,52 @@ struct TeamScoresRowsView: View {
     var body: some View {
         let bounds = UIScreen.main.bounds
 
-        ScrollView {
-            VStack(spacing: 0) {
-                ForEach(viewStore.state.teams.indexed(),
-                        id: \.index) { index, team in
-                    VStack(spacing: 10) {
-                        HStack {
-                            HStack(spacing: 20) {
-                                if viewStore.state.playingOrder == index {
-                                    Image(systemName: "arrow.right")
-                                }
+        VStack(spacing: 0) {
+            ForEach(viewStore.state.teams.indexed(),
+                    id: \.index) { index, team in
+                VStack(spacing: 10) {
+                    HStack {
+                        HStack(spacing: 20) {
+                            if viewStore.state.playingOrder == index {
+                                Image(systemName: "arrow.right")
+                            }
 
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text("チーム\(team.id)")
-                                        .multilineTextAlignment(.leading)
-                                    HStack(spacing: 5) {
-                                        Circle()
-                                            .frame(width: 20)
-                                            .foregroundColor(circleColor(from: team,
-                                                                         count: 1))
-                                        Circle()
-                                            .frame(width: 20)
-                                            .foregroundColor(circleColor(from: team,
-                                                                         count: 2))
-                                        Circle()
-                                            .frame(width: 20)
-                                            .foregroundColor(circleColor(from: team,
-                                                                         count: 3))
-                                    }
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text("チーム\(team.id)")
+                                    .multilineTextAlignment(.leading)
+                                HStack(spacing: 5) {
+                                    Circle()
+                                        .frame(width: 20)
+                                        .foregroundColor(circleColor(from: team,
+                                                                     count: 1))
+                                    Circle()
+                                        .frame(width: 20)
+                                        .foregroundColor(circleColor(from: team,
+                                                                     count: 2))
+                                    Circle()
+                                        .frame(width: 20)
+                                        .foregroundColor(circleColor(from: team,
+                                                                     count: 3))
                                 }
                             }
-                            .frame(width: bounds.width / 2)
-
-                            Text("\(team.firstHalfScore)")
-                                .frame(width: bounds.width / 6)
-
-                            Text("\(viewStore.state.teams[index].latterHalfScore)")
-                                .frame(width: bounds.width / 6)
-
-                            Text("\(totalScore(from: viewStore.state.teams[index]))")
-                                .frame(width: bounds.width / 6)
                         }
-                        .padding(.top, 10)
+                        .frame(width: bounds.width / 2)
 
-                        Divider()
-                            .padding(.top, 10)
+                        Text("\(team.firstHalfScore)")
+                            .frame(width: bounds.width / 6)
+
+                        Text("\(viewStore.state.teams[index].latterHalfScore)")
+                            .frame(width: bounds.width / 6)
+
+                        Text("\(totalScore(from: viewStore.state.teams[index]))")
+                            .frame(width: bounds.width / 6)
                     }
-                    .background(teamBackgroundColor(from: team))
+                    .padding(.top, 10)
+
+                    Divider()
+                        .padding(.top, 10)
                 }
+                .background(teamBackgroundColor(from: team))
             }
         }
     }

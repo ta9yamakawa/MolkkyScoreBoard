@@ -17,7 +17,9 @@ struct TeamScoresView: View {
     var body: some View {
         VStack(spacing: 0) {
             TeamScoresTitleView()
-            TeamScoresRowsView(viewStore: viewStore)
+            ScrollView {
+                TeamScoresRowsView(viewStore: viewStore)
+            }
         }
     }
 }
