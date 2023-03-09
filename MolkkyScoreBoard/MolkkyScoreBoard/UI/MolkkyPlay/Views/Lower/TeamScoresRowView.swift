@@ -31,9 +31,11 @@ struct TeamScoresRowView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("チーム\(team.id)")
                         .multilineTextAlignment(.leading)
+                        .font(Font.system(size: 10))
 
                     Text("\(memberName(from: team))さん")
                         .multilineTextAlignment(.leading)
+                        .bold()
 
                     HStack(spacing: 5) {
                         Circle()
