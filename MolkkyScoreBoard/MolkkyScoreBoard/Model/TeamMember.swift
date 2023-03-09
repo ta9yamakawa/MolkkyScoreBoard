@@ -13,4 +13,6 @@ struct TeamMember: Identifiable, Equatable {
     let id = UUID()
     /// 名前
     var name: String
+    /// プレイ順
+    var order: Int
 }

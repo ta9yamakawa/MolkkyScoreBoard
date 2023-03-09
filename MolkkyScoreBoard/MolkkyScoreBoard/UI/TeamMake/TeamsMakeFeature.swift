@@ -22,7 +22,7 @@ struct TeamsMakeFeature: ReducerProtocol {
 
             for index in 0..<teamCount {
                 let id = index + 1
-                let team = Team(id: id , members: [TeamMember(name: "")], order: index)
+                let team = Team(id: id , members: [TeamMember(name: "", order: 0)], order: index)
                 initialTeams.append(team)
             }
 
@@ -54,7 +54,7 @@ struct TeamsMakeFeature: ReducerProtocol {
             return .none
 
         case .didTapTeamAddButton(team: let teamIndex):
-            let newMember = TeamMember(name: "")
+            let newMember = TeamMember(name: "", order: state.teams[teamIndex].members.count)
             state.teams[teamIndex].members.append(newMember)
             return .none
 

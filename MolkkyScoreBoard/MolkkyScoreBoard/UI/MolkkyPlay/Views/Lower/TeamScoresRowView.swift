@@ -20,6 +20,7 @@ struct TeamScoresRowView: View {
 
     var body: some View {
         let bounds = UIScreen.main.bounds
+        let team = viewStore.state.teams[index]
 
         HStack {
             HStack(spacing: 20) {
@@ -28,8 +29,12 @@ struct TeamScoresRowView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("チーム\(viewStore.state.teams[index].id)")
+                    Text("チーム\(team.id)")
                         .multilineTextAlignment(.leading)
+
+                    Text("\(memberName(from: team))さん")
+                        .multilineTextAlignment(.leading)
+
                     HStack(spacing: 5) {
                         Circle()
                             .frame(width: 20)
@@ -78,19 +83,27 @@ private extension TeamScoresRowView {
     func circleColor(from team: Team, count: Int) -> Color {
         return team.mistakeCount < count ? .gray : .red
     }
+
+    /// チームメンバーの名前を取得する
+    /// - Parameter team: Team
+    /// - Returns: メンバーの名前
+    func memberName(from team: Team) -> String {
+        // 取得できない or メンバー名が空なら「名無し」にする
+        if
+            let member = team.members.first(where: { $0.order == team.memberOrder}),
+            !member.name.isEmpty {
+            return member.name
+        } else {
+            return "名無し"
+        }
+    }
 }
 
 
 // MARK: Previews
 struct TeamScoresRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let teams = [Team(id: 1,
-                          members: [TeamMember(name: "hoge")],
-                          order: 0, isDisqualified: true),
-                     Team(id: 2,
-                          members: [TeamMember(name: "huga")],
-                          order: 1)]
-        let state = MolkkyPlayFeature.State(teams: teams,
+        let state = MolkkyPlayFeature.State(teams: TeamsMock().data,
                                             isLatterHalf: false)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))

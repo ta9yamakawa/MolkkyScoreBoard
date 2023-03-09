@@ -71,9 +71,9 @@ private extension OrderingTeamView {
 // MARK: Previews
 struct OrderingTeamView_Previews: PreviewProvider {
     static var previews: some View {
-        let members = [TeamMember(name: "hoge"),
-                       TeamMember(name: "huga"),
-                       TeamMember(name: "piyo")]
+        let members = [TeamMember(name: "hoge", order: 0),
+                       TeamMember(name: "huga", order: 1),
+                       TeamMember(name: "piyo", order: 2)]
         let team = Team(id: 1, members: members)
 
         OrderingTeamView(team: team)

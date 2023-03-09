@@ -51,13 +51,7 @@ struct PlayingButtonsView: View {
 // MARK: Previews
 struct PlayingButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        let teams = [Team(id: 1,
-                          members: [TeamMember(name: "hoge")],
-                          order: 0),
-                     Team(id: 2,
-                          members: [TeamMember(name: "huga")],
-                          order: 1)]
-        let state = MolkkyPlayFeature.State(teams: teams,
+        let state = MolkkyPlayFeature.State(teams: TeamsMock().data,
                                             isLatterHalf: false)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))

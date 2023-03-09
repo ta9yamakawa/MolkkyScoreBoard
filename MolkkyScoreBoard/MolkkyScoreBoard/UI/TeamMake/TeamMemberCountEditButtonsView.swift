@@ -70,7 +70,7 @@ struct TeamMemberCountEditButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
                           reducer: TeamsMakeFeature())
-        let team = Team(id: 0, members: [TeamMember(name: "")])
+        let team = Team(id: 0, members: [TeamMember(name: "", order: 0)])
         
         TeamMemberCountEditButtonsView(store: store, team: team, teamIndex: 1)
     }

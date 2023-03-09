@@ -73,9 +73,8 @@ private extension TeamsOrderEditView {
 // MARK: Previews
 struct TeamsOrderEditView_Previews: PreviewProvider {
     static var previews: some View {
-        let teams = [Team(id: 1,
-                          members: [TeamMember(name: "hoge")])]
-        let store = Store(initialState: TeamsOrderEditFeature.State(teams: teams),
+        let state = TeamsOrderEditFeature.State(teams: TeamsMock().data)
+        let store = Store(initialState: state,
                           reducer: TeamsOrderEditFeature())
         TeamsOrderEditView(store: store)
     }
