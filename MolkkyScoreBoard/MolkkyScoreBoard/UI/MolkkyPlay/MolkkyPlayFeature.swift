@@ -76,6 +76,7 @@ private extension MolkkyPlayFeature {
     func update(from state: inout State) {
         updateScore(from: &state)
         updateMistakeCount(from: &state)
+        updateMemberOrder(from: &state)
         updatePlayingOrder(from: &state)
     }
 
@@ -130,6 +131,18 @@ private extension MolkkyPlayFeature {
             return skittle.number
         } else {
             return state.selectedSkittles.count
+        }
+    }
+
+    /// チーム内のメンバーのプレイ順を更新する
+    /// - Parameter state: State
+    func updateMemberOrder(from state: inout State) {
+        let index = state.playingOrder
+        let team = state.teams[index]
+        if team.memberOrder < team.members.count - 1 {
+            state.teams[index].memberOrder += 1
+        } else {
+            state.teams[index].memberOrder = .zero
         }
     }
 
