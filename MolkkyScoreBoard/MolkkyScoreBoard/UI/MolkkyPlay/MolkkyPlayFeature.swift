@@ -86,13 +86,8 @@ private extension MolkkyPlayFeature {
         let score = calculatePoint(from: state)
         let index = state.playingOrder
 
-        if state.isLatterHalf {
-            let totalScore = state.teams[index].latterHalfScore + score
-            state.teams[index].latterHalfScore = updayeScoreIfNeeded(totalScore)
-        } else {
-            let totalScore = state.teams[index].firstHalfScore + score
-            state.teams[index].firstHalfScore = updayeScoreIfNeeded(totalScore)
-        }
+        let totalScore = state.teams[index].score + score
+        state.teams[index].score = updayeScoreIfNeeded(totalScore)
     }
 
     /// スコア上限を超えているかを確認して正しいスコアを返す

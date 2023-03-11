@@ -15,10 +15,10 @@ struct Team: Identifiable, Equatable {
     var order = 0
     /// メンバーのプレイ順
     var memberOrder = 0
-    /// 前半の得点
-    var firstHalfScore = 0
-    /// 後半の得点
-    var latterHalfScore = 0
+    /// 得点
+    var score = 0
+    /// 合計得点
+    var totalScore = 0
     /// 連続失敗の回数
     var mistakeCount = 0
     /// 失格かどうか

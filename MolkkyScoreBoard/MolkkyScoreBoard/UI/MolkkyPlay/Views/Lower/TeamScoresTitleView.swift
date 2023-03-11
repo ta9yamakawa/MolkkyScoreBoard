@@ -15,12 +15,10 @@ struct TeamScoresTitleView: View {
         HStack(spacing: .zero) {
             Text("チーム")
                 .frame(width: bounds.width / 2)
-            Text("前半")
-                .frame(width: bounds.width / 6)
-            Text("後半")
-                .frame(width: bounds.width / 6)
+            Text("セット")
+                .frame(width: bounds.width / 4)
             Text("合計")
-                .frame(width: bounds.width / 6)
+                .frame(width: bounds.width / 4)
         }
         .padding(.vertical, 8)
         .background(Color.orange)

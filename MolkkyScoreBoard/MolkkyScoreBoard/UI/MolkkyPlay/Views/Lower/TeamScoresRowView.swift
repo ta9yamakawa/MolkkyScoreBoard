@@ -55,14 +55,11 @@ struct TeamScoresRowView: View {
             }
             .frame(width: bounds.width / 2)
 
-            Text("\(viewStore.state.teams[index].firstHalfScore)")
-                .frame(width: bounds.width / 6)
-
-            Text("\(viewStore.state.teams[index].latterHalfScore)")
-                .frame(width: bounds.width / 6)
+            Text("\(viewStore.state.teams[index].score)")
+                .frame(width: bounds.width / 4)
 
             Text("\(totalScore(from: viewStore.state.teams[index]))")
-                .frame(width: bounds.width / 6)
+                .frame(width: bounds.width / 4)
         }
         .padding(.top, 10)
     }
@@ -74,7 +71,7 @@ private extension TeamScoresRowView {
     /// - Parameter team: Team
     /// - Returns: 合計点
     func totalScore(from team: Team) -> Int {
-        return team.firstHalfScore + team.latterHalfScore
+        return team.score
     }
 
     /// 円の色を取得する
