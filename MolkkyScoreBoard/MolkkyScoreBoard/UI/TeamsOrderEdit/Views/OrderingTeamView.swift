@@ -74,7 +74,9 @@ struct OrderingTeamView_Previews: PreviewProvider {
         let members = [TeamMember(name: "hoge", order: 0),
                        TeamMember(name: "huga", order: 1),
                        TeamMember(name: "piyo", order: 2)]
-        let team = Team(id: 1, members: members)
+        let team = Team(id: 1, members: members,
+                        score: [TeamScore(setNo: 1,
+                                          score: 50)])
 
         OrderingTeamView(team: team)
     }

@@ -22,7 +22,10 @@ struct TeamsMakeFeature: ReducerProtocol {
 
             for index in 0..<teamCount {
                 let id = index + 1
-                let team = Team(id: id , members: [TeamMember(name: "", order: 0)], order: index)
+                let team = Team(id: id ,
+                                members: [TeamMember(name: "", order: 0)],
+                                order: index,
+                                score: [TeamScore(setNo: 1, score: 0)])
                 initialTeams.append(team)
             }
 

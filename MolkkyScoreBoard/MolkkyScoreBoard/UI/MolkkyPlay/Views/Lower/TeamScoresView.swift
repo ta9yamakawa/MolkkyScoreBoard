@@ -28,7 +28,7 @@ struct TeamScoresView: View {
 struct TeamScoresView_Previews: PreviewProvider {
     static var previews: some View {
         let state = MolkkyPlayFeature.State(teams: TeamsMock().data,
-                                            isLatterHalf: false)
+                                            setNo: 1)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))
         TeamScoresView(viewStore: viewStore)

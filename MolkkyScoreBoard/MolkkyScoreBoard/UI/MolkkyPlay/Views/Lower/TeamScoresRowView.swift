@@ -55,10 +55,10 @@ struct TeamScoresRowView: View {
             }
             .frame(width: bounds.width / 2)
 
-            Text("\(viewStore.state.teams[index].score)")
+            Text("\(team.score[viewStore.state.setNo - 1].score)")
                 .frame(width: bounds.width / 4)
 
-            Text("\(totalScore(from: viewStore.state.teams[index]))")
+            Text("\(totalScore(from: team))")
                 .frame(width: bounds.width / 4)
         }
         .padding(.top, 10)
@@ -71,7 +71,10 @@ private extension TeamScoresRowView {
     /// - Parameter team: Team
     /// - Returns: 合計点
     func totalScore(from team: Team) -> Int {
-        return team.score
+        let totalScore = team.score.map {
+            $0.score
+        }.reduce(0, +)
+        return totalScore
     }
 
     /// 円の色を取得する
@@ -103,7 +106,7 @@ private extension TeamScoresRowView {
 struct TeamScoresRowView_Previews: PreviewProvider {
     static var previews: some View {
         let state = MolkkyPlayFeature.State(teams: TeamsMock().data,
-                                            isLatterHalf: false)
+                                            setNo: 1)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))
         TeamScoresRowView(viewStore: viewStore, index: 0)

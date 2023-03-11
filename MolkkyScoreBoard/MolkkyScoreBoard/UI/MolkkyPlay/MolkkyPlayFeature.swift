@@ -25,7 +25,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
         /// チーム情報
         var teams: [Team]
         /// 後半かどうか
-        let isLatterHalf: Bool
+        let setNo: Int
         /// 選択されたスキットル
         var selectedSkittles: [Skittle] = []
         /// プレイ順
@@ -86,8 +86,8 @@ private extension MolkkyPlayFeature {
         let score = calculatePoint(from: state)
         let index = state.playingOrder
 
-        let totalScore = state.teams[index].score + score
-        state.teams[index].score = updayeScoreIfNeeded(totalScore)
+        let totalScore = state.teams[index].score[state.setNo - 1].score + score
+        state.teams[index].score[state.setNo - 1].score = updayeScoreIfNeeded(totalScore)
     }
 
     /// スコア上限を超えているかを確認して正しいスコアを返す
