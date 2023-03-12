@@ -40,15 +40,15 @@ struct TeamScoresRowView: View {
                     HStack(spacing: 5) {
                         Circle()
                             .frame(width: 20)
-                            .foregroundColor(circleColor(from: viewStore.state.teams[index],
+                            .foregroundColor(circleColor(from: team,
                                                          count: 1))
                         Circle()
                             .frame(width: 20)
-                            .foregroundColor(circleColor(from: viewStore.state.teams[index],
+                            .foregroundColor(circleColor(from: team,
                                                          count: 2))
                         Circle()
                             .frame(width: 20)
-                            .foregroundColor(circleColor(from: viewStore.state.teams[index],
+                            .foregroundColor(circleColor(from: team,
                                                          count: 3))
                     }
                 }
@@ -100,7 +100,6 @@ private extension TeamScoresRowView {
         }
     }
 }
-
 
 // MARK: Previews
 struct TeamScoresRowView_Previews: PreviewProvider {
