@@ -17,8 +17,7 @@ struct PlayingButtonsView: View {
     var body: some View {
         HStack() {
             Button("戻る") {
-                // TODO: 一個前に戻る処理を書く
-                print("undo")
+                viewStore.send(.didTapUndoButton)
             }
             .font(Font.system(size: 20))
             .foregroundColor(.white)

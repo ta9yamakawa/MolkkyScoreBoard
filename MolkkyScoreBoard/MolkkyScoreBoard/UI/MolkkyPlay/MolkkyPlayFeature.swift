@@ -5,6 +5,7 @@
 //  Created by ta9yamakawa on 2023/03/02.
 //
 
+import Foundation
 import ComposableArchitecture
 
 /// プレイ画面 Feature
@@ -30,6 +31,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var selectedSkittles: [Skittle] = []
         /// プレイ順
         var playingOrder = 0
+        /// プレイの履歴
+//        var playActions: [PlayAction] = []
     }
 
     /// Action
@@ -58,11 +61,24 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
 
         case .didTapUndoButton:
+            guard let lastAction = PlayActionUndoManager.shared.actions.last else {
+                return .none
+            }
+
+            state.teams[lastAction.playingOrder] = lastAction.team
+            state.playingOrder = lastAction.playingOrder
+
+            PlayActionUndoManager.shared.delete(lastAction)
             return .none
 
         case .didTapDecideButton:
+            let order = state.playingOrder
             update(from: &state)
             resetSkittles(from: &state)
+
+
+            PlayActionUndoManager.shared.add(PlayAction(team: state.teams[order],
+                                                        playingOrder: order))
             return .none
         }
     }
