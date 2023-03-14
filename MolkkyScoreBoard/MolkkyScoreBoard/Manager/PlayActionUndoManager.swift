@@ -5,7 +5,6 @@
 //  Created by ta9yamakawa on 2023/03/14.
 //
 
-import Foundation
 import ComposableArchitecture
 
 /// プレイを記録してUndoを管理するクラス
