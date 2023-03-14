@@ -31,8 +31,6 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var selectedSkittles: [Skittle] = []
         /// プレイ順
         var playingOrder = 0
-        /// プレイの履歴
-//        var playActions: [PlayAction] = []
     }
 
     /// Action
@@ -72,13 +70,13 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
 
         case .didTapDecideButton:
-            let order = state.playingOrder
+            let playingOrder = state.playingOrder
+            let team = state.teams[playingOrder]
+            PlayActionUndoManager.shared.add(PlayAction(team: team,
+                                                        playingOrder: playingOrder))
             update(from: &state)
             resetSkittles(from: &state)
 
-
-            PlayActionUndoManager.shared.add(PlayAction(team: state.teams[order],
-                                                        playingOrder: order))
             return .none
         }
     }

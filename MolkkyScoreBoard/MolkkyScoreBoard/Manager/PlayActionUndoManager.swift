@@ -8,28 +8,29 @@
 import Foundation
 import ComposableArchitecture
 
+/// プレイを記録してUndoを管理するクラス
 final class PlayActionUndoManager {
     /// シングルトン
     static let shared = PlayActionUndoManager()
 
-    /// Undo Manager
-    private let manager = UndoManager()
-
+    /// プレイデータ
     private(set) var actions = [PlayAction]()
 
     private init() {}
 
+    /// 追加
+    /// - Parameter action: PlayAction
     func add(_ action: PlayAction) {
         actions.append(action)
-//        registerOperation(.add(action))
     }
 
+    /// 削除
+    /// - Parameter action: PlayAction
     func delete(_ action: PlayAction) {
         guard !actions.isEmpty else {
             return
         }
 
         actions.removeLast()
-//        registerOperation(.delete(action))
     }
 }
