@@ -30,6 +30,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var selectedSkittles: [Skittle] = []
         /// プレイ順
         var playingOrder = 0
+        /// 試合を終わらせるか
+        var shouldFinishMatch = false
     }
 
     /// Action
@@ -89,8 +91,13 @@ private extension MolkkyPlayFeature {
     func update(from state: inout State) {
         updateScore(from: &state)
         updateMistakeCount(from: &state)
-        updateMemberOrder(from: &state)
-        updatePlayingOrder(from: &state)
+
+        judgeFinishMatch(from: &state)
+
+        if !state.shouldFinishMatch {
+            updateMemberOrder(from: &state)
+            updatePlayingOrder(from: &state)
+        }
     }
 
     /// チームの得点を更新する
@@ -168,5 +175,19 @@ private extension MolkkyPlayFeature {
     /// - Parameter state: State
     func resetSkittles(from state: inout State) {
         state.selectedSkittles.removeAll()
+    }
+
+    /// 試合を終わらせるかを判断する
+    /// - Parameter state: <#state description#>
+    func judgeFinishMatch(from state: inout State) {
+        let disqualifiedTeams = state.teams.filter({ $0.isDisqualified })
+        let index = state.playingOrder
+        let playedTeam = state.teams[index]
+        let playedTeamScore = playedTeam.score[state.setNo - 1].score
+
+        let isAllTeamsDisqualified = disqualifiedTeams.count == state.teams.count
+        let isOverMatch = playedTeamScore == type(of: self).maxLimitScore
+        state.shouldFinishMatch = isAllTeamsDisqualified || isOverMatch
+
     }
 }

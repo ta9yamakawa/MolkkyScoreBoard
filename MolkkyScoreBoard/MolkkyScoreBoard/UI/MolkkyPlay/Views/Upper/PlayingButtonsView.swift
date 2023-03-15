@@ -33,6 +33,9 @@ struct PlayingButtonsView: View {
 
             Button("決定") {
                 viewStore.send(.didTapDecideButton)
+                if viewStore.state.shouldFinishMatch {
+                    print("Done")
+                }
             }
             .font(Font.system(size: 20))
             .foregroundColor(.white)
