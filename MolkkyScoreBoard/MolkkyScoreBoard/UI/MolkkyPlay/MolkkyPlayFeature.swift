@@ -11,6 +11,9 @@ import ComposableArchitecture
 struct MolkkyPlayFeature: ReducerProtocol {
 
     // MARK: Constants
+    /// Undo Manager
+    private let undoManager = PlayActionUndoManager()
+
     /// 得点の最大上限
     private static let maxLimitScore = 50
 
@@ -60,21 +63,22 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
 
         case .didTapUndoButton:
-            guard let lastAction = PlayActionUndoManager.shared.actions.last else {
+            guard let lastAction = undoManager.actions.last else {
                 return .none
             }
 
             state.teams[lastAction.playingOrder] = lastAction.team
             state.playingOrder = lastAction.playingOrder
 
-            PlayActionUndoManager.shared.delete(lastAction)
+            undoManager.delete(lastAction)
             return .none
 
         case .didTapDecideButton:
             let playingOrder = state.playingOrder
             let team = state.teams[playingOrder]
-            PlayActionUndoManager.shared.add(PlayAction(team: team,
-                                                        playingOrder: playingOrder))
+            let action = PlayAction(team: team, playingOrder: playingOrder)
+            undoManager.add(action)
+
             update(from: &state)
             resetSkittles(from: &state)
 
@@ -161,9 +165,20 @@ private extension MolkkyPlayFeature {
         }
     }
 
-    /// プレー順を更新する
+    /// プレイ順を更新する
     /// - Parameter state: State
     func updatePlayingOrder(from state: inout State) {
+        next(from: &state)
+
+        // 失格しているチームがあればその分スキップする
+        while state.teams[state.playingOrder].isDisqualified {
+            next(from: &state)
+        }
+    }
+
+    /// プレイ順を次のチームにする
+    /// - Parameter state: State
+    func next(from state: inout State) {
         if state.playingOrder < state.teams.count - 1 {
             state.playingOrder += 1
         } else {
@@ -178,16 +193,15 @@ private extension MolkkyPlayFeature {
     }
 
     /// 試合を終わらせるかを判断する
-    /// - Parameter state: <#state description#>
+    /// - Parameter state: State
     func judgeFinishMatch(from state: inout State) {
         let disqualifiedTeams = state.teams.filter({ $0.isDisqualified })
         let index = state.playingOrder
         let playedTeam = state.teams[index]
         let playedTeamScore = playedTeam.score[state.setNo - 1].score
 
-        let isAllTeamsDisqualified = disqualifiedTeams.count == state.teams.count
+        let isOnlyTeamRemained = (disqualifiedTeams.count + 1) == state.teams.count
         let isOverMatch = playedTeamScore == type(of: self).maxLimitScore
-        state.shouldFinishMatch = isAllTeamsDisqualified || isOverMatch
-
+        state.shouldFinishMatch = isOnlyTeamRemained || isOverMatch
     }
 }

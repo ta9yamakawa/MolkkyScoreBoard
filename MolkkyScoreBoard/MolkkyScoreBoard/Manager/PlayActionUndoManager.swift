@@ -10,12 +10,10 @@ import ComposableArchitecture
 /// プレイを記録してUndoを管理するクラス
 final class PlayActionUndoManager {
     /// シングルトン
-    static let shared = PlayActionUndoManager()
+//    static let shared = PlayActionUndoManager()
 
     /// プレイデータ
     private(set) var actions = [PlayAction]()
-
-    private init() {}
 
     /// 追加
     /// - Parameter action: PlayAction
@@ -31,5 +29,10 @@ final class PlayActionUndoManager {
         }
 
         actions.removeLast()
+    }
+
+    /// 履歴を削除する
+    func reset() {
+        actions.removeAll()
     }
 }

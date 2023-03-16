@@ -92,11 +92,11 @@
 		B02ED78329A507A80037B9DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B0532B1129BF769B003D4568 /* PlayAction.swift */,
 				B0DE7F6929B38F7D00B30CC0 /* Skittle.swift */,
 				B0AEE9D3299E96CD0026AA42 /* Team.swift */,
 				B0AEE9D5299E974F0026AA42 /* TeamMember.swift */,
 				B038DE3729BC84A50030276E /* TeamScore.swift */,
-				B0532B1129BF769B003D4568 /* PlayAction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
