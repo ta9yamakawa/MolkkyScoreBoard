@@ -10,6 +10,10 @@ import ComposableArchitecture
 
 /// モルックプレイ中のボタンに関するView
 struct PlayingButtonsView: View {
+
+    /// モーダル遷移しているかどうか
+    @State private var isPresented = false
+
     /// View Store
     let viewStore: ViewStore<MolkkyPlayFeature.State,
                              MolkkyPlayFeature.Action>
@@ -34,8 +38,11 @@ struct PlayingButtonsView: View {
             Button("決定") {
                 viewStore.send(.didTapDecideButton)
                 if viewStore.state.shouldFinishMatch {
-                    print("Done")
+                    isPresented.toggle()
                 }
+            }
+            .fullScreenCover(isPresented: $isPresented) {
+                ResultView(store: store(from: viewStore.state.teams))
             }
             .font(Font.system(size: 20))
             .foregroundColor(.white)
@@ -48,6 +55,20 @@ struct PlayingButtonsView: View {
                                 trailing: 10))
         }
     }
+}
+
+// MARK: Private Methods
+private extension PlayingButtonsView {
+    /// Storeを生成する
+    /// - Parameter teams: Team情報
+    /// - Returns: StoreOf<ResultFeature>
+    func store(from teams: [Team]) -> StoreOf<ResultFeature> {
+        let state = ResultFeature.State(teams: teams)
+
+        return Store(initialState: state,
+                     reducer: ResultFeature())
+    }
+
 }
 
 // MARK: Previews

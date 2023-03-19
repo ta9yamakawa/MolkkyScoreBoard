@@ -10,13 +10,22 @@ import ComposableArchitecture
 
 /// 結果 View
 struct ResultView: View {
+
+    /// Store
+    let store: StoreOf<ResultFeature>
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("hoge").foregroundColor(.blue)
     }
 }
 
+// MARK: Previews
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView()
+        let state = ResultFeature.State(teams: TeamsMock().data)
+        let store = Store(initialState: state,
+                          reducer: ResultFeature())
+
+        ResultView(store: store)
     }
 }

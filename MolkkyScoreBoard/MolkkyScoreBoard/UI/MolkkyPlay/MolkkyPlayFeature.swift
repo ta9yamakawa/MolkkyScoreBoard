@@ -200,8 +200,12 @@ private extension MolkkyPlayFeature {
         let playedTeam = state.teams[index]
         let playedTeamScore = playedTeam.score[state.setNo - 1].score
 
-        let isOnlyTeamRemained = (disqualifiedTeams.count + 1) == state.teams.count
+        // 複数チームでプレイ中に1チームだけ残ったかどうか
+        let isOnlyTeamRemained = (disqualifiedTeams.count + 1) == state.teams.count && state.teams.count > 1
+        // 1チームでプレイ中に3回ミスしたかどうか
+        let isOnlyTeamDisqualified = (state.teams.count == 1) && (disqualifiedTeams.count == 1)
+        // 50点に達したチームがいるかどうか
         let isOverMatch = playedTeamScore == type(of: self).maxLimitScore
-        state.shouldFinishMatch = isOnlyTeamRemained || isOverMatch
+        state.shouldFinishMatch = isOnlyTeamRemained || isOnlyTeamDisqualified || isOverMatch
     }
 }
