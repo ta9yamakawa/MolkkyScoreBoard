@@ -11,6 +11,14 @@ struct Team: Identifiable, Equatable {
     let id: Int
     /// チームメイト
     var members: [TeamMember]
-    /// プレイ順
+    /// チームのプレイ順
     var order = 0
+    /// メンバーのプレイ順
+    var memberOrder = 0
+    /// 得点
+    var score: [TeamScore]
+    /// 連続失敗の回数
+    var mistakeCount = 0
+    /// 失格かどうか
+    var isDisqualified = false
 }

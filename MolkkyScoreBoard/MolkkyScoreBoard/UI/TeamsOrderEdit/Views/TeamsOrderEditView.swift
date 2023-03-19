@@ -11,7 +11,7 @@ import ComposableArchitecture
 /// チームの順番決定画面
 struct TeamsOrderEditView: View {
 
-    /// <#Description#>
+    /// モーダル遷移をしているかどうか
     @State private var isPresented = false
 
     /// Store
@@ -50,8 +50,7 @@ struct TeamsOrderEditView: View {
                     Text("決定")
                 }
                 .fullScreenCover(isPresented: $isPresented) {
-                    // TODO: プレイ画面にする
-                    StartMenuView()
+                    MolkkyPlayView(store: store(teams: viewStore.state.teams))
                 }
                 .padding(.vertical, 5)
             }
@@ -59,12 +58,23 @@ struct TeamsOrderEditView: View {
     }
 }
 
+// MARK: Private Methods
+private extension TeamsOrderEditView {
+    /// Storeを取得
+    /// - Parameter teams: チーム情報
+    /// - Returns: StoreOf<MolkkyPlayFeature>
+    func store(teams: [Team]) -> StoreOf<MolkkyPlayFeature> {
+        let initialState = MolkkyPlayFeature.State(teams: teams, setNo: 1)
+        return Store(initialState: initialState,
+                     reducer: MolkkyPlayFeature())
+    }
+}
+
 // MARK: Previews
 struct TeamsOrderEditView_Previews: PreviewProvider {
     static var previews: some View {
-        let teams = [Team(id: 1,
-                          members: [TeamMember(name: "hoge")])]
-        let store = Store(initialState: TeamsOrderEditFeature.State(teams: teams),
+        let state = TeamsOrderEditFeature.State(teams: TeamsMock().data)
+        let store = Store(initialState: state,
                           reducer: TeamsOrderEditFeature())
         TeamsOrderEditView(store: store)
     }
