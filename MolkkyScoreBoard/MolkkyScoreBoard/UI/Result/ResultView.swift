@@ -15,7 +15,11 @@ struct ResultView: View {
     let store: StoreOf<ResultFeature>
 
     var body: some View {
-        Text("hoge").foregroundColor(.blue)
+        VStack {
+            WithViewStore(self.store) { viewStore in
+                ResultButtonsView(viewStore: viewStore)
+            }
+        }
     }
 }
 

@@ -11,7 +11,7 @@ import ComposableArchitecture
 /// モルックプレイ中のボタンに関するView
 struct PlayingButtonsView: View {
 
-    /// モーダル遷移しているかどうか
+    /// ページ
     @State private var isPresented = false
 
     /// View Store
@@ -35,14 +35,16 @@ struct PlayingButtonsView: View {
 
             Spacer()
 
+            NavigationLink(destination: ResultView(store: store(from: viewStore.state.teams)),
+                           isActive: $isPresented) {
+                      EmptyView()
+                 }
+
             Button("決定") {
                 viewStore.send(.didTapDecideButton)
                 if viewStore.state.shouldFinishMatch {
-                    isPresented.toggle()
+                    isPresented = true
                 }
-            }
-            .fullScreenCover(isPresented: $isPresented) {
-                ResultView(store: store(from: viewStore.state.teams))
             }
             .font(Font.system(size: 20))
             .foregroundColor(.white)

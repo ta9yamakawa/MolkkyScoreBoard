@@ -44,14 +44,16 @@ struct TeamsOrderEditView: View {
 
                 Divider().background(Color.black)
 
-                Button {
-                    isPresented.toggle()
-                } label: {
+                NavigationLink(destination: MolkkyPlayView(store: store(teams: viewStore.state.teams)),
+                               label: {
                     Text("決定")
-                }
-                .fullScreenCover(isPresented: $isPresented) {
-                    MolkkyPlayView(store: store(teams: viewStore.state.teams))
-                }
+                        .font(Font.system(size: 20))
+                        .foregroundColor(.white)
+                        .frame(width: 140)
+                        .padding(.vertical, 12)
+                        .background(Color.orange)
+                        .cornerRadius(4)
+                })
                 .padding(.vertical, 5)
             }
         }
