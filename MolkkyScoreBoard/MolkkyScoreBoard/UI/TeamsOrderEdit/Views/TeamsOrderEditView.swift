@@ -11,9 +11,6 @@ import ComposableArchitecture
 /// チームの順番決定画面
 struct TeamsOrderEditView: View {
 
-    /// モーダル遷移をしているかどうか
-    @State private var isPresented = false
-
     /// Store
     let store: StoreOf<TeamsOrderEditFeature>
 

@@ -14,9 +14,6 @@ struct ResultButtonsView: View {
     /// View Store
     let viewStore: ViewStoreOf<ResultFeature>
 
-    /// モーダル遷移をしているかどうか
-    @State private var isPresented = false
-
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
