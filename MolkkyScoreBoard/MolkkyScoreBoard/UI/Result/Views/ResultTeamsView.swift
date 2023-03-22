@@ -17,8 +17,7 @@ struct ResultTeamsView: View {
     var body: some View {
         List {
             ForEach(viewStore.state.teams) { team in
-                // TODO: 結果表示用のViewに変更する
-                OrderingTeamView(team: team)
+                ResultTeamView(team: team)
                     .listRowInsets(EdgeInsets(top: .zero,
                                               leading: .zero,
                                               bottom: 10,

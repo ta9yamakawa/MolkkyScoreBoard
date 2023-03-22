@@ -17,7 +17,9 @@ struct ResultView: View {
     var body: some View {
         VStack {
             WithViewStore(self.store) { viewStore in
+                ResultTeamsView(viewStore: viewStore)
                 ResultButtonsView(viewStore: viewStore)
+                    .padding()
             }
         }
     }
