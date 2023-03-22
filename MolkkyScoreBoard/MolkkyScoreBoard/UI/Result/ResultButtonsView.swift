@@ -14,19 +14,20 @@ struct ResultButtonsView: View {
     /// View Store
     let viewStore: ViewStoreOf<ResultFeature>
 
-    @Environment(\.presentationMode) var presentationMode
+    /// Dismiss
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         HStack(spacing: 10) {
             Spacer()
 
             Button("ゲーム終了") {
-                presentationMode.wrappedValue.dismiss()
+                dismiss()
             }
+            .padding(8)
             .font(Font.system(size: 20))
             .foregroundColor(.white)
-            .frame(width: 80, height: 40)
-            .background(Color.orange)
+            .background(Color.gray)
             .cornerRadius(4)
             .padding(EdgeInsets(top: 0,
                                 leading: 0,
@@ -38,9 +39,9 @@ struct ResultButtonsView: View {
                            label: {
                 Text("次のセットへ")
             })
+            .padding(8)
             .font(Font.system(size: 20))
             .foregroundColor(.white)
-            .frame(width: 80, height: 40)
             .background(Color.orange)
             .cornerRadius(4)
             .padding(EdgeInsets(top: 0,
