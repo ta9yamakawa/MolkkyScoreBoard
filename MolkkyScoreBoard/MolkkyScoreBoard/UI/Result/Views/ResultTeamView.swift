@@ -32,43 +32,27 @@ struct ResultTeamView: View {
                     Spacer()
                 }
 
-                HStack {
-                    Text(memberText(from: team.members))
-                    Spacer()
+                VStack(spacing: 5) {
+                    HStack {
+                        ForEach(team.members) { team in
+                            Text("\(team.name)さん ")
+                        }
+                        Spacer()
+                    }
+
+                    ForEach(team.score) { score in
+                        HStack {
+                            Text("第\(score.setNo)ゲーム：\(score.score)")
+                            Spacer()
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-// MARK: Private Methods
-private extension ResultTeamView {
-    /// チームメンバーの表示文
-    /// - Parameter members: チームメンバー
-    /// - Returns: チームメンバーの文字列
-    func memberText(from members: [TeamMember]) -> String {
-        guard let member = members.first else {
-            return ""
-        }
-
-        switch members.count {
-        case 1:
-            return "\(member.name)さん"
-
-        case 2:
-            let otherMember = members[1]
-            return "\(member.name)さんと\(otherMember.name)さん"
-
-        case 3, 4:
-            let otherMember = members[1]
-            return "\(member.name)さんと\(otherMember.name)さん 他"
-
-        default:
-            return ""
-        }
-    }
-}
-
+// MARK: Previews
 struct ResultTeamView_Previews: PreviewProvider {
     static var previews: some View {
         let members = [TeamMember(name: "hoge", order: 0),
