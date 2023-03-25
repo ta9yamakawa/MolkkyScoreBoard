@@ -37,8 +37,8 @@ struct PlayingButtonsView: View {
 
             NavigationLink(destination: ResultView(store: store(from: viewStore.state.teams)),
                            isActive: $isPresented) {
-                      EmptyView()
-                 }
+                EmptyView()
+            }
 
             Button("決定") {
                 viewStore.send(.didTapDecideButton)

@@ -14,6 +14,9 @@ struct TeamsOrderEditView: View {
     /// Store
     let store: StoreOf<TeamsOrderEditFeature>
 
+    /// ページ
+    @State private var isPresented = false
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
@@ -41,17 +44,21 @@ struct TeamsOrderEditView: View {
 
                 Divider().background(Color.black)
 
+                Button("決定") {
+                    viewStore.send(.didTapDecideButton)
+                    isPresented.toggle()
+                }
+                .font(Font.system(size: 20))
+                .foregroundColor(.white)
+                .frame(width: 140)
+                .padding(.vertical, 12)
+                .background(Color.orange)
+                .cornerRadius(4)
+
                 NavigationLink(destination: MolkkyPlayView(store: store(teams: viewStore.state.teams)),
-                               label: {
-                    Text("決定")
-                        .font(Font.system(size: 20))
-                        .foregroundColor(.white)
-                        .frame(width: 140)
-                        .padding(.vertical, 12)
-                        .background(Color.orange)
-                        .cornerRadius(4)
-                })
-                .padding(.vertical, 5)
+                               isActive: $isPresented) {
+                    EmptyView()
+                }
             }
         }
     }
@@ -63,7 +70,8 @@ private extension TeamsOrderEditView {
     /// - Parameter teams: チーム情報
     /// - Returns: StoreOf<MolkkyPlayFeature>
     func store(teams: [Team]) -> StoreOf<MolkkyPlayFeature> {
-        let initialState = MolkkyPlayFeature.State(teams: teams, setNo: 1)
+        let initialState = MolkkyPlayFeature.State(teams: teams,
+                                                   setNo: teams.first?.score.last?.setNo ?? 1)
         return Store(initialState: initialState,
                      reducer: MolkkyPlayFeature())
     }

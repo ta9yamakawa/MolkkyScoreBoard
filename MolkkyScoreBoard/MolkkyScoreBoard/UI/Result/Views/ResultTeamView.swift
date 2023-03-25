@@ -34,8 +34,8 @@ struct ResultTeamView: View {
 
                 VStack(spacing: 5) {
                     HStack {
-                        ForEach(team.members) { team in
-                            Text("\(team.name)さん ")
+                        ForEach(team.members) { member in
+                            Text("\(member.name)さん ")
                         }
                         Spacer()
                     }

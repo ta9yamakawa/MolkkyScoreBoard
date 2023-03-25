@@ -16,7 +16,7 @@ struct Team: Identifiable, Equatable {
     /// メンバーのプレイ順
     var memberOrder = 0
     /// 得点
-    var score: [TeamScore]
+    var score: [TeamScore] = []
     /// 連続失敗の回数
     var mistakeCount = 0
     /// 失格かどうか

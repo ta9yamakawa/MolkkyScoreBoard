@@ -20,6 +20,8 @@ struct TeamsOrderEditFeature: ReducerProtocol {
     enum Action {
         /// チームを入れ替えた
         case didMovedTeamView(source: IndexSet, destination: Int)
+        /// 決定ボタンをタップした
+        case didTapDecideButton
     }
 
     /// Reduce
@@ -31,6 +33,23 @@ struct TeamsOrderEditFeature: ReducerProtocol {
         switch action {
         case .didMovedTeamView(source: let source, destination: let destination):
             move(from: source, to: destination, state: &state)
+            return .none
+
+        case .didTapDecideButton:
+            let newScore: TeamScore
+            if
+                let team = state.teams.first,
+                let setNo = team.score.last?.setNo {
+                newScore = TeamScore(setNo: setNo + 1, score: .zero)
+            } else {
+                newScore = TeamScore(setNo: 1, score: .zero)
+            }
+
+            let teamCount = state.teams.count
+
+            for index in 0..<teamCount {
+                state.teams[index].score.append(newScore)
+            }
             return .none
         }
     }
