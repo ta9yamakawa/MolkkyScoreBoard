@@ -35,6 +35,15 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var playingOrder = 0
         /// 試合を終わらせるか
         var shouldFinishMatch = false
+
+        /// Initialize
+        /// - Parameter teams: Team
+        init(teams: [Team]) {
+            self.teams = teams
+            // 適当なチームから最後のセットは何かを取得する
+            // 全てのチームはスコア配列の数が同じになるはずなのでこれが使える（FIXME: 直したい）
+            setNo = teams.first?.score.last?.setNo ?? 1
+        }
     }
 
     /// Action

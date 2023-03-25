@@ -55,7 +55,7 @@ struct TeamScoresRowView: View {
             }
             .frame(width: bounds.width / 2)
 
-            Text("\(team.score[viewStore.state.setNo - 1].score)")
+            Text("\(team.score.last?.score ?? 0)")
                 .frame(width: bounds.width / 4)
 
             Text("\(totalScore(from: team))")
@@ -104,8 +104,7 @@ private extension TeamScoresRowView {
 // MARK: Previews
 struct TeamScoresRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let state = MolkkyPlayFeature.State(teams: TeamsMock().data,
-                                            setNo: 1)
+        let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))
         TeamScoresRowView(viewStore: viewStore, index: 0)
