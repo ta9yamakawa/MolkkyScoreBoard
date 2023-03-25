@@ -17,6 +17,9 @@ struct ResultButtonsView: View {
     /// Dismiss
     @Environment(\.dismiss) private var dismiss
 
+    /// ページ
+    @State private var isPresented = false
+
     var body: some View {
         HStack(spacing: 10) {
             Spacer()
@@ -34,11 +37,10 @@ struct ResultButtonsView: View {
                                 bottom: 0,
                                 trailing: 10))
 
-            NavigationLink(destination:
-                            TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
-                           label: {
-                Text("次のセットへ")
-            })
+            Button("次のセットへ") {
+                viewStore.send(.didTapNextMatchButton)
+                isPresented.toggle()
+            }
             .padding(8)
             .font(Font.system(size: 20))
             .foregroundColor(.white)
@@ -48,6 +50,11 @@ struct ResultButtonsView: View {
                                 leading: 0,
                                 bottom: 0,
                                 trailing: 10))
+
+            NavigationLink(destination: TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
+                           isActive: $isPresented) {
+                      EmptyView()
+                 }
 
             Spacer()
         }

@@ -35,7 +35,22 @@ struct ResultFeature: ReducerProtocol {
             return .none
 
         case .didTapNextMatchButton:
+            resetIsDisqualified(into: &state)
             return .none
+        }
+    }
+}
+
+// MARK: Private Methods
+private extension ResultFeature {
+    /// 失格のフラグを全てリセットする
+    /// - Parameter state: State
+    func resetIsDisqualified(into state: inout State) {
+        let teamCount = state.teams.count
+
+        for index in 0..<teamCount {
+            state.teams[index].mistakeCount = .zero
+            state.teams[index].isDisqualified = false
         }
     }
 }
