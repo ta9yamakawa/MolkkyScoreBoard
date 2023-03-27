@@ -32,19 +32,17 @@ struct ResultTeamView: View {
                     Spacer()
                 }
 
-                VStack(spacing: 5) {
-                    HStack {
-                        ForEach(team.members) { member in
-                            Text("\(member.name)さん ")
-                        }
-                        Spacer()
+                HStack {
+                    ForEach(team.members) { member in
+                        Text("\(member.name)さん ")
                     }
+                    Spacer()
+                }
 
-                    ForEach(team.score) { score in
-                        HStack {
-                            Text("第\(score.setNo)ゲーム：\(score.score)")
-                            Spacer()
-                        }
+                ForEach(team.score) { score in
+                    HStack {
+                        Text("第\(score.setNo)ゲーム：\(score.score)")
+                        Spacer()
                     }
                 }
             }
