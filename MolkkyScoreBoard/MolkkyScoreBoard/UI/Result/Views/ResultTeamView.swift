@@ -47,26 +47,13 @@ struct ResultTeamView: View {
                 }
 
                 HStack {
-                    Text("合計：\(totalScore(from: team.score))")
+                    Text("合計：\(team.totalScore())")
                         .font(Font.system(size: 20))
                         .bold()
                     Spacer()
                 }
             }
         }
-    }
-}
-
-// MARK: Private Methods
-private extension ResultTeamView {
-    /// 合計点を取得する
-    /// - Parameter scores: [TeamScore]
-    /// - Returns: 合計点
-    func totalScore(from scores: [TeamScore]) -> Int {
-        let totalScore = scores.map {
-            $0.score
-        }.reduce(0, +)
-        return totalScore
     }
 }
 

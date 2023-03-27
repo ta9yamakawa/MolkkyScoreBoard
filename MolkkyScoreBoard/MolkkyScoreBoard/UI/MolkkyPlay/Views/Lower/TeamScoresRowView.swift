@@ -58,7 +58,7 @@ struct TeamScoresRowView: View {
             Text("\(team.score.last?.score ?? 0)")
                 .frame(width: bounds.width / 4)
 
-            Text("\(totalScore(from: team))")
+            Text("\(team.totalScore())")
                 .frame(width: bounds.width / 4)
         }
         .padding(.top, 10)
@@ -67,16 +67,6 @@ struct TeamScoresRowView: View {
 
 // MARK: Private Methods
 private extension TeamScoresRowView {
-    /// 合計点を取得する
-    /// - Parameter team: Team
-    /// - Returns: 合計点
-    func totalScore(from team: Team) -> Int {
-        let totalScore = team.score.map {
-            $0.score
-        }.reduce(0, +)
-        return totalScore
-    }
-
     /// 円の色を取得する
     /// - Parameters:
     ///   - team: Team

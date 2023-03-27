@@ -54,6 +54,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case didTapUndoButton
         /// 決定ボタンをタップした
         case didTapDecideButton
+        /// 試合が終了した
+        case finishMatch
     }
 
     /// Reduce
@@ -91,6 +93,11 @@ struct MolkkyPlayFeature: ReducerProtocol {
             update(from: &state)
             resetSkittles(from: &state)
 
+            return .none
+
+        case .finishMatch:
+
+            
             return .none
         }
     }
@@ -216,5 +223,12 @@ private extension MolkkyPlayFeature {
         // 50点に達したチームがいるかどうか
         let isOverMatch = playedTeamScore == type(of: self).maxLimitScore
         state.shouldFinishMatch = isOnlyTeamRemained || isOnlyTeamDisqualified || isOverMatch
+    }
+
+    func sortByRanking(from state: inout State) {
+        
+
+        let sortedTeams = state.teams.sorted(by: { $0.ranking < $1.ranking })
+        state.teams = sortedTeams
     }
 }

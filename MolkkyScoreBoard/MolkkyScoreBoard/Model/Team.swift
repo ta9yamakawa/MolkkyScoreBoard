@@ -21,4 +21,15 @@ struct Team: Identifiable, Equatable {
     var mistakeCount = 0
     /// 失格かどうか
     var isDisqualified = false
+    /// ランキング
+    var ranking: Int = 0
+
+    /// 合計点を取得する
+    /// - Returns: 合計点
+    func totalScore() -> Int {
+        let totalScore = score.map {
+            $0.score
+        }.reduce(0, +)
+        return totalScore
+    }
 }
