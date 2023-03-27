@@ -231,8 +231,8 @@ private extension MolkkyPlayFeature {
         let index = totalScores.indices.sorted { totalScores[$0] > totalScores[$1] }
         state.teams = index.map { state.teams[$0] }
 
+        var ranking = 1
         for index in 0..<state.teams.count {
-            var ranking = 1
             state.teams[index].ranking = ranking
 
             ranking += 1

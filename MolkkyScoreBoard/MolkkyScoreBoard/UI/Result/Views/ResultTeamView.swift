@@ -16,7 +16,7 @@ struct ResultTeamView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
-            Text("\(team.order)")
+            Text("\(team.ranking)")
                 .font(Font.system(size: 14))
                 .bold()
                 .foregroundColor(Color.white)
