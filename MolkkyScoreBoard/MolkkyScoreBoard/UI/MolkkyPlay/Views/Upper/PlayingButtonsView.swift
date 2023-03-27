@@ -43,6 +43,7 @@ struct PlayingButtonsView: View {
             Button("決定") {
                 viewStore.send(.didTapDecideButton)
                 if viewStore.state.shouldFinishMatch {
+                    viewStore.send(.finishMatch)
                     isPresented = true
                 }
             }

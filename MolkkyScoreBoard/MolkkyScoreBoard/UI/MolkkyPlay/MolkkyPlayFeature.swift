@@ -96,8 +96,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
 
         case .finishMatch:
-
-            
+            sortByRanking(from: &state)
             return .none
         }
     }
@@ -225,10 +224,18 @@ private extension MolkkyPlayFeature {
         state.shouldFinishMatch = isOnlyTeamRemained || isOnlyTeamDisqualified || isOverMatch
     }
 
+    /// ランキング順に入れ替える
+    /// - Parameter state: State
     func sortByRanking(from state: inout State) {
-        
+        let totalScores = state.teams.map { $0.totalScore() }
+        let index = totalScores.indices.sorted { totalScores[$0] > totalScores[$1] }
+        state.teams = index.map { state.teams[$0] }
 
-        let sortedTeams = state.teams.sorted(by: { $0.ranking < $1.ranking })
-        state.teams = sortedTeams
+        for index in 0..<state.teams.count {
+            var ranking = 1
+            state.teams[index].ranking = ranking
+
+            ranking += 1
+        }
     }
 }

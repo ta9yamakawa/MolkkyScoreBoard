@@ -35,7 +35,8 @@ struct ResultFeature: ReducerProtocol {
             return .none
 
         case .didTapNextMatchButton:
-            resetIsDisqualified(into: &state)
+            resetIsDisqualified(from: &state)
+            sortByPlayingOrder(from: &state)
             return .none
         }
     }
@@ -45,12 +46,19 @@ struct ResultFeature: ReducerProtocol {
 private extension ResultFeature {
     /// 失格のフラグを全てリセットする
     /// - Parameter state: State
-    func resetIsDisqualified(into state: inout State) {
+    func resetIsDisqualified(from state: inout State) {
         let teamCount = state.teams.count
 
         for index in 0..<teamCount {
             state.teams[index].mistakeCount = .zero
             state.teams[index].isDisqualified = false
         }
+    }
+
+    /// プレイ順に入れ替える
+    /// - Parameter state: State
+    func sortByPlayingOrder(from state: inout State) {
+        let sortedTeams = state.teams.sorted(by: { $0.order < $1.order })
+        state.teams = sortedTeams
     }
 }
