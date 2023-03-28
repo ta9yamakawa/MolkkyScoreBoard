@@ -27,7 +27,7 @@ struct HomeTabView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             TabView(selection: $selectedTab) {
                 StartMenuView()
                     .tabItem {
