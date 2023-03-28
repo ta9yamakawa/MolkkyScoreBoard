@@ -22,21 +22,27 @@ struct StartMenuView: View {
     /// Columns
     private var columns = Array(repeating: gridItem, count: 2)
 
+    /// Router
+    @StateObject private var router = PageRouter()
+
     var body: some View {
-        VStack(spacing: 30) {
-            Text("何チームでモルックを\nプレイしますか？")
-                .font(Font.system(size: 20))
-                .multilineTextAlignment(.center)
-                .padding(.top, 40)
+        DestinationHolderView(router: router) {
+            VStack(spacing: 30) {
+                Text("何チームでモルックを\nプレイしますか？")
+                    .font(Font.system(size: 20))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 40)
 
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach((minTeamCount...maxTeamCount),
-                        id: \.self) { teamCount in
-                    TeamSelectButtonView(teamCount: teamCount)
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach((minTeamCount...maxTeamCount),
+                            id: \.self) { teamCount in
+                        TeamSelectButtonView(teamCount: teamCount,
+                                             router: router)
+                    }
                 }
-            }
 
-            Spacer()
+                Spacer()
+            }
         }
     }
 }

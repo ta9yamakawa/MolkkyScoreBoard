@@ -27,25 +27,21 @@ struct HomeTabView: View {
     }
 
     var body: some View {
-        NavigationView {
-            TabView(selection: $selectedTab) {
-                StartMenuView()
-                    .tabItem {
-                        Image(systemName: "pencil.and.outline")
-                        Text("プレイ")
-                    }.tag(TabType.play)
+        TabView(selection: $selectedTab) {
+            StartMenuView()
+                .tabItem {
+                    Image(systemName: "pencil.and.outline")
+                    Text("プレイ")
+                }.tag(TabType.play)
 
-                InformationView()
-                    .tabItem {
-                        Image(systemName: "info.circle.fill")
-                        Text("情報")
-                    }.tag(TabType.information)
-            }
-            .navigationTitle(selectedTab.rawValue)
-            .navigationBarTitleDisplayMode(.inline)
-            .onChange(of: selectedTab) { tab in
-                selectedTab = tab
-            }
+            InformationView()
+                .tabItem {
+                    Image(systemName: "info.circle.fill")
+                    Text("情報")
+                }.tag(TabType.information)
+        }
+        .onChange(of: selectedTab) { tab in
+            selectedTab = tab
         }
     }
 }
