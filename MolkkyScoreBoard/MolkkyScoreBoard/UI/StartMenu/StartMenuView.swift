@@ -20,29 +20,27 @@ struct StartMenuView: View {
     private static let gridItem = GridItem(.flexible(minimum: 140, maximum: 180))
 
     /// Columns
-    private var columns = Array(repeating: gridItem, count: 2)
+    private let columns = Array(repeating: gridItem, count: 2)
 
     /// Router
-    @StateObject private var router = PageRouter()
+    @ObservedObject var router: PageRouter
 
     var body: some View {
-        DestinationHolderView(router: router) {
-            VStack(spacing: 30) {
-                Text("何チームでモルックを\nプレイしますか？")
-                    .font(Font.system(size: 20))
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 40)
+        VStack(spacing: 30) {
+            Text("何チームでモルックを\nプレイしますか？")
+                .font(Font.system(size: 20))
+                .multilineTextAlignment(.center)
+                .padding(.top, 40)
 
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach((minTeamCount...maxTeamCount),
-                            id: \.self) { teamCount in
-                        TeamSelectButtonView(teamCount: teamCount,
-                                             router: router)
-                    }
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach((minTeamCount...maxTeamCount),
+                        id: \.self) { teamCount in
+                    TeamSelectButtonView(teamCount: teamCount,
+                                         router: router)
                 }
-
-                Spacer()
             }
+
+            Spacer()
         }
     }
 }
@@ -55,7 +53,7 @@ struct StartMenuView_Previews: PreviewProvider {
                  "iPad Pro (12.9-inch) (6th generation)",
                  "iPhone 14"],
                 id: \.self) { deviceName in
-            StartMenuView()
+            StartMenuView(router: PageRouter())
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

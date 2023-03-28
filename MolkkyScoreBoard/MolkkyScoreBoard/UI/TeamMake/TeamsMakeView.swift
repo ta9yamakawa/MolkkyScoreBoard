@@ -12,6 +12,9 @@ import ComposableArchitecture
 /// チーム作成画面
 struct TeamsMakeView: View {
 
+    /// Router
+    @ObservedObject var router: PageRouter
+
     /// Store
     let store: StoreOf<TeamsMakeFeature>
 
@@ -73,6 +76,6 @@ struct TeamMakeView_Previews: PreviewProvider {
         let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
                           reducer: TeamsMakeFeature())
 
-        TeamsMakeView(store: store)
+        TeamsMakeView(router: PageRouter(), store: store)
     }
 }

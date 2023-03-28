@@ -32,7 +32,7 @@ struct DestinationHolderView<Content:View>: View {
                     destination in
                     switch destination {
                     case .teamMake(let teamCount):
-                        TeamsMakeView(store: store(with: teamCount))
+                        TeamsMakeView(router: router, store: store(with: teamCount))
                     }
                 }
                 .navigationTitle("huga")
