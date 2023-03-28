@@ -44,8 +44,7 @@ struct MolkkyPlayView: View {
 // MARK: Previews
 struct MolkkyPlayView_Previews: PreviewProvider {
     static var previews: some View {
-        let state = MolkkyPlayFeature.State(teams: TeamsMock().data,
-                                            setNo: 1)
+        let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         MolkkyPlayView(store: Store(initialState: state,
                                     reducer: MolkkyPlayFeature()))
     }

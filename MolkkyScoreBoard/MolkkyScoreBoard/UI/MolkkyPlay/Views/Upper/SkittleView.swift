@@ -59,8 +59,7 @@ private extension SkittleView {
 // MARK: Previews
 struct SkittleView_Previews: PreviewProvider {
     static var previews: some View {
-        let state = MolkkyPlayFeature.State(teams: TeamsMock().data,
-                                            setNo: 1)
+        let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))
         SkittleView(viewStore: viewStore, number: 12)

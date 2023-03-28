@@ -11,11 +11,11 @@ import ComposableArchitecture
 /// チームの順番決定画面
 struct TeamsOrderEditView: View {
 
-    /// モーダル遷移をしているかどうか
-    @State private var isPresented = false
-
     /// Store
     let store: StoreOf<TeamsOrderEditFeature>
+
+    /// ページ
+    @State private var isPresented = false
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -44,15 +44,21 @@ struct TeamsOrderEditView: View {
 
                 Divider().background(Color.black)
 
-                Button {
+                Button("決定") {
+                    viewStore.send(.didTapDecideButton)
                     isPresented.toggle()
-                } label: {
-                    Text("決定")
                 }
-                .fullScreenCover(isPresented: $isPresented) {
-                    MolkkyPlayView(store: store(teams: viewStore.state.teams))
+                .font(Font.system(size: 20))
+                .foregroundColor(.white)
+                .frame(width: 140)
+                .padding(.vertical, 12)
+                .background(Color.orange)
+                .cornerRadius(4)
+
+                NavigationLink(destination: MolkkyPlayView(store: store(teams: viewStore.state.teams)),
+                               isActive: $isPresented) {
+                    EmptyView()
                 }
-                .padding(.vertical, 5)
             }
         }
     }
@@ -64,7 +70,7 @@ private extension TeamsOrderEditView {
     /// - Parameter teams: チーム情報
     /// - Returns: StoreOf<MolkkyPlayFeature>
     func store(teams: [Team]) -> StoreOf<MolkkyPlayFeature> {
-        let initialState = MolkkyPlayFeature.State(teams: teams, setNo: 1)
+        let initialState = MolkkyPlayFeature.State(teams: teams)
         return Store(initialState: initialState,
                      reducer: MolkkyPlayFeature())
     }

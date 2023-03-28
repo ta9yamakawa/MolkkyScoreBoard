@@ -35,6 +35,15 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var playingOrder = 0
         /// 試合を終わらせるか
         var shouldFinishMatch = false
+
+        /// Initialize
+        /// - Parameter teams: Team
+        init(teams: [Team]) {
+            self.teams = teams
+            // 適当なチームから最後のセットは何かを取得する
+            // 全てのチームはスコア配列の数が同じになるはずなのでこれが使える（FIXME: 直したい）
+            setNo = teams.first?.score.last?.setNo ?? 1
+        }
     }
 
     /// Action
@@ -45,6 +54,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case didTapUndoButton
         /// 決定ボタンをタップした
         case didTapDecideButton
+        /// 試合が終了した
+        case finishMatch
     }
 
     /// Reduce
@@ -82,6 +93,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
             update(from: &state)
             resetSkittles(from: &state)
 
+            return .none
+
+        case .finishMatch:
+            sortByRanking(from: &state)
             return .none
         }
     }
@@ -200,8 +215,27 @@ private extension MolkkyPlayFeature {
         let playedTeam = state.teams[index]
         let playedTeamScore = playedTeam.score[state.setNo - 1].score
 
-        let isOnlyTeamRemained = (disqualifiedTeams.count + 1) == state.teams.count
+        // 複数チームでプレイ中に1チームだけ残ったかどうか
+        let isOnlyTeamRemained = (disqualifiedTeams.count + 1) == state.teams.count && state.teams.count > 1
+        // 1チームでプレイ中に3回ミスしたかどうか
+        let isOnlyTeamDisqualified = (state.teams.count == 1) && (disqualifiedTeams.count == 1)
+        // 50点に達したチームがいるかどうか
         let isOverMatch = playedTeamScore == type(of: self).maxLimitScore
-        state.shouldFinishMatch = isOnlyTeamRemained || isOverMatch
+        state.shouldFinishMatch = isOnlyTeamRemained || isOnlyTeamDisqualified || isOverMatch
+    }
+
+    /// ランキング順に入れ替える
+    /// - Parameter state: State
+    func sortByRanking(from state: inout State) {
+        let totalScores = state.teams.map { $0.totalScore() }
+        let index = totalScores.indices.sorted { totalScores[$0] > totalScores[$1] }
+        state.teams = index.map { state.teams[$0] }
+
+        var ranking = 1
+        for index in 0..<state.teams.count {
+            state.teams[index].ranking = ranking
+
+            ranking += 1
+        }
     }
 }
