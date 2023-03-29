@@ -46,7 +46,7 @@ struct TeamsOrderEditView: View {
 
                 Button("決定") {
                     viewStore.send(.didTapDecideButton)
-                    router.path.append(DestinationViewType.play(teams: viewStore.state.teams))
+                    router.path.append(DestinationType.play(teams: viewStore.state.teams))
                 }
                 .font(Font.system(size: 20))
                 .foregroundColor(.white)

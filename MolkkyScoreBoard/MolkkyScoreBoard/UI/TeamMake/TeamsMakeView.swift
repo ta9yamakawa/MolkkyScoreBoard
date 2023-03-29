@@ -50,7 +50,7 @@ struct TeamsMakeView: View {
 
                 Button("決定") {
                     viewStore.send(.didTapDecisionButton)
-                    router.path.append(DestinationViewType.teamOrderEdit(teams: viewStore.state.teams))
+                    router.path.append(DestinationType.teamOrderEdit(teams: viewStore.state.teams))
                 }
                 .font(Font.system(size: 20))
                 .foregroundColor(.white)

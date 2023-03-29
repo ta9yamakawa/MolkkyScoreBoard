@@ -8,21 +8,19 @@
 import SwiftUI
 import ComposableArchitecture
 
-enum DestinationViewType: Hashable {
-    case teamMake(teamCount: Int)
-    case teamOrderEdit(teams: [Team])
-    case play(teams: [Team])
-    case result(teams: [Team])
-}
-
-final class PageRouter: ObservableObject {
-    @Published var path = [DestinationViewType]()
-}
-
+/// ページの遷移先を管理するRouter的なView
 struct DestinationHolderView<Content:View>: View {
+
+    /// Router
     @ObservedObject var router: PageRouter
+
+    /// 子ビュー
     let content: Content
 
+    /// Initialize
+    /// - Parameters:
+    ///   - router: PageRouter
+    ///   - content: Content(ViewBuilder)
     init(router: PageRouter, @ViewBuilder content: () -> Content) {
         self.router = router
         self.content = content()
@@ -30,25 +28,23 @@ struct DestinationHolderView<Content:View>: View {
 
     var body: some View {
         NavigationStack(path: $router.path) {
-            content
-                .navigationDestination(for: DestinationViewType.self) {
-                    destination in
-                    switch destination {
-                    case .teamMake(let teamCount):
-                        TeamsMakeView(router: router, store: teamMakeStore(with: teamCount))
+            content.navigationDestination(for: DestinationType.self) { destination in
+                switch destination {
+                case .teamMake(let teamCount):
+                    TeamsMakeView(router: router, store: teamMakeStore(with: teamCount))
 
-                    case .teamOrderEdit(let teams):
-                        TeamsOrderEditView(store: orderEditStore(with: teams), router: router)
+                case .teamOrderEdit(let teams):
+                    TeamsOrderEditView(store: orderEditStore(with: teams), router: router)
 
-                    case .play(let teams):
-                        MolkkyPlayView(store: playStore(with: teams), router: router)
+                case .play(let teams):
+                    MolkkyPlayView(store: playStore(with: teams), router: router)
 
-                    case .result(let teams):
-                        ResultView(store: resultStore(from: teams), router: router)
-                    }
+                case .result(let teams):
+                    ResultView(store: resultStore(from: teams), router: router)
                 }
-                .navigationTitle("huga")
-                .navigationBarTitleDisplayMode(.inline)
+            }
+            .navigationTitle("hoge")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .environmentObject(router)
     }

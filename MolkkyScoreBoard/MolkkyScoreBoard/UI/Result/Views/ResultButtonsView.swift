@@ -36,7 +36,7 @@ struct ResultButtonsView: View {
 
             Button("次のセットへ") {
                 viewStore.send(.didTapNextMatchButton)
-                router.path.append(DestinationViewType.teamOrderEdit(teams: viewStore.state.teams))
+                router.path.append(DestinationType.teamOrderEdit(teams: viewStore.state.teams))
             }
             .padding(8)
             .font(Font.system(size: 20))
