@@ -14,18 +14,15 @@ struct ResultButtonsView: View {
     /// View Store
     let viewStore: ViewStoreOf<ResultFeature>
 
-    /// Dismiss
-    @Environment(\.dismiss) private var dismiss
-
-    /// ページ
-    @State private var isPresented = false
+    /// Router
+    @ObservedObject var router: PageRouter
 
     var body: some View {
         HStack(spacing: 10) {
             Spacer()
 
             Button("ゲーム終了") {
-                dismiss()
+                router.path.removeAll()
             }
             .padding(8)
             .font(Font.system(size: 20))
@@ -39,7 +36,7 @@ struct ResultButtonsView: View {
 
             Button("次のセットへ") {
                 viewStore.send(.didTapNextMatchButton)
-                isPresented.toggle()
+                router.path.append(DestinationViewType.teamOrderEdit(teams: viewStore.state.teams))
             }
             .padding(8)
             .font(Font.system(size: 20))
@@ -51,26 +48,8 @@ struct ResultButtonsView: View {
                                 bottom: 0,
                                 trailing: 10))
 
-            // TODO: ResultViewにRouterを定義するまで待つ
-//            NavigationLink(destination: TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
-//                           isActive: $isPresented) {
-//                EmptyView()
-//            }
-
             Spacer()
         }
-    }
-}
-
-// MARK: Private Methods
-private extension ResultButtonsView {
-    /// Storeを取得
-    /// - Parameter teams: チーム情報
-    /// - Returns: StoreOf<TeamsOrderEditFeature>
-    func store(teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
-        let initialState = TeamsOrderEditFeature.State(teams: teams)
-        return Store(initialState: initialState,
-                     reducer: TeamsOrderEditFeature())
     }
 }
 
@@ -81,6 +60,6 @@ struct ResultButtonsView_Previews: PreviewProvider {
         let state = ResultFeature.State(teams: TeamsMock().data)
         let viewStore = ViewStore(StoreOf<ResultFeature>(initialState: state,
                                                          reducer: ResultFeature()))
-        ResultButtonsView(viewStore: viewStore)
+        ResultButtonsView(viewStore: viewStore, router: PageRouter())
     }
 }

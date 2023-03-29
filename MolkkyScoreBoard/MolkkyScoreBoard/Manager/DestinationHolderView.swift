@@ -12,6 +12,7 @@ enum DestinationViewType: Hashable {
     case teamMake(teamCount: Int)
     case teamOrderEdit(teams: [Team])
     case play(teams: [Team])
+    case result(teams: [Team])
 }
 
 final class PageRouter: ObservableObject {
@@ -41,6 +42,9 @@ struct DestinationHolderView<Content:View>: View {
 
                     case .play(let teams):
                         MolkkyPlayView(store: playStore(with: teams), router: router)
+
+                    case .result(let teams):
+                        ResultView(store: resultStore(from: teams), router: router)
                     }
                 }
                 .navigationTitle("huga")
@@ -77,5 +81,15 @@ private extension DestinationHolderView {
         let initialState = MolkkyPlayFeature.State(teams: teams)
         return Store(initialState: initialState,
                      reducer: MolkkyPlayFeature())
+    }
+
+    ///  結果画面のStoreを生成する
+    /// - Parameter teams: チーム情報
+    /// - Returns: StoreOf<ResultFeature>
+    func resultStore(from teams: [Team]) -> StoreOf<ResultFeature> {
+        let state = ResultFeature.State(teams: teams)
+
+        return Store(initialState: state,
+                     reducer: ResultFeature())
     }
 }

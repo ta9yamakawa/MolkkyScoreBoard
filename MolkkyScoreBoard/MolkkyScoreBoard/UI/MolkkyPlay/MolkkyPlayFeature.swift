@@ -43,9 +43,6 @@ struct MolkkyPlayFeature: ReducerProtocol {
             // 適当なチームから最後のセットは何かを取得する
             // 全てのチームはスコア配列の数が同じになるはずなのでこれが使える（FIXME: 直したい）
             setNo = teams.first?.score.last?.setNo ?? 1
-            for index in 0..<teams.count {
-                self.teams[index].score.append(TeamScore(setNo: setNo, score: .zero))
-            }
         }
     }
 

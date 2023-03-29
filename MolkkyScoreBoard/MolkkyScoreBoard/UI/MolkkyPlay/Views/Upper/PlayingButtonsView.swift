@@ -38,7 +38,8 @@ struct PlayingButtonsView: View {
             Button("決定") {
                 viewStore.send(.didTapDecideButton)
                 if viewStore.state.shouldFinishMatch {
-//                    router.path.append(DestinationViewType.play(teams: viewStore.state.teams))
+                    viewStore.send(.finishMatch)
+                    router.path.append(DestinationViewType.result(teams: viewStore.state.teams))
                 }
             }
             .font(Font.system(size: 20))
