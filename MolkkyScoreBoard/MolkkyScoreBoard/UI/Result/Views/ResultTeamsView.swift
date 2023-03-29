@@ -27,6 +27,7 @@ struct ResultTeamsView: View {
     }
 }
 
+// MARK: Previews
 struct ResultTeamsView_Previews: PreviewProvider {
     static var previews: some View {
         let state = ResultFeature.State(teams: TeamsMock().data)

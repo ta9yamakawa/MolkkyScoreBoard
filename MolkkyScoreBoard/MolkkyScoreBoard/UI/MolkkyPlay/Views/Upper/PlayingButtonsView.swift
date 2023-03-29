@@ -55,20 +55,6 @@ struct PlayingButtonsView: View {
     }
 }
 
-// MARK: Private Methods
-private extension PlayingButtonsView {
-    /// Storeを生成する
-    /// - Parameter teams: Team情報
-    /// - Returns: StoreOf<ResultFeature>
-    func store(from teams: [Team]) -> StoreOf<ResultFeature> {
-        let state = ResultFeature.State(teams: teams)
-
-        return Store(initialState: state,
-                     reducer: ResultFeature())
-    }
-
-}
-
 // MARK: Previews
 struct PlayingButtonsView_Previews: PreviewProvider {
     static var previews: some View {
