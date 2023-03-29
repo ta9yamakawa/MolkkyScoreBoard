@@ -6,7 +6,7 @@
 //
 
 /// チーム
-struct Team: Identifiable, Equatable {
+struct Team: Identifiable, Hashable, Equatable {
     /// チームID
     let id: Int
     /// チームメイト

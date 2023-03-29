@@ -48,25 +48,17 @@ struct TeamsMakeView: View {
                 
                 Divider().background(Color.black)
 
-                NavigationLink(destination:
-                                TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
-                               label: {
-                    Text("決定")
-                }).padding(.vertical, 5)
+                Button("決定") {
+                    router.path.append(DestinationViewType.teamOrderEdit(teams: viewStore.state.teams))
+                }
+                .font(Font.system(size: 20))
+                .foregroundColor(.white)
+                .padding(.vertical, 12)
+                .padding(.horizontal, 24)
+                .background(Color.orange)
+                .cornerRadius(4)
             }
         }
-    }
-}
-
-// MARK: Private Methods
-private extension TeamsMakeView {
-    /// Storeを取得
-    /// - Parameter teams: チーム情報
-    /// - Returns: StoreOf<TeamsOrderEditFeature>
-    func store(teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
-        let initialState = TeamsOrderEditFeature.State(teams: teams)
-        return Store(initialState: initialState,
-                     reducer: TeamsOrderEditFeature())
     }
 }
 

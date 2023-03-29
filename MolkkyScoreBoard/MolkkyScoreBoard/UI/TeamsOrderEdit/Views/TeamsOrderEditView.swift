@@ -17,6 +17,9 @@ struct TeamsOrderEditView: View {
     /// ページ
     @State private var isPresented = false
 
+    /// Router
+    @ObservedObject var router: PageRouter
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
@@ -82,6 +85,6 @@ struct TeamsOrderEditView_Previews: PreviewProvider {
         let state = TeamsOrderEditFeature.State(teams: TeamsMock().data)
         let store = Store(initialState: state,
                           reducer: TeamsOrderEditFeature())
-        TeamsOrderEditView(store: store)
+        TeamsOrderEditView(store: store, router: PageRouter())
     }
 }

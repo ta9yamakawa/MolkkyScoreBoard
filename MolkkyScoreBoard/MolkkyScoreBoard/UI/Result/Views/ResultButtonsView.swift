@@ -50,11 +50,12 @@ struct ResultButtonsView: View {
                                 leading: 0,
                                 bottom: 0,
                                 trailing: 10))
-            
-            NavigationLink(destination: TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
-                           isActive: $isPresented) {
-                EmptyView()
-            }
+
+            // TODO: ResultViewにRouterを定義するまで待つ
+//            NavigationLink(destination: TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
+//                           isActive: $isPresented) {
+//                EmptyView()
+//            }
 
             Spacer()
         }

@@ -29,18 +29,6 @@ struct TeamSelectButtonView: View {
     }
 }
 
-// MARK: Private Methods
-private extension TeamSelectButtonView {
-    /// Storeを取得
-    /// - Parameter teamCount: チーム数
-    /// - Returns: StoreOf<TeamsMakeFeature>
-    func store(with teamCount: Int) -> StoreOf<TeamsMakeFeature> {
-        let initialState = TeamsMakeFeature.State(teamCount: teamCount)
-        return Store(initialState: initialState,
-                     reducer: TeamsMakeFeature())
-    }
-}
-
 // MARK: Previews
 struct TeamSelectButtonView_Previews: PreviewProvider {
     static var previews: some View {
