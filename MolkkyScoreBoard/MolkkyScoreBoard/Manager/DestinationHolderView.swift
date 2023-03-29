@@ -11,10 +11,11 @@ import ComposableArchitecture
 enum DestinationViewType: Hashable {
     case teamMake(teamCount: Int)
     case teamOrderEdit(teams: [Team])
+    case play(teams: [Team])
 }
 
 final class PageRouter: ObservableObject {
-    @Published var path = NavigationPath()
+    @Published var path = [DestinationViewType]()
 }
 
 struct DestinationHolderView<Content:View>: View {
@@ -29,14 +30,17 @@ struct DestinationHolderView<Content:View>: View {
     var body: some View {
         NavigationStack(path: $router.path) {
             content
-                .navigationDestination(for: DestinationViewType.self) { // - 2
+                .navigationDestination(for: DestinationViewType.self) {
                     destination in
                     switch destination {
                     case .teamMake(let teamCount):
-                        TeamsMakeView(router: router, store: store(with: teamCount))
+                        TeamsMakeView(router: router, store: teamMakeStore(with: teamCount))
 
                     case .teamOrderEdit(let teams):
-                        TeamsOrderEditView(store: store(teams: teams), router: router)
+                        TeamsOrderEditView(store: orderEditStore(with: teams), router: router)
+
+                    case .play(let teams):
+                        MolkkyPlayView(store: playStore(with: teams), router: router)
                     }
                 }
                 .navigationTitle("huga")
@@ -48,21 +52,30 @@ struct DestinationHolderView<Content:View>: View {
 
 // MARK: Private Methods
 private extension DestinationHolderView {
-    /// Storeを取得
+    /// チーム作成画面のStoreを取得
     /// - Parameter teamCount: チーム数
     /// - Returns: StoreOf<TeamsMakeFeature>
-    func store(with teamCount: Int) -> StoreOf<TeamsMakeFeature> {
+    func teamMakeStore(with teamCount: Int) -> StoreOf<TeamsMakeFeature> {
         let initialState = TeamsMakeFeature.State(teamCount: teamCount)
         return Store(initialState: initialState,
                      reducer: TeamsMakeFeature())
     }
 
-    /// Storeを取得
+    /// 順番入れ替え画面のStoreを取得
     /// - Parameter teams: チーム情報
     /// - Returns: StoreOf<TeamsOrderEditFeature>
-    func store(teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
+    func orderEditStore(with teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
         let initialState = TeamsOrderEditFeature.State(teams: teams)
         return Store(initialState: initialState,
                      reducer: TeamsOrderEditFeature())
+    }
+
+    /// モルックプレイ画面のStoreを取得
+    /// - Parameter teams: チーム情報
+    /// - Returns: StoreOf<MolkkyPlayFeature>
+    func playStore(with teams: [Team]) -> StoreOf<MolkkyPlayFeature> {
+        let initialState = MolkkyPlayFeature.State(teams: teams)
+        return Store(initialState: initialState,
+                     reducer: MolkkyPlayFeature())
     }
 }
