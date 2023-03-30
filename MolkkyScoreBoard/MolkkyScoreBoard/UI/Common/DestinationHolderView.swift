@@ -12,10 +12,10 @@ import ComposableArchitecture
 struct DestinationHolderView<Content:View>: View {
 
     /// Router
-    @ObservedObject var router: PageRouter
+    @ObservedObject private var router: PageRouter
 
     /// 子ビュー
-    let content: Content
+    private let content: Content
 
     /// Initialize
     /// - Parameters:
@@ -32,18 +32,21 @@ struct DestinationHolderView<Content:View>: View {
                 switch destination {
                 case .teamMake(let teamCount):
                     TeamsMakeView(router: router, store: teamMakeStore(with: teamCount))
+                        .navigationTitle(destination.navigationTitle)
 
                 case .teamOrderEdit(let teams):
                     TeamsOrderEditView(store: orderEditStore(with: teams), router: router)
+                        .navigationTitle(destination.navigationTitle)
 
                 case .play(let teams):
                     MolkkyPlayView(store: playStore(with: teams), router: router)
+                        .navigationTitle(destination.navigationTitle)
 
                 case .result(let teams):
                     ResultView(store: resultStore(from: teams), router: router)
+                        .navigationTitle(destination.navigationTitle)
                 }
             }
-            .navigationTitle("hoge")
             .navigationBarTitleDisplayMode(.inline)
         }
         .environmentObject(router)

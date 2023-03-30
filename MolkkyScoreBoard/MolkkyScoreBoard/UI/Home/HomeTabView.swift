@@ -36,17 +36,20 @@ struct HomeTabView: View {
                     .tabItem {
                         Image(systemName: "pencil.and.outline")
                         Text("プレイ")
-                    }.tag(TabType.play)
+                    }
+                    .tag(TabType.play)
                 
                 InformationView()
                     .tabItem {
                         Image(systemName: "info.circle.fill")
                         Text("情報")
-                    }.tag(TabType.information)
+                    }
+                    .tag(TabType.information)
             }
             .onChange(of: selectedTab) { tab in
                 selectedTab = tab
             }
+            .navigationTitle(selectedTab.rawValue)
         }
     }
 }

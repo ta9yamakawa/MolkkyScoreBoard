@@ -19,4 +19,18 @@ enum DestinationType: Hashable {
     /// 結果
     /// - Parameter: teams: 全チーム情報
     case result(teams: [Team])
+
+    /// ナビゲーションバーのタイトル
+    var navigationTitle: String {
+        switch self {
+        case .teamMake:
+            return "チーム作成"
+        case .teamOrderEdit:
+            return "プレイ順決定"
+        case .play:
+            return "プレイ"
+        case .result:
+            return "結果"
+        }
+    }
 }
