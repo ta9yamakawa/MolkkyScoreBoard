@@ -10,15 +10,6 @@ enum NameValidationResult: ValidationResult, Equatable {
     case success
     /// 文字数上限に達した
     case maxLimitLength(Int)
-
-    /// 成功かどうか
-    var isValid: Bool {
-        if case .success = self {
-            return true
-        } else {
-            return false
-        }
-    }
 }
 
 /// 名前に関するバリデーション

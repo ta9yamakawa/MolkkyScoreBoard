@@ -31,7 +31,6 @@
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
-		B08A671C29D75FB00073D63B /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671B29D75FB00073D63B /* ValidationResult.swift */; };
 		B08A671E29D760A70073D63B /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671D29D760A70073D63B /* NameValidator.swift */; };
 		B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A475A129A516CE003485B1 /* OrderingTeamView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
@@ -78,7 +77,6 @@
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		B08A671B29D75FB00073D63B /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		B08A671D29D760A70073D63B /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
 		B0A475A129A516CE003485B1 /* OrderingTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingTeamView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 		B08A672129D764AA0073D63B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B08A671B29D75FB00073D63B /* ValidationResult.swift */,
 				B08A671929D75F810073D63B /* Validator.swift */,
 			);
 			path = Protocols;
@@ -450,7 +447,6 @@
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
 				B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */,
 				B0CF124829C766160061E9C3 /* ResultFeature.swift in Sources */,
-				B08A671C29D75FB00073D63B /* ValidationResult.swift in Sources */,
 				B08A671A29D75F810073D63B /* Validator.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B08A671529D4AA160073D63B /* DestinationType.swift in Sources */,
