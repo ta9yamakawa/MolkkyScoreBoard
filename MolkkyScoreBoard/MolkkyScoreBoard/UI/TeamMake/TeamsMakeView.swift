@@ -39,6 +39,11 @@ struct TeamsMakeView: View {
                                 .padding(.vertical, 5)
                             }
 
+                            if shouldShowValidationError(from: viewStore.state.invalidIndex,
+                                                         index: teamIndex) {
+                                Text("失敗している")
+                            }
+
                             TeamMemberCountEditButtonsView(store: store,
                                                            team: team,
                                                            teamIndex: teamIndex)
@@ -60,6 +65,17 @@ struct TeamsMakeView: View {
                 .cornerRadius(4)
             }
         }
+    }
+}
+
+private extension TeamsMakeView {
+    func shouldShowValidationError(from datas: [InvalidTeamIndex],
+                                   index: Int) -> Bool {
+        guard !datas.isEmpty else {
+            return false
+        }
+
+        return datas.first(where: { $0.team == index }) != nil
     }
 }
 

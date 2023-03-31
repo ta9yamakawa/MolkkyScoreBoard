@@ -15,6 +15,9 @@ struct TeamsMakeFeature: ReducerProtocol {
         /// チームの情報
         var teams: [Team]
 
+        /// バリデーションが通っていないチームの情報
+        var invalidIndex: [InvalidTeamIndex] = []
+
         /// Initialize
         /// - Parameter teamCount: チーム数
         init(teamCount: Int) {
@@ -53,6 +56,8 @@ struct TeamsMakeFeature: ReducerProtocol {
         switch action {
         case .didChangedTextField(team: let teamIndex, member: let memberIndex, text: let text):
             state.teams[teamIndex].members[memberIndex].name = text
+
+            validation(to: text, teamIndex: teamIndex, memberIndex: memberIndex, with: &state)
             return .none
 
         case .didTapTeamAddButton(team: let teamIndex):
@@ -67,6 +72,35 @@ struct TeamsMakeFeature: ReducerProtocol {
         case .didTapDecisionButton:
             //            state.teams = []
             return .none
+        }
+    }
+}
+
+// Private Methods
+private extension TeamsMakeFeature {
+    /// バリデーションを実施する
+    /// - Parameters:
+    ///   - name: 入力した名前
+    ///   - teamIndex: どこのチームの
+    ///   - memberIndex: どのメンバーか
+    ///   - state: State
+    func validation(to name: String,
+                    teamIndex: Int,
+                    memberIndex: Int,
+                    with state: inout State) {
+        let validator = NameValidator(name: name)
+
+        switch validator.validate() {
+        case .success:
+            state.invalidIndex.removeAll(where: { ($0.team == teamIndex) && ($0.member == memberIndex) })
+            print("debug: success")
+
+        case .maxLimitLength(let count):
+            let index = InvalidTeamIndex(team: teamIndex,
+                                         member: memberIndex,
+                                         errorType: .maxLimitLength(count))
+            state.invalidIndex.append(index)
+            print("debug: \(count)")
         }
     }
 }
