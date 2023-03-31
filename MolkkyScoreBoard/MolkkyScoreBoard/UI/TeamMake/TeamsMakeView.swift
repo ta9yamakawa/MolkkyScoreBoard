@@ -32,7 +32,7 @@ struct TeamsMakeView: View {
 
                             ForEach(team.members.indexed(), id: \.index) { memberIndex, member in
                                 TextField("メンバー名を入力",
-                                          text: viewStore.binding(get: { _ in  member.name }, send: { .didChangedTextFiled(team: teamIndex, member: memberIndex, text: $0) }))
+                                          text: viewStore.binding(get: { _ in  member.name }, send: { .didChangedTextField(team: teamIndex, member: memberIndex, text: $0) }))
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .autocapitalization(.none)
                                 .padding(.horizontal)

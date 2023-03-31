@@ -35,7 +35,7 @@ struct TeamsMakeFeature: ReducerProtocol {
     /// Action
     enum Action {
         // チームメイト名入力のテキストフィールドの値変更
-        case didChangedTextFiled(team: Int, member: Int , text: String)
+        case didChangedTextField(team: Int, member: Int , text: String)
         /// チームメイト追加ボタンタップ
         case didTapTeamAddButton(team: Int)
         /// チームメイト削減ボタンタップ
@@ -51,7 +51,7 @@ struct TeamsMakeFeature: ReducerProtocol {
     /// - Returns: EffectTask<Action>
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
-        case .didChangedTextFiled(team: let teamIndex, member: let memberIndex, text: let text):
+        case .didChangedTextField(team: let teamIndex, member: let memberIndex, text: let text):
             state.teams[teamIndex].members[memberIndex].name = text
             return .none
 
