@@ -20,6 +20,9 @@ struct HomeTabView: View {
     /// 選択中のタブ
     @State private var selectedTab: TabType = .play
 
+    /// Router
+    @StateObject private var router = PageRouter()
+
     /// Initialize
     init() {
         NavigationViewAppearance.configure()
@@ -27,25 +30,26 @@ struct HomeTabView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        DestinationHolderView(router: router) {
             TabView(selection: $selectedTab) {
-                StartMenuView()
+                StartMenuView(router: router)
                     .tabItem {
                         Image(systemName: "pencil.and.outline")
                         Text("プレイ")
-                    }.tag(TabType.play)
-
+                    }
+                    .tag(TabType.play)
+                
                 InformationView()
                     .tabItem {
                         Image(systemName: "info.circle.fill")
                         Text("情報")
-                    }.tag(TabType.information)
+                    }
+                    .tag(TabType.information)
             }
-            .navigationTitle(selectedTab.rawValue)
-            .navigationBarTitleDisplayMode(.inline)
             .onChange(of: selectedTab) { tab in
                 selectedTab = tab
             }
+            .navigationTitle(selectedTab.rawValue)
         }
     }
 }

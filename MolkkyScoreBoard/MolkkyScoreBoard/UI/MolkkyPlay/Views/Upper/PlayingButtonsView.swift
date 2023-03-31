@@ -11,12 +11,12 @@ import ComposableArchitecture
 /// モルックプレイ中のボタンに関するView
 struct PlayingButtonsView: View {
 
-    /// ページ
-    @State private var isPresented = false
-
     /// View Store
     let viewStore: ViewStore<MolkkyPlayFeature.State,
                              MolkkyPlayFeature.Action>
+
+    /// Router
+    @ObservedObject var router: PageRouter
 
     var body: some View {
         HStack() {
@@ -35,16 +35,11 @@ struct PlayingButtonsView: View {
 
             Spacer()
 
-            NavigationLink(destination: ResultView(store: store(from: viewStore.state.teams)),
-                           isActive: $isPresented) {
-                EmptyView()
-            }
-
             Button("決定") {
                 viewStore.send(.didTapDecideButton)
                 if viewStore.state.shouldFinishMatch {
                     viewStore.send(.finishMatch)
-                    isPresented = true
+                    router.path.append(DestinationType.result(teams: viewStore.state.teams))
                 }
             }
             .font(Font.system(size: 20))
@@ -60,26 +55,12 @@ struct PlayingButtonsView: View {
     }
 }
 
-// MARK: Private Methods
-private extension PlayingButtonsView {
-    /// Storeを生成する
-    /// - Parameter teams: Team情報
-    /// - Returns: StoreOf<ResultFeature>
-    func store(from teams: [Team]) -> StoreOf<ResultFeature> {
-        let state = ResultFeature.State(teams: teams)
-
-        return Store(initialState: state,
-                     reducer: ResultFeature())
-    }
-
-}
-
 // MARK: Previews
 struct PlayingButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))
-        PlayingButtonsView(viewStore: viewStore)
+        PlayingButtonsView(viewStore: viewStore, router: PageRouter())
     }
 }

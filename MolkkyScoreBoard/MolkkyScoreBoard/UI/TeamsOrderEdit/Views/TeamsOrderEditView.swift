@@ -14,8 +14,8 @@ struct TeamsOrderEditView: View {
     /// Store
     let store: StoreOf<TeamsOrderEditFeature>
 
-    /// ページ
-    @State private var isPresented = false
+    /// Router
+    @ObservedObject var router: PageRouter
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
@@ -46,7 +46,7 @@ struct TeamsOrderEditView: View {
 
                 Button("決定") {
                     viewStore.send(.didTapDecideButton)
-                    isPresented.toggle()
+                    router.path.append(DestinationType.play(teams: viewStore.state.teams))
                 }
                 .font(Font.system(size: 20))
                 .foregroundColor(.white)
@@ -54,11 +54,6 @@ struct TeamsOrderEditView: View {
                 .padding(.vertical, 12)
                 .background(Color.orange)
                 .cornerRadius(4)
-
-                NavigationLink(destination: MolkkyPlayView(store: store(teams: viewStore.state.teams)),
-                               isActive: $isPresented) {
-                    EmptyView()
-                }
             }
         }
     }
@@ -82,6 +77,6 @@ struct TeamsOrderEditView_Previews: PreviewProvider {
         let state = TeamsOrderEditFeature.State(teams: TeamsMock().data)
         let store = Store(initialState: state,
                           reducer: TeamsOrderEditFeature())
-        TeamsOrderEditView(store: store)
+        TeamsOrderEditView(store: store, router: PageRouter())
     }
 }

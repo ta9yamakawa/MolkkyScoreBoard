@@ -8,7 +8,7 @@
 import Foundation
 
 /// チームメンバー
-struct TeamMember: Identifiable, Equatable {
+struct TeamMember: Identifiable, Hashable, Equatable {
     /// メンバーID
     let id = UUID()
     /// 名前

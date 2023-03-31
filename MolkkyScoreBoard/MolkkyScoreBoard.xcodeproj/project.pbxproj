@@ -27,6 +27,8 @@
 		B04E13A9299D39920055CA7F /* TeamsMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A8299D39920055CA7F /* TeamsMakeView.swift */; };
 		B0532B1029BF7215003D4568 /* PlayActionUndoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0532B0F29BF7215003D4568 /* PlayActionUndoManager.swift */; };
 		B0532B1229BF769B003D4568 /* PlayAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0532B1129BF769B003D4568 /* PlayAction.swift */; };
+		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
+		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A475A129A516CE003485B1 /* OrderingTeamView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
 		B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* Team.swift */; };
@@ -36,6 +38,7 @@
 		B0CF124A29C8CEFD0061E9C3 /* ResultButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF124929C8CEFD0061E9C3 /* ResultButtonsView.swift */; };
 		B0CF125629CA867D0061E9C3 /* ResultTeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF125529CA867D0061E9C3 /* ResultTeamsView.swift */; };
 		B0CF125929CB60320061E9C3 /* ResultTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF125829CB60320061E9C3 /* ResultTeamView.swift */; };
+		B0DB1BA429D35B06004F09F7 /* DestinationHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DB1BA329D35B06004F09F7 /* DestinationHolderView.swift */; };
 		B0DE7F5B29AFA9EE00B30CC0 /* MolkkyPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F5A29AFA9EE00B30CC0 /* MolkkyPlayView.swift */; };
 		B0DE7F5D29AFAA0900B30CC0 /* MolkkyPlayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F5C29AFAA0900B30CC0 /* MolkkyPlayFeature.swift */; };
 		B0DE7F5F29B0F9A100B30CC0 /* SkittleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F5E29B0F9A100B30CC0 /* SkittleView.swift */; };
@@ -67,6 +70,8 @@
 		B04E13A8299D39920055CA7F /* TeamsMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeView.swift; sourceTree = "<group>"; };
 		B0532B0F29BF7215003D4568 /* PlayActionUndoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionUndoManager.swift; sourceTree = "<group>"; };
 		B0532B1129BF769B003D4568 /* PlayAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAction.swift; sourceTree = "<group>"; };
+		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
+		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B0A475A129A516CE003485B1 /* OrderingTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingTeamView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
 		B0AEE9D3299E96CD0026AA42 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 		B0CF124929C8CEFD0061E9C3 /* ResultButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultButtonsView.swift; sourceTree = "<group>"; };
 		B0CF125529CA867D0061E9C3 /* ResultTeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTeamsView.swift; sourceTree = "<group>"; };
 		B0CF125829CB60320061E9C3 /* ResultTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTeamView.swift; sourceTree = "<group>"; };
+		B0DB1BA329D35B06004F09F7 /* DestinationHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationHolderView.swift; sourceTree = "<group>"; };
 		B0DE7F5A29AFA9EE00B30CC0 /* MolkkyPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyPlayView.swift; sourceTree = "<group>"; };
 		B0DE7F5C29AFAA0900B30CC0 /* MolkkyPlayFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyPlayFeature.swift; sourceTree = "<group>"; };
 		B0DE7F5E29B0F9A100B30CC0 /* SkittleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkittleView.swift; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 		B04E13A2299BF12C0055CA7F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B08A671329D4A9F20073D63B /* Router */,
 				B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */,
 			);
 			path = Common;
@@ -260,6 +267,16 @@
 				B0532B0F29BF7215003D4568 /* PlayActionUndoManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		B08A671329D4A9F20073D63B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B0DB1BA329D35B06004F09F7 /* DestinationHolderView.swift */,
+				B08A671429D4AA160073D63B /* DestinationType.swift */,
+				B08A671629D4B2400073D63B /* PageRouter.swift */,
+			);
+			name = Router;
 			sourceTree = "<group>";
 		};
 		B0A475A329A51AED003485B1 /* Views */ = {
@@ -404,6 +421,7 @@
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
 				B0CF124829C766160061E9C3 /* ResultFeature.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
+				B08A671529D4AA160073D63B /* DestinationType.swift in Sources */,
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B038DE3129B8EC4C0030276E /* TeamScoresRowsView.swift in Sources */,
@@ -415,10 +433,12 @@
 				B0DE7F5D29AFAA0900B30CC0 /* MolkkyPlayFeature.swift in Sources */,
 				B0DE7F6729B37EEC00B30CC0 /* TeamScoresTitleView.swift in Sources */,
 				B0532B1029BF7215003D4568 /* PlayActionUndoManager.swift in Sources */,
+				B0DB1BA429D35B06004F09F7 /* DestinationHolderView.swift in Sources */,
 				B0AEE9D6299E974F0026AA42 /* TeamMember.swift in Sources */,
 				B038DE3629BA38990030276E /* TeamsMock.swift in Sources */,
 				B04E13972999155C0055CA7F /* HomeTabView.swift in Sources */,
 				B0DE7F6129B0FBC500B30CC0 /* SkittlesView.swift in Sources */,
+				B08A671729D4B2400073D63B /* PageRouter.swift in Sources */,
 				B04E139E299917FD0055CA7F /* StartMenuView.swift in Sources */,
 				B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */,
 			);

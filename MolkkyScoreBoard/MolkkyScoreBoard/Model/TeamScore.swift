@@ -8,7 +8,7 @@
 import Foundation
 
 /// チームスコア
-struct TeamScore: Identifiable, Equatable {
+struct TeamScore: Identifiable, Hashable, Equatable {
     /// ID
     let id = UUID()
     /// 第何セットか

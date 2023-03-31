@@ -15,6 +15,9 @@ struct TeamsMakeView: View {
     /// Store
     let store: StoreOf<TeamsMakeFeature>
 
+    /// Router
+    @ObservedObject var router: PageRouter
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
@@ -45,25 +48,18 @@ struct TeamsMakeView: View {
                 
                 Divider().background(Color.black)
 
-                NavigationLink(destination:
-                                TeamsOrderEditView(store: store(teams: viewStore.state.teams)),
-                               label: {
-                    Text("決定")
-                }).padding(.vertical, 5)
+                Button("決定") {
+                    viewStore.send(.didTapDecisionButton)
+                    router.path.append(DestinationType.teamOrderEdit(teams: viewStore.state.teams))
+                }
+                .font(Font.system(size: 20))
+                .foregroundColor(.white)
+                .padding(.vertical, 12)
+                .padding(.horizontal, 24)
+                .background(Color.orange)
+                .cornerRadius(4)
             }
         }
-    }
-}
-
-// MARK: Private Methods
-private extension TeamsMakeView {
-    /// Storeを取得
-    /// - Parameter teams: チーム情報
-    /// - Returns: StoreOf<TeamsOrderEditFeature>
-    func store(teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
-        let initialState = TeamsOrderEditFeature.State(teams: teams)
-        return Store(initialState: initialState,
-                     reducer: TeamsOrderEditFeature())
     }
 }
 
@@ -73,6 +69,6 @@ struct TeamMakeView_Previews: PreviewProvider {
         let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
                           reducer: TeamsMakeFeature())
 
-        TeamsMakeView(store: store)
+        TeamsMakeView(store: store, router: PageRouter())
     }
 }

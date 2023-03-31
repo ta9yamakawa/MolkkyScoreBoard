@@ -20,7 +20,10 @@ struct StartMenuView: View {
     private static let gridItem = GridItem(.flexible(minimum: 140, maximum: 180))
 
     /// Columns
-    private var columns = Array(repeating: gridItem, count: 2)
+    private let columns = Array(repeating: gridItem, count: 2)
+
+    /// Router
+    @ObservedObject var router: PageRouter
 
     var body: some View {
         VStack(spacing: 30) {
@@ -32,7 +35,8 @@ struct StartMenuView: View {
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach((minTeamCount...maxTeamCount),
                         id: \.self) { teamCount in
-                    TeamSelectButtonView(teamCount: teamCount)
+                    TeamSelectButtonView(teamCount: teamCount,
+                                         router: router)
                 }
             }
 
@@ -49,7 +53,7 @@ struct StartMenuView_Previews: PreviewProvider {
                  "iPad Pro (12.9-inch) (6th generation)",
                  "iPhone 14"],
                 id: \.self) { deviceName in
-            StartMenuView()
+            StartMenuView(router: PageRouter())
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

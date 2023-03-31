@@ -11,17 +11,17 @@ import ComposableArchitecture
 /// モルックプレイ画面
 struct MolkkyPlayView: View {
 
-    /// Dismiss
-    @Environment(\.dismiss) private var dismiss
-
     /// Store
     let store: StoreOf<MolkkyPlayFeature>
+
+    /// Router
+    @ObservedObject var router: PageRouter
 
     var body: some View {
         VStack(spacing: 20) {
             HStack {
                 Button(action: {
-                    dismiss()
+                    router.path.removeAll()
                 }, label: {
                     Image(systemName: "xmark")
                 })
@@ -33,7 +33,8 @@ struct MolkkyPlayView: View {
                 SkittlesView(viewStore: viewStore)
                     .padding(.bottom, 10)
 
-                PlayingButtonsView(viewStore: viewStore)
+                PlayingButtonsView(viewStore: viewStore,
+                                   router: router)
 
                 TeamScoresView(viewStore: viewStore)
             }
@@ -46,6 +47,7 @@ struct MolkkyPlayView_Previews: PreviewProvider {
     static var previews: some View {
         let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         MolkkyPlayView(store: Store(initialState: state,
-                                    reducer: MolkkyPlayFeature()))
+                                    reducer: MolkkyPlayFeature()),
+                       router: PageRouter())
     }
 }
