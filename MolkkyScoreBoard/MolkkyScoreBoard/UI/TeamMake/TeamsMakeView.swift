@@ -32,9 +32,13 @@ struct TeamsMakeView: View {
 
                             ForEach(team.members.indexed(), id: \.index) { memberIndex, member in
                                 TextField("メンバー名を入力",
-                                          text: viewStore.binding(get: { _ in  member.name }, send: { .didChangedTextField(team: teamIndex, member: memberIndex, text: $0) }))
+                                          text: viewStore.binding(get: { _ in member.name },
+                                                                  send: { .didChangedTextField(team: teamIndex,
+                                                                                               member: memberIndex,
+                                                                                               text: $0) }))
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .autocapitalization(.none)
+                                .background(Color.orange)
                                 .padding(.horizontal)
                                 .padding(.vertical, 5)
                             }
@@ -68,6 +72,7 @@ struct TeamsMakeView: View {
     }
 }
 
+// MARK: Private Methods
 private extension TeamsMakeView {
     func shouldShowValidationError(from datas: [InvalidTeamIndex],
                                    index: Int) -> Bool {
