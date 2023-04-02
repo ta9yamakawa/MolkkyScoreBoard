@@ -66,7 +66,10 @@ struct TeamsMakeFeature: ReducerProtocol {
             return .none
 
         case .didTapTeamRemoveButton(team: let teamIndex):
+            let membersLastIndex = state.teams[teamIndex].members.count - 1
             state.teams[teamIndex].members.removeLast()
+
+            removeValidationIfNeeded(from: teamIndex, memberIndex: membersLastIndex, with: &state)
             return .none
 
         case .didTapDecisionButton:
@@ -93,14 +96,25 @@ private extension TeamsMakeFeature {
         switch validator.validate() {
         case .success:
             state.invalidIndex.removeAll(where: { ($0.team == teamIndex) && ($0.member == memberIndex) })
-            print("debug: success")
 
         case .maxLimitLength(let count):
             let index = InvalidTeamIndex(team: teamIndex,
                                          member: memberIndex,
                                          errorType: .maxLimitLength(count))
             state.invalidIndex.append(index)
-            print("debug: \(count)")
         }
+    }
+
+    /// バリデーションが必要な時に削除する
+    /// - Parameters:
+    ///   - teamIndex: チームIndex
+    ///   - memberIndex: メンバーインデックス
+    ///   - state: State
+    func removeValidationIfNeeded(from teamIndex: Int,
+                                  memberIndex: Int,
+                                  with state: inout State) {
+        state.invalidIndex.removeAll(where: {
+            ($0.team == teamIndex) && ($0.member == memberIndex)
+        })
     }
 }
