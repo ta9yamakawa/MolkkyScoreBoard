@@ -10,6 +10,17 @@ enum NameValidationResult: ValidationResult, Equatable {
     case success
     /// 文字数上限に達した
     case maxLimitLength(Int)
+
+    /// メッセージ
+    var message: String {
+        switch self {
+        case .success:
+            return ""
+
+        case .maxLimitLength(let count):
+            return "\(count)文字以内で入力してください"
+        }
+    }
 }
 
 /// 名前に関するバリデーション

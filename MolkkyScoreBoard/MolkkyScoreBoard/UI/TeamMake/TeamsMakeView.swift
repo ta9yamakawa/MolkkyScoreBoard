@@ -51,7 +51,8 @@ struct TeamsMakeView: View {
 
                             if shouldShowValidationError(from: viewStore.state.invalidIndex,
                                                          index: teamIndex) {
-                                Text("失敗している")
+                                let invalid = viewStore.state.invalidIndex
+                                Text(invalid[0].errorType?.message ?? "失敗している")
                             }
 
                             TeamMemberCountEditButtonsView(store: store,
