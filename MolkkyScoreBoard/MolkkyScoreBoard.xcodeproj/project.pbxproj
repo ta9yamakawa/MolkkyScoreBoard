@@ -28,6 +28,7 @@
 		B0532B1029BF7215003D4568 /* PlayActionUndoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0532B0F29BF7215003D4568 /* PlayActionUndoManager.swift */; };
 		B0532B1229BF769B003D4568 /* PlayAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0532B1129BF769B003D4568 /* PlayAction.swift */; };
 		B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DCFE29D7698C009AE6A2 /* InvalidTeamIndex.swift */; };
+		B064DD0129D9D549009AE6A2 /* TeamMembersMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */; };
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
@@ -74,6 +75,7 @@
 		B0532B0F29BF7215003D4568 /* PlayActionUndoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionUndoManager.swift; sourceTree = "<group>"; };
 		B0532B1129BF769B003D4568 /* PlayAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAction.swift; sourceTree = "<group>"; };
 		B064DCFE29D7698C009AE6A2 /* InvalidTeamIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidTeamIndex.swift; sourceTree = "<group>"; };
+		B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersMakeView.swift; sourceTree = "<group>"; };
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */,
 				B04E13A8299D39920055CA7F /* TeamsMakeView.swift */,
+				B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				B0CF125629CA867D0061E9C3 /* ResultTeamsView.swift in Sources */,
 				B02ED78929A510B10037B9DF /* TeamsOrderEditFeature.swift in Sources */,
 				B0CF125929CB60320061E9C3 /* ResultTeamView.swift in Sources */,
+				B064DD0129D9D549009AE6A2 /* TeamMembersMakeView.swift in Sources */,
 				B0DE7F6529B102E200B30CC0 /* TeamScoresView.swift in Sources */,
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
 				B0DE7F5B29AFA9EE00B30CC0 /* MolkkyPlayView.swift in Sources */,
