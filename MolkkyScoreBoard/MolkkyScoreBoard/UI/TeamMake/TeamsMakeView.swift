@@ -36,9 +36,15 @@ struct TeamsMakeView: View {
                                                                   send: { .didChangedTextField(team: teamIndex,
                                                                                                member: memberIndex,
                                                                                                text: $0) }))
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .autocapitalization(.none)
-                                .background(Color.orange)
+                                .padding(5)
+                                .background(textFieldBackgroundColor(from: viewStore.state.invalidIndex,
+                                                                     teamIndex: teamIndex,
+                                                                     memberIndex: memberIndex))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 1)
+                                        .stroke(Color.gray, lineWidth: 0.5)
+                                )
                                 .padding(.horizontal)
                                 .padding(.vertical, 5)
                             }
@@ -74,6 +80,11 @@ struct TeamsMakeView: View {
 
 // MARK: Private Methods
 private extension TeamsMakeView {
+    /// バリデーションエラーを表示すべきか判定する
+    /// - Parameters:
+    ///   - datas: バリデーションエラーの情報
+    ///   - index: チームIndex
+    /// - Returns: true: 表示する / false: 表示しない
     func shouldShowValidationError(from datas: [InvalidTeamIndex],
                                    index: Int) -> Bool {
         guard !datas.isEmpty else {
@@ -81,6 +92,24 @@ private extension TeamsMakeView {
         }
 
         return datas.first(where: { $0.team == index }) != nil
+    }
+
+    /// フォームの背景色を設定する
+    /// - Parameters:
+    ///   - datas: バリデーションエラーの情報
+    ///   - teamIndex: チームIndex
+    ///   - memberIndex: メンバーIndex
+    /// - Returns: エラーが起きている場合は赤色、それ以外は透明
+    func textFieldBackgroundColor(from datas: [InvalidTeamIndex],
+                                  teamIndex: Int,
+                                  memberIndex: Int) -> Color {
+        guard
+            shouldShowValidationError(from: datas, index: teamIndex),
+            datas.first(where: { $0.member == memberIndex }) != nil else {
+            return .clear
+        }
+
+        return .red
     }
 }
 
