@@ -18,6 +18,9 @@ struct TeamsMakeFeature: ReducerProtocol {
         /// バリデーションが通っていないチームの情報
         var invalidIndex: [InvalidTeamIndex] = []
 
+        /// 決定を押して次に行けるかを判定するフラグ
+        var enableGoNext = true
+
         /// Initialize
         /// - Parameter teamCount: チーム数
         init(teamCount: Int) {
@@ -58,6 +61,7 @@ struct TeamsMakeFeature: ReducerProtocol {
             state.teams[teamIndex].members[memberIndex].name = text
 
             validation(to: text, teamIndex: teamIndex, memberIndex: memberIndex, with: &state)
+            updateEnableGoNext(with: &state)
             return .none
 
         case .didTapTeamAddButton(team: let teamIndex):
@@ -103,6 +107,12 @@ private extension TeamsMakeFeature {
                                          errorType: .maxLimitLength(count))
             state.invalidIndex.append(index)
         }
+    }
+
+    /// 決定を押して次画面に行けるかのフラグを更新する
+    /// - Parameter state: State
+    func updateEnableGoNext(with state: inout State) {
+        state.enableGoNext = state.invalidIndex.isEmpty
     }
 
     /// バリデーションが必要な時に削除する

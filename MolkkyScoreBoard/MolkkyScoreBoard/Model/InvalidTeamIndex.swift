@@ -13,5 +13,6 @@ struct InvalidTeamIndex: Equatable {
     /// チームのメンバー
     let member: Int
 
+    /// バリデーションエラーの種類
     let errorType: NameValidationResult?
 }
