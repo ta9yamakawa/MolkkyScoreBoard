@@ -62,24 +62,6 @@ private extension TeamMembersMakeView {
 
         return datas.first(where: { $0.team == index }) != nil
     }
-
-    /// フォームの背景色を設定する
-    /// - Parameters:
-    ///   - datas: バリデーションエラーの情報
-    ///   - teamIndex: チームIndex
-    ///   - memberIndex: メンバーIndex
-    /// - Returns: エラーが起きている場合は赤色、それ以外は透明
-    func textFieldBackgroundColor(from datas: [InvalidTeamIndex],
-                                  teamIndex: Int,
-                                  memberIndex: Int) -> Color {
-        guard
-            shouldShowValidationError(from: datas, index: teamIndex),
-            datas.first(where: { $0.member == memberIndex }) != nil else {
-            return .clear
-        }
-
-        return .red
-    }
 }
 
 // MARK: Previews

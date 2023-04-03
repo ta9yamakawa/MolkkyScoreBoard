@@ -24,16 +24,25 @@ enum NameValidationResult: ValidationResult, Equatable {
 }
 
 /// 名前に関するバリデーション
-struct NameValidator: Validator {
+final class NameValidator: Validator {
 
     /// 名前
     let name: String
 
+    /// 最大文字列
+    private static let maxCharacterCount: Int = 8
+
+    /// Initialize
+    /// - Parameter name: 名前
+    init(name: String) {
+        self.name = name
+    }
+
     /// 検証を実施
     /// - Returns: NameValidationResult
     func validate() -> NameValidationResult {
-        guard name.count < 10 else {
-            return .maxLimitLength(10)
+        guard name.count < type(of: self).maxCharacterCount else {
+            return .maxLimitLength(type(of: self).maxCharacterCount)
         }
 
         return .success
