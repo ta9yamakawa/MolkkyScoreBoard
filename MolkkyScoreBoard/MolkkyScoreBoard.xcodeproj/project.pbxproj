@@ -30,6 +30,7 @@
 		B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DCFE29D7698C009AE6A2 /* InvalidTeamIndex.swift */; };
 		B064DD0129D9D549009AE6A2 /* TeamMembersMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */; };
 		B064DD0329D9D99E009AE6A2 /* NameFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */; };
+		B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */; };
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
@@ -78,6 +79,7 @@
 		B064DCFE29D7698C009AE6A2 /* InvalidTeamIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidTeamIndex.swift; sourceTree = "<group>"; };
 		B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersMakeView.swift; sourceTree = "<group>"; };
 		B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFormsView.swift; sourceTree = "<group>"; };
+		B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidationResult.swift; sourceTree = "<group>"; };
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		B08A671829D75F6A0073D63B /* Validators */ = {
 			isa = PBXGroup;
 			children = (
+				B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */,
 				B08A671D29D760A70073D63B /* NameValidator.swift */,
 				B08A672129D764AA0073D63B /* Protocols */,
 			);
@@ -460,6 +463,7 @@
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B038DE3129B8EC4C0030276E /* TeamScoresRowsView.swift in Sources */,
+				B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */,
 				B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */,
 				B0532B1229BF769B003D4568 /* PlayAction.swift in Sources */,
 				B038DE3829BC84A50030276E /* TeamScore.swift in Sources */,
