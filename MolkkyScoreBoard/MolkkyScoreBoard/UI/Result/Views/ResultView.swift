@@ -25,6 +25,7 @@ struct ResultView: View {
                     .padding()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
