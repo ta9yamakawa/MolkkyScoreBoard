@@ -13,8 +13,9 @@ struct TeamMemberCountEditButtonsView: View {
 
     // MARK: Constants
 
-    /// Team Make Feature
-    let store: StoreOf<TeamsMakeFeature>
+    /// View Store
+    let viewStore: ViewStore<TeamsMakeFeature.State,
+                             TeamsMakeFeature.Action>
 
     /// チーム
     let team: Team
@@ -31,36 +32,34 @@ struct TeamMemberCountEditButtonsView: View {
     // MARK: Body
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-            HStack(spacing: 10) {
-                Spacer()
+        HStack(spacing: 10) {
+            Spacer()
 
-                Button(action: {
-                    viewStore.send(.didTapTeamAddButton(team: teamIndex))
-                }, label: {
-                    Image(systemName: "plus.circle")
-                        .resizable()
-                        .foregroundColor(Color.blue)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
-                })
-                .buttonStyle(PlainButtonStyle())
-                .disabled(team.members.count >= type(of: self).maxTeamMemberCount)
+            Button(action: {
+                viewStore.send(.didTapTeamAddButton(team: teamIndex))
+            }, label: {
+                Image(systemName: "plus.circle")
+                    .resizable()
+                    .foregroundColor(Color.blue)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+            })
+            .buttonStyle(PlainButtonStyle())
+            .disabled(team.members.count >= type(of: self).maxTeamMemberCount)
 
-                Button(action: {
-                    viewStore.send(.didTapTeamRemoveButton(team: teamIndex))
-                }, label: {
-                    Image(systemName: "minus.circle")
-                        .resizable()
-                        .foregroundColor(Color.red)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
-                })
-                .buttonStyle(PlainButtonStyle())
-                .disabled(team.members.count <= type(of: self).minTeamMemberCount)
+            Button(action: {
+                viewStore.send(.didTapTeamRemoveButton(team: teamIndex))
+            }, label: {
+                Image(systemName: "minus.circle")
+                    .resizable()
+                    .foregroundColor(Color.red)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+            })
+            .buttonStyle(PlainButtonStyle())
+            .disabled(team.members.count <= type(of: self).minTeamMemberCount)
 
-                Spacer()
-            }
+            Spacer()
         }
     }
 }
@@ -68,11 +67,14 @@ struct TeamMemberCountEditButtonsView: View {
 // MARK: Previews
 struct TeamMemberCountEditButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
-                          reducer: TeamsMakeFeature())
+        let state = TeamsMakeFeature.State(teamCount: 2)
+        let viewStore = ViewStore(StoreOf<TeamsMakeFeature>(initialState: state,
+                                                            reducer: TeamsMakeFeature()))
         let team = Team(id: 0, members: [TeamMember(name: "", order: 0)],
                         score: [TeamScore(setNo: 1, score: 50)])
         
-        TeamMemberCountEditButtonsView(store: store, team: team, teamIndex: 1)
+        TeamMemberCountEditButtonsView(viewStore: viewStore,
+                                       team: team,
+                                       teamIndex: 1)
     }
 }

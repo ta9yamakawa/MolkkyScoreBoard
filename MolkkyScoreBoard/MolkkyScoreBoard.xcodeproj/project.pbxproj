@@ -27,8 +27,14 @@
 		B04E13A9299D39920055CA7F /* TeamsMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E13A8299D39920055CA7F /* TeamsMakeView.swift */; };
 		B0532B1029BF7215003D4568 /* PlayActionUndoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0532B0F29BF7215003D4568 /* PlayActionUndoManager.swift */; };
 		B0532B1229BF769B003D4568 /* PlayAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0532B1129BF769B003D4568 /* PlayAction.swift */; };
+		B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DCFE29D7698C009AE6A2 /* InvalidTeamIndex.swift */; };
+		B064DD0129D9D549009AE6A2 /* TeamMembersMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */; };
+		B064DD0329D9D99E009AE6A2 /* NameFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */; };
+		B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */; };
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
+		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
+		B08A671E29D760A70073D63B /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671D29D760A70073D63B /* NameValidator.swift */; };
 		B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A475A129A516CE003485B1 /* OrderingTeamView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
 		B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* Team.swift */; };
@@ -70,8 +76,14 @@
 		B04E13A8299D39920055CA7F /* TeamsMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeView.swift; sourceTree = "<group>"; };
 		B0532B0F29BF7215003D4568 /* PlayActionUndoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionUndoManager.swift; sourceTree = "<group>"; };
 		B0532B1129BF769B003D4568 /* PlayAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAction.swift; sourceTree = "<group>"; };
+		B064DCFE29D7698C009AE6A2 /* InvalidTeamIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidTeamIndex.swift; sourceTree = "<group>"; };
+		B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersMakeView.swift; sourceTree = "<group>"; };
+		B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFormsView.swift; sourceTree = "<group>"; };
+		B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidationResult.swift; sourceTree = "<group>"; };
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
+		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		B08A671D29D760A70073D63B /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
 		B0A475A129A516CE003485B1 /* OrderingTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingTeamView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
 		B0AEE9D3299E96CD0026AA42 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -108,11 +120,13 @@
 		B02ED78329A507A80037B9DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B064DCFE29D7698C009AE6A2 /* InvalidTeamIndex.swift */,
 				B0532B1129BF769B003D4568 /* PlayAction.swift */,
 				B0DE7F6929B38F7D00B30CC0 /* Skittle.swift */,
 				B0AEE9D3299E96CD0026AA42 /* Team.swift */,
 				B0AEE9D5299E974F0026AA42 /* TeamMember.swift */,
 				B038DE3729BC84A50030276E /* TeamScore.swift */,
+				B08A671829D75F6A0073D63B /* Validators */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,7 +143,9 @@
 		B02ED78729A5103F0037B9DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */,
 				B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */,
+				B064DD0029D9D549009AE6A2 /* TeamMembersMakeView.swift */,
 				B04E13A8299D39920055CA7F /* TeamsMakeView.swift */,
 			);
 			name = Views;
@@ -279,6 +295,24 @@
 			name = Router;
 			sourceTree = "<group>";
 		};
+		B08A671829D75F6A0073D63B /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */,
+				B08A671D29D760A70073D63B /* NameValidator.swift */,
+				B08A672129D764AA0073D63B /* Protocols */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		B08A672129D764AA0073D63B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B08A671929D75F810073D63B /* Validator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		B0A475A329A51AED003485B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,19 +446,24 @@
 				B0CF125629CA867D0061E9C3 /* ResultTeamsView.swift in Sources */,
 				B02ED78929A510B10037B9DF /* TeamsOrderEditFeature.swift in Sources */,
 				B0CF125929CB60320061E9C3 /* ResultTeamView.swift in Sources */,
+				B064DD0129D9D549009AE6A2 /* TeamMembersMakeView.swift in Sources */,
 				B0DE7F6529B102E200B30CC0 /* TeamScoresView.swift in Sources */,
 				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
 				B0DE7F5B29AFA9EE00B30CC0 /* MolkkyPlayView.swift in Sources */,
 				B0DE7F5F29B0F9A100B30CC0 /* SkittleView.swift in Sources */,
 				B0DE7F6A29B38F7D00B30CC0 /* Skittle.swift in Sources */,
+				B08A671E29D760A70073D63B /* NameValidator.swift in Sources */,
 				B0CF124A29C8CEFD0061E9C3 /* ResultButtonsView.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
+				B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */,
 				B0CF124829C766160061E9C3 /* ResultFeature.swift in Sources */,
+				B08A671A29D75F810073D63B /* Validator.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B08A671529D4AA160073D63B /* DestinationType.swift in Sources */,
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B038DE3129B8EC4C0030276E /* TeamScoresRowsView.swift in Sources */,
+				B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */,
 				B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */,
 				B0532B1229BF769B003D4568 /* PlayAction.swift in Sources */,
 				B038DE3829BC84A50030276E /* TeamScore.swift in Sources */,
@@ -432,6 +471,7 @@
 				B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */,
 				B0DE7F5D29AFAA0900B30CC0 /* MolkkyPlayFeature.swift in Sources */,
 				B0DE7F6729B37EEC00B30CC0 /* TeamScoresTitleView.swift in Sources */,
+				B064DD0329D9D99E009AE6A2 /* NameFormsView.swift in Sources */,
 				B0532B1029BF7215003D4568 /* PlayActionUndoManager.swift in Sources */,
 				B0DB1BA429D35B06004F09F7 /* DestinationHolderView.swift in Sources */,
 				B0AEE9D6299E974F0026AA42 /* TeamMember.swift in Sources */,
