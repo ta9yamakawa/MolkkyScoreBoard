@@ -50,7 +50,6 @@ struct DestinationHolderView<Content:View>: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .environmentObject(router)
-//        .accentColor(Color.white)
     }
 }
 
