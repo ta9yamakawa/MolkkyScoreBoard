@@ -9,8 +9,15 @@ import SwiftUI
 
 /// インフォメーション画面
 struct InformationView: View {
+
     var body: some View {
-        Text("Information")
+        List {
+            NavigationLink("Information", destination: {
+                Text("hoge")
+            })
+
+            Text("バージョン：\(AppVersion.currentVersion)")
+        }
     }
 }
 
