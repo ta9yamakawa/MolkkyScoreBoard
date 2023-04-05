@@ -39,6 +39,7 @@ struct MolkkyPlayView: View {
                 TeamScoresView(viewStore: viewStore)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
