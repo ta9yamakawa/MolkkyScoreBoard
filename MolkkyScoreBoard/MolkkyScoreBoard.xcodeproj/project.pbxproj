@@ -32,6 +32,9 @@
 		B064DD0329D9D99E009AE6A2 /* NameFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */; };
 		B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */; };
 		B064DD0C29DDE068009AE6A2 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0B29DDE068009AE6A2 /* AppVersion.swift */; };
+		B064DD0F29DDE966009AE6A2 /* AcknowList in Frameworks */ = {isa = PBXBuildFile; productRef = B064DD0E29DDE966009AE6A2 /* AcknowList */; };
+		B064DD1129DDEA2D009AE6A2 /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = B064DD1029DDEA2D009AE6A2 /* Package.resolved */; };
+		B076AFAD29DDEF43000E8C5A /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076AFAC29DDEF43000E8C5A /* LicenseView.swift */; };
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
@@ -82,6 +85,8 @@
 		B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFormsView.swift; sourceTree = "<group>"; };
 		B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidationResult.swift; sourceTree = "<group>"; };
 		B064DD0B29DDE068009AE6A2 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
+		B064DD1029DDEA2D009AE6A2 /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Package.resolved; path = MolkkyScoreBoard.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved; sourceTree = "<group>"; };
+		B076AFAC29DDEF43000E8C5A /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02ED78029A26DFA0037B9DF /* Algorithms in Frameworks */,
+				B064DD0F29DDE966009AE6A2 /* AcknowList in Frameworks */,
 				B04E1394299913E30055CA7F /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B04E138329990F710055CA7F /* MolkkyScoreBoard */,
+				B064DD1029DDEA2D009AE6A2 /* Package.resolved */,
 				B04E138229990F710055CA7F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -234,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				B04E139F299918120055CA7F /* InformationView.swift */,
+				B076AFAC29DDEF43000E8C5A /* LicenseView.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 			packageProductDependencies = (
 				B04E1393299913E30055CA7F /* ComposableArchitecture */,
 				B02ED77F29A26DFA0037B9DF /* Algorithms */,
+				B064DD0E29DDE966009AE6A2 /* AcknowList */,
 			);
 			productName = MolkkyScoreBoard;
 			productReference = B04E138129990F710055CA7F /* MolkkyScoreBoard.app */;
@@ -423,6 +432,7 @@
 			packageReferences = (
 				B04E1392299913E30055CA7F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				B02ED77E29A26DFA0037B9DF /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				B064DD0D29DDE966009AE6A2 /* XCRemoteSwiftPackageReference "AcknowList" */,
 			);
 			productRefGroup = B04E138229990F710055CA7F /* Products */;
 			projectDirPath = "";
@@ -439,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */,
+				B064DD1129DDEA2D009AE6A2 /* Package.resolved in Resources */,
 				B04E138929990F730055CA7F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +493,7 @@
 				B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */,
 				B0DE7F5D29AFAA0900B30CC0 /* MolkkyPlayFeature.swift in Sources */,
 				B0DE7F6729B37EEC00B30CC0 /* TeamScoresTitleView.swift in Sources */,
+				B076AFAD29DDEF43000E8C5A /* LicenseView.swift in Sources */,
 				B064DD0329D9D99E009AE6A2 /* NameFormsView.swift in Sources */,
 				B064DD0C29DDE068009AE6A2 /* AppVersion.swift in Sources */,
 				B0532B1029BF7215003D4568 /* PlayActionUndoManager.swift in Sources */,
@@ -713,6 +725,14 @@
 				version = 0.50.3;
 			};
 		};
+		B064DD0D29DDE966009AE6A2 /* XCRemoteSwiftPackageReference "AcknowList" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vtourraine/AcknowList";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -725,6 +745,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B04E1392299913E30055CA7F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		B064DD0E29DDE966009AE6A2 /* AcknowList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B064DD0D29DDE966009AE6A2 /* XCRemoteSwiftPackageReference "AcknowList" */;
+			productName = AcknowList;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

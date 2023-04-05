@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AcknowList
 
 /// インフォメーション画面
 struct InformationView: View {
@@ -16,7 +17,13 @@ struct InformationView: View {
                 Text("hoge")
             })
 
-            Text("バージョン：\(AppVersion.currentVersion)")
+            NavigationLink("Information", destination: {
+                LicenseView()
+            })
+
+            Section(content: {
+                Text("バージョン：\(AppVersion.currentVersion)")
+            })
         }
     }
 }
