@@ -12,13 +12,40 @@ struct InformationView: View {
 
     var body: some View {
         List {
-            NavigationLink("モルック公式ルール", destination: {
-                Text("hoge")
-            })
+            Section {
+                NavigationLink("モルック公式ルール", destination: {
+                    Text("hoge")
+                })
 
-            Section(content: {
+                // FIXME: 記事公開後にNavigationLinkにする
+                VStack(spacing: 3) {
+                    HStack {
+                        Text("アプリ製作秘話")
+                        Spacer()
+                    }
+                    HStack {
+                        Text("※次バージョンで公開予定👷‍♂️").font(Font.system(size: 12))
+                        Spacer()
+                    }
+                }
+
+                NavigationLink("開発者への連絡はこちら", destination: {
+                    Text("huga")
+                })
+
+                NavigationLink("Special Thanks", destination: {
+                    Text("huga")
+                })
+
+
+            }
+
+            Section {
+                NavigationLink("プライバシーポリシー", destination: {
+                    Text("hoge")
+                })
                 Text("バージョン：\(AppVersion.currentVersion)")
-            })
+            }
         }
     }
 }
