@@ -6,19 +6,14 @@
 //
 
 import SwiftUI
-import AcknowList
 
 /// インフォメーション画面
 struct InformationView: View {
 
     var body: some View {
         List {
-            NavigationLink("Information", destination: {
+            NavigationLink("モルック公式ルール", destination: {
                 Text("hoge")
-            })
-
-            NavigationLink("Information", destination: {
-                LicenseView()
             })
 
             Section(content: {
