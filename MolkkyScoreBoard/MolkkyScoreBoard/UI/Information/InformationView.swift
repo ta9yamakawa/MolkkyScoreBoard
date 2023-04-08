@@ -14,7 +14,7 @@ struct InformationView: View {
         List {
             Section {
                 NavigationLink("モルック公式ルール", destination: {
-                    Text("hoge")
+                    WrappedWebView(urlString: "https://molkky.jp/molkky/")
                 })
 
                 // FIXME: 記事公開後にNavigationLinkにする
