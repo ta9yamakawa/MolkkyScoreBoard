@@ -29,7 +29,7 @@ struct InformationView: View {
                     }
                 }
 
-                NavigationLink("開発者への連絡はこちら", destination: {
+                NavigationLink("開発者への連絡", destination: {
                     Text("huga")
                 })
 
@@ -42,7 +42,7 @@ struct InformationView: View {
 
             Section {
                 NavigationLink("プライバシーポリシー", destination: {
-                    Text("hoge")
+                    WrappedWebView(urlString: "https://ta9yamakawa.github.io/MolkkyPrivacyPolicy/PrivacyPolicy/ja")
                 })
                 Text("バージョン：\(AppVersion.currentVersion)")
             }
