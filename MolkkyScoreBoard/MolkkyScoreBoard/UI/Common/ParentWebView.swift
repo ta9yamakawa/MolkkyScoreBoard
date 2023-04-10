@@ -10,10 +10,10 @@ import SwiftUI
 /// WebViewの親View
 struct ParentWebView: View {
     /// URL
-    let url: String
+    private let url: String
 
     /// WebView
-    let webView: WrappedWebView
+    private let webView: WrappedWebView
 
     /// Initialize
     /// - Parameter url: URL文字列

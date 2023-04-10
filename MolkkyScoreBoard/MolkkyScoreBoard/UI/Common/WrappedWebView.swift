@@ -13,45 +13,8 @@ struct WrappedWebView: UIViewRepresentable {
     var webView = WKWebView()
     var urlString: String
 
-    /// Coordinator
-    class Coordinator: NSObject, WKUIDelegate, WKNavigationDelegate {
-        /// 親のWKWebView
-        var parent: WKWebView
-
-        /// Initiakize
-        /// - Parameter parent: WKWebView
-        init(_ parent: WKWebView) {
-            self.parent = parent
-        }
-
-        func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-            if navigationAction.targetFrame == nil {
-                webView.load(navigationAction.request)
-            }
-            return nil
-        }
-
-        // URLごとに処理を制御する
-        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
-            if let url = navigationAction.request.url?.absoluteString {
-                if (url.hasPrefix("https://apps.apple.com/")) {
-                    guard let appStoreLink = URL(string: url) else {
-                        return
-                    }
-                    UIApplication.shared.open(appStoreLink, options: [:], completionHandler: { (succes) in
-                    })
-                    decisionHandler(WKNavigationActionPolicy.cancel)
-                } else if (url.hasPrefix("http")) {
-                    decisionHandler(WKNavigationActionPolicy.allow)
-                } else {
-                    decisionHandler(WKNavigationActionPolicy.cancel)
-                }
-            }
-        }
-    }
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(webView)
+    func makeCoordinator() -> WebViewCoordinator {
+        return WebViewCoordinator()
     }
 
     func makeUIView(context: Context) -> WKWebView {
@@ -59,7 +22,6 @@ struct WrappedWebView: UIViewRepresentable {
     }
 
     func updateUIView(_ webView: WKWebView, context: Context) {
-        // makeCoordinatorで生成したCoordinatorクラスのインスタンスを指定
         webView.uiDelegate = context.coordinator
         webView.navigationDelegate = context.coordinator
 
