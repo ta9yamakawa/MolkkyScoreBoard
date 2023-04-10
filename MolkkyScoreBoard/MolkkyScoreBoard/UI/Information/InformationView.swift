@@ -14,7 +14,7 @@ struct InformationView: View {
         List {
             Section {
                 NavigationLink("モルック公式ルール", destination: {
-                    WrappedWebView(urlString: "https://molkky.jp/molkky/")
+                    ParentWebView(url: "https://molkky.jp/molkky/")
                 })
 
                 // FIXME: 記事公開後にNavigationLinkにする
@@ -36,13 +36,11 @@ struct InformationView: View {
                 NavigationLink("Special Thanks", destination: {
                     Text("huga")
                 })
-
-
             }
 
             Section {
                 NavigationLink("プライバシーポリシー", destination: {
-                    WrappedWebView(urlString: "https://ta9yamakawa.github.io/MolkkyPrivacyPolicy/PrivacyPolicy/ja")
+                    ParentWebView(url: "https://ta9yamakawa.github.io/MolkkyPrivacyPolicy/PrivacyPolicy/ja")
                 })
                 Text("バージョン：\(AppVersion.currentVersion)")
             }
