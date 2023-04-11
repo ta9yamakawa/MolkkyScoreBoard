@@ -10,37 +10,18 @@ import SwiftUI
 
 /// UIKitで使うWKWebViewのラッパーView
 struct WrappedWebView: UIViewRepresentable {
-    var webView = WKWebView()
-    var urlString: String
+    typealias UIViewType = WKWebView
 
-    func makeCoordinator() -> WebViewCoordinator {
-        return WebViewCoordinator()
-    }
+    let setWebViewHandler: (WKWebView) -> Void
 
     func makeUIView(context: Context) -> WKWebView {
+        let config = WKWebViewConfiguration()
+        config.allowsInlineMediaPlayback = true
+        let webView = WKWebView(frame: .zero, configuration: config)
+        webView.allowsBackForwardNavigationGestures = true
+        setWebViewHandler(webView)
         return webView
     }
 
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        webView.uiDelegate = context.coordinator
-        webView.navigationDelegate = context.coordinator
-
-        webView.allowsBackForwardNavigationGestures = true
-
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        let request = URLRequest(url: url)
-        webView.load(request)
-    }
-
-    /// 前のページに戻る
-    func goBack() {
-        webView.goBack()
-    }
-
-    /// 次のページに進む
-    func goForward() {
-        webView.goForward()
-    }
+    func updateUIView(_ webView: WKWebView, context: Context) {}
 }
