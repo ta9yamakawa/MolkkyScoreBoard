@@ -35,7 +35,7 @@ struct InformationView: View {
                 })
 
                 NavigationLink("Special Thanks", destination: {
-                    Text("huga")
+                    SpecialThanksView()
                 })
             }
 

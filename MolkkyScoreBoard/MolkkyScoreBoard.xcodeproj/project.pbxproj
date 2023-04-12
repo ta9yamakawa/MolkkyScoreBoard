@@ -39,6 +39,8 @@
 		B08AF48229E1654D00BDB776 /* WrappedWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48129E1654D00BDB776 /* WrappedWebView.swift */; };
 		B08AF48629E4826B00BDB776 /* ParentWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48529E4826B00BDB776 /* ParentWebView.swift */; };
 		B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48D29E5D43400BDB776 /* ParentWebViewModel.swift */; };
+		B08AF49029E7294A00BDB776 /* SpecialThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48F29E7294A00BDB776 /* SpecialThanksView.swift */; };
+		B08AF49429E72A3400BDB776 /* SpecialThanksRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF49329E72A3400BDB776 /* SpecialThanksRole.swift */; };
 		B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A475A129A516CE003485B1 /* OrderingTeamView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
 		B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* Team.swift */; };
@@ -93,6 +95,8 @@
 		B08AF48129E1654D00BDB776 /* WrappedWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedWebView.swift; sourceTree = "<group>"; };
 		B08AF48529E4826B00BDB776 /* ParentWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebView.swift; sourceTree = "<group>"; };
 		B08AF48D29E5D43400BDB776 /* ParentWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebViewModel.swift; sourceTree = "<group>"; };
+		B08AF48F29E7294A00BDB776 /* SpecialThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialThanksView.swift; sourceTree = "<group>"; };
+		B08AF49329E72A3400BDB776 /* SpecialThanksRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialThanksRole.swift; sourceTree = "<group>"; };
 		B0A475A129A516CE003485B1 /* OrderingTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingTeamView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
 		B0AEE9D3299E96CD0026AA42 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				B04E139F299918120055CA7F /* InformationView.swift */,
+				B08AF49329E72A3400BDB776 /* SpecialThanksRole.swift */,
+				B08AF48F29E7294A00BDB776 /* SpecialThanksView.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -532,6 +538,7 @@
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
 				B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */,
 				B0CF124829C766160061E9C3 /* ResultFeature.swift in Sources */,
+				B08AF49029E7294A00BDB776 /* SpecialThanksView.swift in Sources */,
 				B08A671A29D75F810073D63B /* Validator.swift in Sources */,
 				B08AF48229E1654D00BDB776 /* WrappedWebView.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
@@ -539,6 +546,7 @@
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */,
+				B08AF49429E72A3400BDB776 /* SpecialThanksRole.swift in Sources */,
 				B038DE3129B8EC4C0030276E /* TeamScoresRowsView.swift in Sources */,
 				B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */,
 				B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */,
