@@ -9,13 +9,22 @@ import Foundation
 import Combine
 import WebKit
 
+/// 親のWebView ViewModel
 final class ParentWebViewModel: ObservableObject {
+    /// 一つ前に戻れるかどうか
     @Published var canGoBack: Bool = false
+
+    /// 一つ先に進めるかどうか
     @Published var canGoForward: Bool = false
 
+    /// WebView
     private weak var webView: WKWebView?
+
+    /// Cancellables
     private var cancellables = Set<AnyCancellable>()
 
+    /// WebViewの準備
+    /// - Parameter webView: WKWebView
     func setWebView(_ webView: WKWebView) {
         self.webView = webView
 
@@ -34,6 +43,8 @@ final class ParentWebViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
+    /// 遷移直後の画面の読み込み
+    /// - Parameter url: URL文字列
     func initialLoad(to url: String) {
         guard let url = URL(string: url) else {
             return
@@ -41,19 +52,19 @@ final class ParentWebViewModel: ObservableObject {
         webView?.load(URLRequest(url: url))
     }
 
+    /// 一つ前に戻る
     func goBack() {
-        if canGoBack {
-            webView?.goBack()
+        guard canGoBack else {
+            return
         }
+        webView?.goBack()
     }
 
+    /// 一つ先に進む
     func goForward() {
-        if canGoForward {
-            webView?.goForward()
+        guard canGoForward else {
+            return
         }
-    }
-
-    func reload() {
-        webView?.reload()
+        webView?.goForward()
     }
 }

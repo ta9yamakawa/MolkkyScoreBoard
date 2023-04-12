@@ -38,7 +38,6 @@
 		B08A671E29D760A70073D63B /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671D29D760A70073D63B /* NameValidator.swift */; };
 		B08AF48229E1654D00BDB776 /* WrappedWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48129E1654D00BDB776 /* WrappedWebView.swift */; };
 		B08AF48629E4826B00BDB776 /* ParentWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48529E4826B00BDB776 /* ParentWebView.swift */; };
-		B08AF48829E485B300BDB776 /* WebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48729E485B300BDB776 /* WebViewCoordinator.swift */; };
 		B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48D29E5D43400BDB776 /* ParentWebViewModel.swift */; };
 		B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A475A129A516CE003485B1 /* OrderingTeamView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
@@ -93,7 +92,6 @@
 		B08A671D29D760A70073D63B /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
 		B08AF48129E1654D00BDB776 /* WrappedWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedWebView.swift; sourceTree = "<group>"; };
 		B08AF48529E4826B00BDB776 /* ParentWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebView.swift; sourceTree = "<group>"; };
-		B08AF48729E485B300BDB776 /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
 		B08AF48D29E5D43400BDB776 /* ParentWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebViewModel.swift; sourceTree = "<group>"; };
 		B0A475A129A516CE003485B1 /* OrderingTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingTeamView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
@@ -341,7 +339,6 @@
 			children = (
 				B08AF48529E4826B00BDB776 /* ParentWebView.swift */,
 				B08AF48D29E5D43400BDB776 /* ParentWebViewModel.swift */,
-				B08AF48729E485B300BDB776 /* WebViewCoordinator.swift */,
 				B08AF48129E1654D00BDB776 /* WrappedWebView.swift */,
 			);
 			name = WebView;
@@ -521,7 +518,6 @@
 				B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */,
 				B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */,
 				B038DE3329B8F1F70030276E /* TeamScoresRowView.swift in Sources */,
-				B08AF48829E485B300BDB776 /* WebViewCoordinator.swift in Sources */,
 				B0CF125629CA867D0061E9C3 /* ResultTeamsView.swift in Sources */,
 				B02ED78929A510B10037B9DF /* TeamsOrderEditFeature.swift in Sources */,
 				B0CF125929CB60320061E9C3 /* ResultTeamView.swift in Sources */,
