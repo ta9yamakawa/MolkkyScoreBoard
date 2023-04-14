@@ -42,6 +42,8 @@
 		B08AF49029E7294A00BDB776 /* SpecialThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48F29E7294A00BDB776 /* SpecialThanksView.swift */; };
 		B08AF49429E72A3400BDB776 /* SpecialThanksRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF49329E72A3400BDB776 /* SpecialThanksRole.swift */; };
 		B08AF49629E996D100BDB776 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08AF49529E996D100BDB776 /* Color.xcassets */; };
+		B08AF49829E99D2400BDB776 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF49729E99D2400BDB776 /* AppColor.swift */; };
+		B08AF49A29E9A0CF00BDB776 /* TabViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */; };
 		B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A475A129A516CE003485B1 /* OrderingTeamView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
 		B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* Team.swift */; };
@@ -99,6 +101,8 @@
 		B08AF48F29E7294A00BDB776 /* SpecialThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialThanksView.swift; sourceTree = "<group>"; };
 		B08AF49329E72A3400BDB776 /* SpecialThanksRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialThanksRole.swift; sourceTree = "<group>"; };
 		B08AF49529E996D100BDB776 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		B08AF49729E99D2400BDB776 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewAppearance.swift; sourceTree = "<group>"; };
 		B0A475A129A516CE003485B1 /* OrderingTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingTeamView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
 		B0AEE9D3299E96CD0026AA42 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 				B08AF48029E1653D00BDB776 /* WebView */,
 				B08A671329D4A9F20073D63B /* Router */,
 				B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */,
+				B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 		B064DD0A29DDE00F009AE6A2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B08AF49729E99D2400BDB776 /* AppColor.swift */,
 				B064DD0B29DDE068009AE6A2 /* AppVersion.swift */,
 			);
 			path = Utils;
@@ -540,6 +546,7 @@
 				B08A671E29D760A70073D63B /* NameValidator.swift in Sources */,
 				B0CF124A29C8CEFD0061E9C3 /* ResultButtonsView.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
+				B08AF49A29E9A0CF00BDB776 /* TabViewAppearance.swift in Sources */,
 				B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */,
 				B0CF124829C766160061E9C3 /* ResultFeature.swift in Sources */,
 				B08AF49029E7294A00BDB776 /* SpecialThanksView.swift in Sources */,
@@ -547,6 +554,7 @@
 				B08AF48229E1654D00BDB776 /* WrappedWebView.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B08A671529D4AA160073D63B /* DestinationType.swift in Sources */,
+				B08AF49829E99D2400BDB776 /* AppColor.swift in Sources */,
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */,

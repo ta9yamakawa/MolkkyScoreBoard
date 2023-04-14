@@ -26,7 +26,7 @@ struct HomeTabView: View {
     /// Initialize
     init() {
         NavigationViewAppearance.configure()
-        UITabBar.appearance().backgroundColor = .systemGray6
+        TabViewAppearance.configure()
     }
 
     var body: some View {
