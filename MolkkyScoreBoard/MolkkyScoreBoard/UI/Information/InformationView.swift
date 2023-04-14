@@ -9,8 +9,40 @@ import SwiftUI
 
 /// インフォメーション画面
 struct InformationView: View {
+
     var body: some View {
-        Text("Information")
+        List {
+            Section {
+                NavigationLink("モルック公式ルール", destination: {
+                    ParentWebView(url: "https://molkky.jp/molkky/",
+                                  viewModel: ParentWebViewModel())
+                })
+
+                // FIXME: 記事公開後にNavigationLinkにする
+                VStack(spacing: 3) {
+                    HStack {
+                        Text("アプリ製作秘話")
+                        Spacer()
+                    }
+                    HStack {
+                        Text("※次バージョンで公開予定👷‍♂️").font(Font.system(size: 12))
+                        Spacer()
+                    }
+                }
+
+                NavigationLink("Special Thanks", destination: {
+                    SpecialThanksView()
+                })
+            }
+
+            Section {
+                NavigationLink("プライバシーポリシー", destination: {
+                    ParentWebView(url: "https://ta9yamakawa.github.io/MolkkyPrivacyPolicy/PrivacyPolicy/ja",
+                                  viewModel: ParentWebViewModel())
+                })
+                Text("バージョン：\(AppVersion.currentVersion)")
+            }
+        }
     }
 }
 
