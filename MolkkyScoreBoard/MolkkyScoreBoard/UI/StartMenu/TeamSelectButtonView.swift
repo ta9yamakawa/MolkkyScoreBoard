@@ -24,7 +24,7 @@ struct TeamSelectButtonView: View {
         .foregroundColor(.white)
         .frame(width: 140)
         .padding(.vertical, 12)
-        .background(Color.orange)
+        .background(AppColor.main.color)
         .cornerRadius(4)
     }
 }

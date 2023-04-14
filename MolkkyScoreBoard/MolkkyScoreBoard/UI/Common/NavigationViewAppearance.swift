@@ -18,7 +18,7 @@ final class NavigationViewAppearance {
                                                                            renderingMode: .alwaysOriginal)
         appearance.configureWithOpaqueBackground()
         appearance.setBackIndicatorImage(image, transitionMaskImage: image)
-        appearance.backgroundColor = AppColor.base.uiColor
+        appearance.backgroundColor = AppColor.main.uiColor
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black,
                                           .font : UIFont.boldSystemFont(ofSize: 20)]
 

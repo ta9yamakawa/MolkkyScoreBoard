@@ -287,10 +287,10 @@
 		B04E13A2299BF12C0055CA7F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B08AF48029E1653D00BDB776 /* WebView */,
-				B08A671329D4A9F20073D63B /* Router */,
 				B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */,
+				B08A671329D4A9F20073D63B /* Router */,
 				B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */,
+				B08AF48029E1653D00BDB776 /* WebView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
