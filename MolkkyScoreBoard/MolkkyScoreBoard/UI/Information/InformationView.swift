@@ -30,10 +30,6 @@ struct InformationView: View {
                     }
                 }
 
-                NavigationLink("開発者への連絡", destination: {
-                    Text("huga")
-                })
-
                 NavigationLink("Special Thanks", destination: {
                     SpecialThanksView()
                 })

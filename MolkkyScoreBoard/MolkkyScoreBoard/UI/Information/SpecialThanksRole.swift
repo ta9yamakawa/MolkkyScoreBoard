@@ -9,8 +9,8 @@
 enum SpecialThanksRole: String, CaseIterable {
     /// デザイナー
     case designer = "デザイナー"
-    /// レビュアー
-    case reviewer = "レビュアー"
+    /// アプリアイコン原案
+    case appIconDraft = "アプリアイコン原案"
     /// その他サポーター
     case supporter = "サポーター"
 
@@ -19,7 +19,7 @@ enum SpecialThanksRole: String, CaseIterable {
         switch self {
         case .designer:
             return ["hoge"]
-        case .reviewer:
+        case .appIconDraft:
             return ["xxx", "yyy", "zzz"]
         case .supporter:
             return ["abc"]
