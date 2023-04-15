@@ -13,7 +13,10 @@ struct TeamsOrderEditFeature: ReducerProtocol {
 
     /// State
     struct State: Equatable {
+        /// 全チーム情報
         var teams: [Team]
+        /// Router
+        var router: PageRouter
     }
 
     /// Action
@@ -50,6 +53,8 @@ struct TeamsOrderEditFeature: ReducerProtocol {
             for index in 0..<teamCount {
                 state.teams[index].score.append(newScore)
             }
+
+            state.router.path.append(.play(teams: state.teams))
             return .none
         }
     }

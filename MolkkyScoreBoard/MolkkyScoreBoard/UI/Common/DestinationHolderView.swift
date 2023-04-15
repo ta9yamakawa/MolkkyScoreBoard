@@ -35,7 +35,7 @@ struct DestinationHolderView<Content:View>: View {
                         .navigationTitle(destination.navigationTitle)
 
                 case .teamOrderEdit(let teams):
-                    TeamsOrderEditView(store: orderEditStore(with: teams), router: router)
+                    TeamsOrderEditView(store: orderEditStore(with: teams, router: router))
                         .navigationTitle(destination.navigationTitle)
 
                 case .play(let teams):
@@ -69,8 +69,8 @@ private extension DestinationHolderView {
     /// 順番入れ替え画面のStoreを取得
     /// - Parameter teams: チーム情報
     /// - Returns: StoreOf<TeamsOrderEditFeature>
-    func orderEditStore(with teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
-        let initialState = TeamsOrderEditFeature.State(teams: teams)
+    func orderEditStore(with teams: [Team], router: PageRouter) -> StoreOf<TeamsOrderEditFeature> {
+        let initialState = TeamsOrderEditFeature.State(teams: teams, router: router)
         return Store(initialState: initialState,
                      reducer: TeamsOrderEditFeature())
     }
