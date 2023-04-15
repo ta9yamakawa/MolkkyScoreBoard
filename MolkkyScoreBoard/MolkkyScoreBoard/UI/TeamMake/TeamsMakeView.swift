@@ -39,8 +39,7 @@ struct TeamsMakeView: View {
 // MARK: Previews
 struct TeamMakeView_Previews: PreviewProvider {
     static var previews: some View {
-        let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2,
-                                                               router: PageRouter()),
+        let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
                           reducer: TeamsMakeFeature())
 
         TeamsMakeView(store: store)

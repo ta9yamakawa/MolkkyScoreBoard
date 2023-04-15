@@ -70,8 +70,7 @@ private extension TeamsOrderEditView {
 // MARK: Previews
 struct TeamsOrderEditView_Previews: PreviewProvider {
     static var previews: some View {
-        let state = TeamsOrderEditFeature.State(teams: TeamsMock().data,
-                                                router: PageRouter())
+        let state = TeamsOrderEditFeature.State(teams: TeamsMock().data)
         let store = Store(initialState: state,
                           reducer: TeamsOrderEditFeature())
         TeamsOrderEditView(store: store)

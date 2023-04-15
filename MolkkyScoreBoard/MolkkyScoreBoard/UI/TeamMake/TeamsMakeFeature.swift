@@ -21,14 +21,9 @@ struct TeamsMakeFeature: ReducerProtocol {
         /// 決定を押して次に行けるかを判定するフラグ
         var enableGoNext = true
 
-        /// Router
-        let router: PageRouter
-
         /// Initialize
-        /// - Parameters:
-        ///   - teamCount: チーム数
-        ///   - router: Router
-        init(teamCount: Int, router: PageRouter) {
+        /// - Parameter teamCount: チーム数
+        init(teamCount: Int) {
             var initialTeams: [Team] = []
 
             for index in 0..<teamCount {
@@ -40,7 +35,6 @@ struct TeamsMakeFeature: ReducerProtocol {
             }
 
             self.teams = initialTeams
-            self.router = router
         }
     }
 
@@ -83,7 +77,7 @@ struct TeamsMakeFeature: ReducerProtocol {
             return .none
 
         case .didTapDecisionButton:
-            state.router.path.append(.teamOrderEdit(teams: state.teams))
+            PageRouter.shared.path.append(.teamOrderEdit(teams: state.teams))
             return .none
         }
     }

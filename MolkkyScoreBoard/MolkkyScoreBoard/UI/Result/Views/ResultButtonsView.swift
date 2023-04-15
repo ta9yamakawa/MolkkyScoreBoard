@@ -60,6 +60,6 @@ struct ResultButtonsView_Previews: PreviewProvider {
         let state = ResultFeature.State(teams: TeamsMock().data)
         let viewStore = ViewStore(StoreOf<ResultFeature>(initialState: state,
                                                          reducer: ResultFeature()))
-        ResultButtonsView(viewStore: viewStore, router: PageRouter())
+        ResultButtonsView(viewStore: viewStore, router: PageRouter.shared)
     }
 }

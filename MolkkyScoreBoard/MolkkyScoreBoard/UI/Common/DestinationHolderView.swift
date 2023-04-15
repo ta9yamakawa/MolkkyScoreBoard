@@ -31,11 +31,11 @@ struct DestinationHolderView<Content:View>: View {
             content.navigationDestination(for: DestinationType.self) { destination in
                 switch destination {
                 case .teamMake(let teamCount):
-                    TeamsMakeView(store: teamMakeStore(with: teamCount, router: router))
+                    TeamsMakeView(store: teamMakeStore(with: teamCount))
                         .navigationTitle(destination.navigationTitle)
 
                 case .teamOrderEdit(let teams):
-                    TeamsOrderEditView(store: orderEditStore(with: teams, router: router))
+                    TeamsOrderEditView(store: orderEditStore(with: teams))
                         .navigationTitle(destination.navigationTitle)
 
                 case .play(let teams):
@@ -56,12 +56,10 @@ struct DestinationHolderView<Content:View>: View {
 // MARK: Private Methods
 private extension DestinationHolderView {
     /// チーム作成画面のStoreを取得
-    /// - Parameters:
-    ///   - teamCount: チーム数
-    ///   - router: Router
-    /// - Returns:  StoreOf<TeamsMakeFeature>
-    func teamMakeStore(with teamCount: Int, router: PageRouter) -> StoreOf<TeamsMakeFeature> {
-        let initialState = TeamsMakeFeature.State(teamCount: teamCount, router: router)
+    /// - Parameter teamCount: チーム数
+    /// - Returns: StoreOf<TeamsMakeFeature>
+    func teamMakeStore(with teamCount: Int) -> StoreOf<TeamsMakeFeature> {
+        let initialState = TeamsMakeFeature.State(teamCount: teamCount)
         return Store(initialState: initialState,
                      reducer: TeamsMakeFeature())
     }
@@ -69,8 +67,8 @@ private extension DestinationHolderView {
     /// 順番入れ替え画面のStoreを取得
     /// - Parameter teams: チーム情報
     /// - Returns: StoreOf<TeamsOrderEditFeature>
-    func orderEditStore(with teams: [Team], router: PageRouter) -> StoreOf<TeamsOrderEditFeature> {
-        let initialState = TeamsOrderEditFeature.State(teams: teams, router: router)
+    func orderEditStore(with teams: [Team]) -> StoreOf<TeamsOrderEditFeature> {
+        let initialState = TeamsOrderEditFeature.State(teams: teams)
         return Store(initialState: initialState,
                      reducer: TeamsOrderEditFeature())
     }

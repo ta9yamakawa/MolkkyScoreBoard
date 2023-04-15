@@ -36,6 +36,6 @@ struct ResultView_Previews: PreviewProvider {
         let store = Store(initialState: state,
                           reducer: ResultFeature())
 
-        ResultView(store: store, router: PageRouter())
+        ResultView(store: store, router: PageRouter.shared)
     }
 }

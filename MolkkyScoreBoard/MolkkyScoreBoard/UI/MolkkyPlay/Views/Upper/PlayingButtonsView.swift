@@ -61,6 +61,6 @@ struct PlayingButtonsView_Previews: PreviewProvider {
         let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         let viewStore = ViewStore(StoreOf<MolkkyPlayFeature>(initialState: state,
                                                              reducer: MolkkyPlayFeature()))
-        PlayingButtonsView(viewStore: viewStore, router: PageRouter())
+        PlayingButtonsView(viewStore: viewStore, router: PageRouter.shared)
     }
 }

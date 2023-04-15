@@ -49,6 +49,6 @@ struct MolkkyPlayView_Previews: PreviewProvider {
         let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         MolkkyPlayView(store: Store(initialState: state,
                                     reducer: MolkkyPlayFeature()),
-                       router: PageRouter())
+                       router: PageRouter.shared)
     }
 }

@@ -85,8 +85,7 @@ private extension NameFormsView {
 // MARK: Previews
 struct NameFormView_Previews: PreviewProvider {
     static var previews: some View {
-        let state = TeamsMakeFeature.State(teamCount: 2,
-                                           router: PageRouter())
+        let state = TeamsMakeFeature.State(teamCount: 2)
         let viewStore = ViewStore(StoreOf<TeamsMakeFeature>(initialState: state,
                                                             reducer: TeamsMakeFeature()))
         NameFormsView(viewStore: viewStore,
