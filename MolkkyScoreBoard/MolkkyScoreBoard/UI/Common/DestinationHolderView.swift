@@ -31,7 +31,7 @@ struct DestinationHolderView<Content:View>: View {
             content.navigationDestination(for: DestinationType.self) { destination in
                 switch destination {
                 case .teamMake(let teamCount):
-                    TeamsMakeView(store: teamMakeStore(with: teamCount), router: router)
+                    TeamsMakeView(store: teamMakeStore(with: teamCount, router: router))
                         .navigationTitle(destination.navigationTitle)
 
                 case .teamOrderEdit(let teams):
@@ -56,10 +56,12 @@ struct DestinationHolderView<Content:View>: View {
 // MARK: Private Methods
 private extension DestinationHolderView {
     /// チーム作成画面のStoreを取得
-    /// - Parameter teamCount: チーム数
-    /// - Returns: StoreOf<TeamsMakeFeature>
-    func teamMakeStore(with teamCount: Int) -> StoreOf<TeamsMakeFeature> {
-        let initialState = TeamsMakeFeature.State(teamCount: teamCount)
+    /// - Parameters:
+    ///   - teamCount: チーム数
+    ///   - router: Router
+    /// - Returns:  StoreOf<TeamsMakeFeature>
+    func teamMakeStore(with teamCount: Int, router: PageRouter) -> StoreOf<TeamsMakeFeature> {
+        let initialState = TeamsMakeFeature.State(teamCount: teamCount, router: router)
         return Store(initialState: initialState,
                      reducer: TeamsMakeFeature())
     }

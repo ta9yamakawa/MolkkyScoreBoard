@@ -18,7 +18,7 @@ struct TeamSelectButtonView: View {
 
     var body: some View {
         Button("\(teamCount)チーム") {
-            router.path.append(DestinationType.teamMake(teamCount: teamCount))
+            router.path.append(.teamMake(teamCount: teamCount))
         }
         .font(Font.system(size: 20))
         .foregroundColor(.white)

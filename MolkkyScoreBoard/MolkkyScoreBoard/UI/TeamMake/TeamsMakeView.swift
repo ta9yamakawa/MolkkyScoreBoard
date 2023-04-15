@@ -14,9 +14,6 @@ struct TeamsMakeView: View {
     /// Store
     let store: StoreOf<TeamsMakeFeature>
 
-    /// Router
-    @ObservedObject var router: PageRouter
-
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
@@ -26,7 +23,6 @@ struct TeamsMakeView: View {
 
                 Button("決定") {
                     viewStore.send(.didTapDecisionButton)
-                    router.path.append(DestinationType.teamOrderEdit(teams: viewStore.state.teams))
                 }
                 .font(Font.system(size: 20))
                 .foregroundColor(.white)
@@ -43,9 +39,10 @@ struct TeamsMakeView: View {
 // MARK: Previews
 struct TeamMakeView_Previews: PreviewProvider {
     static var previews: some View {
-        let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2),
+        let store = Store(initialState: TeamsMakeFeature.State(teamCount: 2,
+                                                               router: PageRouter()),
                           reducer: TeamsMakeFeature())
 
-        TeamsMakeView(store: store, router: PageRouter())
+        TeamsMakeView(store: store)
     }
 }

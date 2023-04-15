@@ -67,7 +67,8 @@ struct TeamMemberCountEditButtonsView: View {
 // MARK: Previews
 struct TeamMemberCountEditButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        let state = TeamsMakeFeature.State(teamCount: 2)
+        let state = TeamsMakeFeature.State(teamCount: 2,
+                                           router: PageRouter())
         let viewStore = ViewStore(StoreOf<TeamsMakeFeature>(initialState: state,
                                                             reducer: TeamsMakeFeature()))
         let team = Team(id: 0, members: [TeamMember(name: "", order: 0)],

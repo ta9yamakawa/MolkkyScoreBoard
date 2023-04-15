@@ -8,7 +8,11 @@
 import SwiftUI
 
 /// ページルーター
-final class PageRouter: ObservableObject {
+final class PageRouter: ObservableObject, Equatable {
     /// Path
     @Published var path = [DestinationType]()
+
+    static func == (lhs: PageRouter, rhs: PageRouter) -> Bool {
+        return lhs.path == rhs.path
+    }
 }
