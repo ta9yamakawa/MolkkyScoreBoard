@@ -39,7 +39,7 @@ struct DestinationHolderView<Content:View>: View {
                         .navigationTitle(destination.navigationTitle)
 
                 case .play(let teams):
-                    MolkkyPlayView(store: playStore(with: teams), router: router)
+                    MolkkyPlayView(store: playStore(with: teams))
                         .navigationTitle(destination.navigationTitle)
 
                 case .result(let teams):

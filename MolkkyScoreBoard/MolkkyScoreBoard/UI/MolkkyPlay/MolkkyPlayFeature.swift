@@ -52,6 +52,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case didTapSkittle(_ skittle: Skittle)
         /// 戻るボタンをタップした
         case didTapUndoButton
+        /// 試合終了ボタンをタップした
+        case didTapCloseButton
         /// 決定ボタンをタップした
         case didTapDecideButton
         /// 試合が終了した
@@ -84,6 +86,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
             undoManager.delete(lastAction)
             return .none
 
+        case .didTapCloseButton:
+            PageRouter.shared.path.removeAll()
+            return .none
+
         case .didTapDecideButton:
             let playingOrder = state.playingOrder
             let team = state.teams[playingOrder]
@@ -97,6 +103,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
         case .finishMatch:
             sortByRanking(from: &state)
+            PageRouter.shared.path.append(.result(teams: state.teams))
             return .none
         }
     }

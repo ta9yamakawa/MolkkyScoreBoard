@@ -14,27 +14,24 @@ struct MolkkyPlayView: View {
     /// Store
     let store: StoreOf<MolkkyPlayFeature>
 
-    /// Router
-    @ObservedObject var router: PageRouter
-
     var body: some View {
         VStack(spacing: 20) {
-            HStack {
-                Button(action: {
-                    router.path.removeAll()
-                }, label: {
-                    Image(systemName: "xmark")
-                })
-                Spacer()
-            }
-            .padding()
-
             WithViewStore(store) { viewStore in
+                HStack {
+                    Button(action: {
+                        viewStore.send(.didTapCloseButton)
+                    }, label: {
+                        Image(systemName: "xmark")
+                    })
+                    Spacer()
+                }
+                .padding()
+
+
                 SkittlesView(viewStore: viewStore)
                     .padding(.bottom, 10)
 
-                PlayingButtonsView(viewStore: viewStore,
-                                   router: router)
+                PlayingButtonsView(viewStore: viewStore)
 
                 TeamScoresView(viewStore: viewStore)
             }
@@ -48,7 +45,6 @@ struct MolkkyPlayView_Previews: PreviewProvider {
     static var previews: some View {
         let state = MolkkyPlayFeature.State(teams: TeamsMock().data)
         MolkkyPlayView(store: Store(initialState: state,
-                                    reducer: MolkkyPlayFeature()),
-                       router: PageRouter.shared)
+                                    reducer: MolkkyPlayFeature()))
     }
 }
