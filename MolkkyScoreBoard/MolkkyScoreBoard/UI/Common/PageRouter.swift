@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// ページルーター
-final class PageRouter: ObservableObject, Equatable {
+final class PageRouter: ObservableObject {
     /// シングルトン
     static let shared = PageRouter()
 
@@ -17,11 +17,7 @@ final class PageRouter: ObservableObject, Equatable {
 
     /// Initialize
     /// - Parameter path: [DestinationType]
-    private init(path: [DestinationType] = [DestinationType]()) {
+    private init(path: [DestinationType] = []) {
         self.path = path
-    }
-
-    static func == (lhs: PageRouter, rhs: PageRouter) -> Bool {
-        return lhs.path == rhs.path
     }
 }
