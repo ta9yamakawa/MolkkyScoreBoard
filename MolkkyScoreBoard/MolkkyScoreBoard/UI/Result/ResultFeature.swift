@@ -32,11 +32,13 @@ struct ResultFeature: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .didTapFinishButton:
+            PageRouter.shared.path.removeAll()
             return .none
 
         case .didTapNextMatchButton:
             resetIsDisqualified(from: &state)
             sortByPlayingOrder(from: &state)
+            PageRouter.shared.path.append(.teamOrderEdit(teams: state.teams))
             return .none
         }
     }

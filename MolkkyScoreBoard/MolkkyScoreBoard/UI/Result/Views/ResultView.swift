@@ -14,14 +14,11 @@ struct ResultView: View {
     /// Store
     let store: StoreOf<ResultFeature>
 
-    /// Router
-    @ObservedObject var router: PageRouter
-
     var body: some View {
         VStack {
             WithViewStore(self.store) { viewStore in
                 ResultTeamsView(viewStore: viewStore)
-                ResultButtonsView(viewStore: viewStore, router: router)
+                ResultButtonsView(viewStore: viewStore)
                     .padding()
             }
         }
@@ -36,6 +33,6 @@ struct ResultView_Previews: PreviewProvider {
         let store = Store(initialState: state,
                           reducer: ResultFeature())
 
-        ResultView(store: store, router: PageRouter.shared)
+        ResultView(store: store)
     }
 }

@@ -14,15 +14,12 @@ struct ResultButtonsView: View {
     /// View Store
     let viewStore: ViewStoreOf<ResultFeature>
 
-    /// Router
-    @ObservedObject var router: PageRouter
-
     var body: some View {
         HStack(spacing: 10) {
             Spacer()
 
             Button("ゲーム終了") {
-                router.path.removeAll()
+                viewStore.send(.didTapFinishButton)
             }
             .padding(8)
             .font(Font.system(size: 20))
@@ -36,7 +33,6 @@ struct ResultButtonsView: View {
 
             Button("次のセットへ") {
                 viewStore.send(.didTapNextMatchButton)
-                router.path.append(DestinationType.teamOrderEdit(teams: viewStore.state.teams))
             }
             .padding(8)
             .font(Font.system(size: 20))
@@ -60,6 +56,6 @@ struct ResultButtonsView_Previews: PreviewProvider {
         let state = ResultFeature.State(teams: TeamsMock().data)
         let viewStore = ViewStore(StoreOf<ResultFeature>(initialState: state,
                                                          reducer: ResultFeature()))
-        ResultButtonsView(viewStore: viewStore, router: PageRouter.shared)
+        ResultButtonsView(viewStore: viewStore)
     }
 }

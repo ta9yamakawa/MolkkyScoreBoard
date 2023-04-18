@@ -43,7 +43,7 @@ struct DestinationHolderView<Content:View>: View {
                         .navigationTitle(destination.navigationTitle)
 
                 case .result(let teams):
-                    ResultView(store: resultStore(from: teams), router: router)
+                    ResultView(store: resultStore(from: teams))
                         .navigationTitle(destination.navigationTitle)
                 }
             }
