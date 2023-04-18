@@ -11,6 +11,7 @@ import ComposableArchitecture
 struct MolkkyPlayFeature: ReducerProtocol {
 
     // MARK: Constants
+
     /// Undo Manager
     private let undoManager = PlayActionUndoManager()
 
@@ -46,6 +47,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         }
     }
 
+    // MARK: Enumeration
+
     /// Action
     enum Action {
         /// スキットルをタップした
@@ -59,6 +62,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         /// 試合が終了した
         case finishMatch
     }
+
+    // MARK: Reduce
 
     /// Reduce
     /// - Parameters:
@@ -157,6 +162,7 @@ private extension MolkkyPlayFeature {
 
         if state.teams[index].mistakeCount == type(of: self).maxMistakeCount {
             state.teams[index].isDisqualified = true
+            state.teams[index].score[state.setNo - 1].score = .zero
         }
     }
 
