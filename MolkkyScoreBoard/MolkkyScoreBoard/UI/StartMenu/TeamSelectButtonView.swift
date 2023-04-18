@@ -13,12 +13,9 @@ struct TeamSelectButtonView: View {
     /// チーム数
     let teamCount: Int
 
-    /// Router
-    @ObservedObject var router: PageRouter
-
     var body: some View {
         Button("\(teamCount)チーム") {
-            router.path.append(DestinationType.teamMake(teamCount: teamCount))
+            PageRouter.shared.path.append(.teamMake(teamCount: teamCount))
         }
         .font(Font.system(size: 20))
         .foregroundColor(.white)
@@ -32,7 +29,7 @@ struct TeamSelectButtonView: View {
 // MARK: Previews
 struct TeamSelectButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamSelectButtonView(teamCount: 1, router: PageRouter())
+        TeamSelectButtonView(teamCount: 1)
             .previewLayout(.sizeThatFits)
     }
 }

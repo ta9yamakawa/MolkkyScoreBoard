@@ -21,7 +21,7 @@ struct HomeTabView: View {
     @State private var selectedTab: TabType = .play
 
     /// Router
-    @StateObject private var router = PageRouter()
+    @StateObject private var router = PageRouter.shared
 
     /// Initialize
     init() {
@@ -32,7 +32,7 @@ struct HomeTabView: View {
     var body: some View {
         DestinationHolderView(router: router) {
             TabView(selection: $selectedTab) {
-                StartMenuView(router: router)
+                StartMenuView()
                     .tabItem {
                         Image(systemName: "pencil.and.outline")
                         Text("プレイ")

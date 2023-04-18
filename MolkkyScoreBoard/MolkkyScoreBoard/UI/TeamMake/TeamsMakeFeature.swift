@@ -77,7 +77,7 @@ struct TeamsMakeFeature: ReducerProtocol {
             return .none
 
         case .didTapDecisionButton:
-            //            state.teams = []
+            PageRouter.shared.path.append(.teamOrderEdit(teams: state.teams))
             return .none
         }
     }
