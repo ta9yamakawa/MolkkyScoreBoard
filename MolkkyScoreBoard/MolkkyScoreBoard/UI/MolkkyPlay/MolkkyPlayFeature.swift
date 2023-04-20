@@ -11,6 +11,7 @@ import ComposableArchitecture
 struct MolkkyPlayFeature: ReducerProtocol {
 
     // MARK: Constants
+
     /// Undo Manager
     private let undoManager = PlayActionUndoManager()
 
@@ -46,6 +47,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         }
     }
 
+    // MARK: Enumeration
+
     /// Action
     enum Action {
         /// スキットルをタップした
@@ -59,6 +62,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         /// 試合が終了した
         case finishMatch
     }
+
+    // MARK: Reduce
 
     /// Reduce
     /// - Parameters:
@@ -102,6 +107,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
 
         case .finishMatch:
+            raiseMaxScoreIfNeeded(from: &state)
             sortByRanking(from: &state)
             PageRouter.shared.path.append(.result(teams: state.teams))
             return .none
@@ -157,6 +163,7 @@ private extension MolkkyPlayFeature {
 
         if state.teams[index].mistakeCount == type(of: self).maxMistakeCount {
             state.teams[index].isDisqualified = true
+            state.teams[index].score[state.setNo - 1].score = .zero
         }
     }
 
@@ -222,13 +229,34 @@ private extension MolkkyPlayFeature {
         let playedTeam = state.teams[index]
         let playedTeamScore = playedTeam.score[state.setNo - 1].score
 
-        // 複数チームでプレイ中に1チームだけ残ったかどうか
-        let isOnlyTeamRemained = (disqualifiedTeams.count + 1) == state.teams.count && state.teams.count > 1
         // 1チームでプレイ中に3回ミスしたかどうか
         let isOnlyTeamDisqualified = (state.teams.count == 1) && (disqualifiedTeams.count == 1)
         // 50点に達したチームがいるかどうか
         let isOverMatch = playedTeamScore == type(of: self).maxLimitScore
-        state.shouldFinishMatch = isOnlyTeamRemained || isOnlyTeamDisqualified || isOverMatch
+        state.shouldFinishMatch = isOnlyTeamRemained(from: state) || isOnlyTeamDisqualified || isOverMatch
+    }
+
+    /// 1チームだけ残った場合、自動的に50点を獲得させる
+    /// - Parameter state: State
+    func raiseMaxScoreIfNeeded(from state: inout State) {
+        guard isOnlyTeamRemained(from: state) else {
+            return
+        }
+
+        for index in 0..<state.teams.count {
+            guard !state.teams[index].isDisqualified else {
+                continue
+            }
+
+            state.teams[index].score[state.setNo - 1].score = type(of: self).maxLimitScore
+        }
+    }
+
+    /// 複数チームでプレイ中に1チームだけ残ったかどうか
+    /// - Parameter state: State
+    func isOnlyTeamRemained(from state: State) -> Bool {
+        let disqualifiedTeams = state.teams.filter({ $0.isDisqualified })
+        return (disqualifiedTeams.count + 1) == state.teams.count && state.teams.count > 1
     }
 
     /// ランキング順に入れ替える
