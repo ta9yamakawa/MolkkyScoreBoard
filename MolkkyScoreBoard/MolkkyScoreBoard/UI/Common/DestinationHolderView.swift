@@ -12,17 +12,14 @@ import ComposableArchitecture
 struct DestinationHolderView<Content:View>: View {
 
     /// Router
-    @ObservedObject private var router: PageRouter
+    @ObservedObject private var router = PageRouter.shared
 
     /// 子ビュー
     private let content: Content
 
     /// Initialize
-    /// - Parameters:
-    ///   - router: PageRouter
-    ///   - content: Content(ViewBuilder)
-    init(router: PageRouter, @ViewBuilder content: () -> Content) {
-        self.router = router
+    /// - Parameter content: Content(ViewBuilder)
+    init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
 

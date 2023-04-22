@@ -55,18 +55,6 @@ struct TeamsOrderEditView: View {
     }
 }
 
-// MARK: Private Methods
-private extension TeamsOrderEditView {
-    /// Storeを取得
-    /// - Parameter teams: チーム情報
-    /// - Returns: StoreOf<MolkkyPlayFeature>
-    func store(teams: [Team]) -> StoreOf<MolkkyPlayFeature> {
-        let initialState = MolkkyPlayFeature.State(teams: teams)
-        return Store(initialState: initialState,
-                     reducer: MolkkyPlayFeature())
-    }
-}
-
 // MARK: Previews
 struct TeamsOrderEditView_Previews: PreviewProvider {
     static var previews: some View {

@@ -38,7 +38,14 @@ struct ResultFeature: ReducerProtocol {
         case .didTapNextMatchButton:
             resetIsDisqualified(from: &state)
             sortByPlayingOrder(from: &state)
-            PageRouter.shared.path.append(.teamOrderEdit(teams: state.teams))
+
+            for index in 0..<state.teams.count {
+                let newScore = TeamScore(from: state.teams)
+                state.teams[index].score.append(newScore)
+            }
+
+            let path: DestinationType = state.teams.count == 1 ? .play(teams: state.teams) : .teamOrderEdit(teams: state.teams)
+            PageRouter.shared.path.append(path)
             return .none
         }
     }

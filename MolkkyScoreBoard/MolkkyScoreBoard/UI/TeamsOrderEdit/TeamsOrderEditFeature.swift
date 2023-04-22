@@ -37,21 +37,6 @@ struct TeamsOrderEditFeature: ReducerProtocol {
             return .none
 
         case .didTapDecideButton:
-            let newScore: TeamScore
-            if
-                let team = state.teams.first,
-                let setNo = team.score.last?.setNo {
-                newScore = TeamScore(setNo: setNo + 1, score: .zero)
-            } else {
-                newScore = TeamScore(setNo: 1, score: .zero)
-            }
-
-            let teamCount = state.teams.count
-
-            for index in 0..<teamCount {
-                state.teams[index].score.append(newScore)
-            }
-
             PageRouter.shared.path.append(.play(teams: state.teams))
             return .none
         }

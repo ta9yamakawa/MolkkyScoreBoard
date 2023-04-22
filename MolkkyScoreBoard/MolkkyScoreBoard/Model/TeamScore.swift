@@ -15,4 +15,27 @@ struct TeamScore: Identifiable, Hashable, Equatable {
     let setNo: Int
     /// 得点
     var score: Int
+
+    /// Initialize
+    /// - Parameters:
+    ///   - setNo: 何セット目か
+    ///   - score: 得点
+    init(setNo: Int, score: Int) {
+        self.setNo = setNo
+        self.score = score
+    }
+
+    /// Initialize
+    /// - Parameter teams: チーム情報
+    init(from teams: [Team]) {
+        if
+            let team = teams.first,
+            let setNo = team.score.last?.setNo {
+            self.setNo = setNo + 1
+        } else {
+            self.setNo = 1
+        }
+
+        self.score = .zero
+    }
 }
