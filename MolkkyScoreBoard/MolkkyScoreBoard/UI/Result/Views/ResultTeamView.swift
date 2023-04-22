@@ -34,7 +34,9 @@ struct ResultTeamView: View {
 
                 HStack {
                     ForEach(team.members) { member in
-                        Text("\(member.name)さん ")
+                        let noName = "名無し"
+                        let memberName = member.name.isEmpty ? noName : member.name
+                        Text("\(memberName)さん ")
                     }
                     Spacer()
                 }
