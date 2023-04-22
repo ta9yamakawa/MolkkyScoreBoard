@@ -74,6 +74,7 @@ struct TeamsMakeFeature: ReducerProtocol {
             state.teams[teamIndex].members.removeLast()
 
             removeValidationIfNeeded(from: teamIndex, memberIndex: membersLastIndex, with: &state)
+            updateEnableGoNext(with: &state)
             return .none
 
         case .didTapDecisionButton:
@@ -111,6 +112,12 @@ private extension TeamsMakeFeature {
             let index = InvalidTeamIndex(team: teamIndex,
                                          member: memberIndex,
                                          errorType: .maxLimitLength(count))
+
+            // invalidIndexに重複した情報が入るのを防ぐ
+            guard !state.invalidIndex.contains(index) else {
+                return
+            }
+
             state.invalidIndex.append(index)
         }
     }
