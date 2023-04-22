@@ -20,9 +20,6 @@ struct HomeTabView: View {
     /// 選択中のタブ
     @State private var selectedTab: TabType = .play
 
-    /// Router
-    @StateObject private var router = PageRouter.shared
-
     /// Initialize
     init() {
         NavigationViewAppearance.configure()
@@ -30,7 +27,7 @@ struct HomeTabView: View {
     }
 
     var body: some View {
-        DestinationHolderView(router: router) {
+        DestinationHolderView() {
             TabView(selection: $selectedTab) {
                 StartMenuView()
                     .tabItem {
