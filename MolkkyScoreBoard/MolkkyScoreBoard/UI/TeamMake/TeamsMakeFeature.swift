@@ -77,7 +77,13 @@ struct TeamsMakeFeature: ReducerProtocol {
             return .none
 
         case .didTapDecisionButton:
-            PageRouter.shared.path.append(.teamOrderEdit(teams: state.teams))
+            for index in 0..<state.teams.count {
+                let newScore = newScore(from: state.teams)
+                state.teams[index].score.append(newScore)
+            }
+
+            let path: DestinationType = state.teams.count == 1 ? .play(teams: state.teams) : .teamOrderEdit(teams: state.teams)
+            PageRouter.shared.path.append(path)
             return .none
         }
     }
@@ -126,5 +132,18 @@ private extension TeamsMakeFeature {
         state.invalidIndex.removeAll(where: {
             ($0.team == teamIndex) && ($0.member == memberIndex)
         })
+    }
+
+    /// 新たなTeamScoreを取得する
+    /// - Parameter teams: 全チーム情報
+    /// - Returns: TeamScore
+    func newScore(from teams: [Team]) -> TeamScore {
+        if
+            let team = teams.first,
+            let setNo = team.score.last?.setNo {
+            return TeamScore(setNo: setNo + 1, score: .zero)
+        } else {
+            return TeamScore(setNo: 1, score: .zero)
+        }
     }
 }
