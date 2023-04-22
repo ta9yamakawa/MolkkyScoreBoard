@@ -40,7 +40,7 @@ struct ResultFeature: ReducerProtocol {
             sortByPlayingOrder(from: &state)
 
             for index in 0..<state.teams.count {
-                let newScore = newScore(from: state.teams)
+                let newScore = TeamScore(from: state.teams)
                 state.teams[index].score.append(newScore)
             }
 
@@ -69,18 +69,5 @@ private extension ResultFeature {
     func sortByPlayingOrder(from state: inout State) {
         let sortedTeams = state.teams.sorted(by: { $0.order < $1.order })
         state.teams = sortedTeams
-    }
-
-    /// 新たなTeamScoreを取得する
-    /// - Parameter teams: 全チーム情報
-    /// - Returns: TeamScore
-    func newScore(from teams: [Team]) -> TeamScore {
-        if
-            let team = teams.first,
-            let setNo = team.score.last?.setNo {
-            return TeamScore(setNo: setNo + 1, score: .zero)
-        } else {
-            return TeamScore(setNo: 1, score: .zero)
-        }
     }
 }
