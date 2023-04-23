@@ -52,15 +52,21 @@ private extension NameFormsView {
     /// バリデーションエラーを表示すべきか判定する
     /// - Parameters:
     ///   - datas: バリデーションエラーの情報
-    ///   - index: チームIndex
+    ///   - teamIndex: チームIndex
+    ///   - memberIndex: メンバーIndex
     /// - Returns: true: 表示する / false: 表示しない
     func shouldShowValidationError(from datas: [InvalidTeamIndex],
-                                   index: Int) -> Bool {
+                                   teamIndex: Int,
+                                   memberIndex: Int) -> Bool {
         guard !datas.isEmpty else {
             return false
         }
 
-        return datas.first(where: { $0.team == index }) != nil
+        let data = datas.first(where: {
+            ($0.team == teamIndex) && ($0.member == memberIndex)
+        })
+
+        return data != nil
     }
     
     /// フォームの背景色を設定する
@@ -72,9 +78,9 @@ private extension NameFormsView {
     func textFieldBackgroundColor(from datas: [InvalidTeamIndex],
                                   teamIndex: Int,
                                   memberIndex: Int) -> Color {
-        guard
-            shouldShowValidationError(from: datas, index: teamIndex),
-            datas.first(where: { $0.member == memberIndex }) != nil else {
+        guard shouldShowValidationError(from: datas,
+                                        teamIndex: teamIndex,
+                                        memberIndex: memberIndex) else {
             return .clear
         }
 
