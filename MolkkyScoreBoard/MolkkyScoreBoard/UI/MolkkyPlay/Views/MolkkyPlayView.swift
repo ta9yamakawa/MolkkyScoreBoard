@@ -11,6 +11,8 @@ import ComposableArchitecture
 /// モルックプレイ画面
 struct MolkkyPlayView: View {
 
+    @State var shouldShowAlert = false
+
     /// Store
     let store: StoreOf<MolkkyPlayFeature>
 
@@ -19,10 +21,17 @@ struct MolkkyPlayView: View {
             WithViewStore(store) { viewStore in
                 HStack {
                     Button(action: {
-                        viewStore.send(.didTapCloseButton)
+                        shouldShowAlert.toggle()
+//                        viewStore.send(.showAlert)
+//                        viewStore.send(.didTapCloseButton)
                     }, label: {
                         Image(systemName: "xmark")
                     })
+                    .alert("Important message",
+                           isPresented: $shouldShowAlert) {
+                               Button("OK", role: .cancel) { }
+                           }
+
                     Spacer()
                 }
                 .padding()
