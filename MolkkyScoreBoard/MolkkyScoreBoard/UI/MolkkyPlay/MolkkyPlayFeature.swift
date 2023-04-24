@@ -36,10 +36,6 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var playingOrder = 0
         /// 試合を終わらせるか
         var shouldFinishMatch = false
-        /// アラートを表示するか
-        var shouldShowAlert = false
-        /// アラート
-//        var alert: AlertState<Action>?
 
         /// Initialize
         /// - Parameter teams: Team
@@ -65,7 +61,6 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case didTapDecideButton
         /// 試合が終了した
         case finishMatch
-        case showAlert
     }
 
     // MARK: Reduce
@@ -115,10 +110,6 @@ struct MolkkyPlayFeature: ReducerProtocol {
             raiseMaxScoreIfNeeded(from: &state)
             sortByRanking(from: &state)
             PageRouter.shared.path.append(.result(teams: state.teams))
-            return .none
-
-        case .showAlert:
-            state.shouldShowAlert = true
             return .none
         }
     }
