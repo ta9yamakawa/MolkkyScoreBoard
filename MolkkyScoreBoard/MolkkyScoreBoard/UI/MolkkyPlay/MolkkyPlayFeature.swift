@@ -139,13 +139,13 @@ private extension MolkkyPlayFeature {
         let index = state.playingOrder
 
         let totalScore = state.teams[index].score[state.setNo - 1].score + score
-        state.teams[index].score[state.setNo - 1].score = updayeScoreIfNeeded(totalScore)
+        state.teams[index].score[state.setNo - 1].score = updateScoreIfNeeded(totalScore)
     }
 
     /// スコア上限を超えているかを確認して正しいスコアを返す
     /// - Parameter score: 元の得点
     /// - Returns: 正しいスコア
-    func updayeScoreIfNeeded(_ score: Int) -> Int {
+    func updateScoreIfNeeded(_ score: Int) -> Int {
         return score > type(of: self).maxLimitScore ? type(of: self).halfScore : score
     }
 
