@@ -22,15 +22,12 @@ struct MolkkyPlayView: View {
                 HStack {
                     Button(action: {
                         shouldShowAlert.toggle()
-//                        viewStore.send(.showAlert)
-//                        viewStore.send(.didTapCloseButton)
                     }, label: {
                         Image(systemName: "xmark")
                     })
-                    .alert("Important message",
-                           isPresented: $shouldShowAlert) {
-                               Button("OK", role: .cancel) { }
-                           }
+                    .alert(isPresented: $shouldShowAlert) {
+                        gameFinishConfirmAlert(with: viewStore)
+                    }
 
                     Spacer()
                 }
@@ -46,6 +43,29 @@ struct MolkkyPlayView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+    }
+}
+
+// MARK: Private Methods
+private extension MolkkyPlayView {
+    /// ゲームの終了確認アラートを取得する
+    /// - Parameter viewStore: ViewStore
+    /// - Returns: Alert
+    func gameFinishConfirmAlert(with viewStore:
+                                ViewStore<MolkkyPlayFeature.State,
+                                MolkkyPlayFeature.Action>) -> Alert {
+        let title = Text("ゲームを中断しますか？")
+        let finishButton: Alert.Button = .default(Text("中断する"),
+                                                  action: {
+            viewStore.send(.didTapCloseButton)
+        })
+        let cancelButton: Alert.Button = .cancel(Text("キャンセル"))
+
+        let alert = Alert(title: title,
+                          primaryButton: finishButton,
+                          secondaryButton: cancelButton)
+
+        return alert
     }
 }
 
