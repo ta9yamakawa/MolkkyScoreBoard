@@ -11,7 +11,11 @@ import ComposableArchitecture
 /// モルックプレイ画面
 struct MolkkyPlayView: View {
 
-    @State var shouldShowAlert = false
+    typealias PlayViewStore = ViewStore<MolkkyPlayFeature.State,
+                                        MolkkyPlayFeature.Action>
+
+    /// アラートの表示管理フラグ
+    @State private var isPresentedAlert = false
 
     /// Store
     let store: StoreOf<MolkkyPlayFeature>
@@ -21,11 +25,11 @@ struct MolkkyPlayView: View {
             WithViewStore(store) { viewStore in
                 HStack {
                     Button(action: {
-                        shouldShowAlert.toggle()
+                        isPresentedAlert.toggle()
                     }, label: {
                         Image(systemName: "xmark")
                     })
-                    .alert(isPresented: $shouldShowAlert) {
+                    .alert(isPresented: $isPresentedAlert) {
                         gameFinishConfirmAlert(with: viewStore)
                     }
 
@@ -49,11 +53,9 @@ struct MolkkyPlayView: View {
 // MARK: Private Methods
 private extension MolkkyPlayView {
     /// ゲームの終了確認アラートを取得する
-    /// - Parameter viewStore: ViewStore
+    /// - Parameter viewStore: PlayViewStore
     /// - Returns: Alert
-    func gameFinishConfirmAlert(with viewStore:
-                                ViewStore<MolkkyPlayFeature.State,
-                                MolkkyPlayFeature.Action>) -> Alert {
+    func gameFinishConfirmAlert(with viewStore: PlayViewStore) -> Alert {
         let title = Text("ゲームを中断しますか？")
         let finishButton: Alert.Button = .default(Text("中断する"),
                                                   action: {
