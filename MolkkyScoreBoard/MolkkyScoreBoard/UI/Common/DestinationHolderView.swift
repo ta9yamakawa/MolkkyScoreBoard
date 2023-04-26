@@ -12,17 +12,14 @@ import ComposableArchitecture
 struct DestinationHolderView<Content:View>: View {
 
     /// Router
-    @ObservedObject private var router: PageRouter
+    @ObservedObject private var router = PageRouter.shared
 
     /// 子ビュー
     private let content: Content
 
     /// Initialize
-    /// - Parameters:
-    ///   - router: PageRouter
-    ///   - content: Content(ViewBuilder)
-    init(router: PageRouter, @ViewBuilder content: () -> Content) {
-        self.router = router
+    /// - Parameter content: Content(ViewBuilder)
+    init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
 
@@ -31,19 +28,19 @@ struct DestinationHolderView<Content:View>: View {
             content.navigationDestination(for: DestinationType.self) { destination in
                 switch destination {
                 case .teamMake(let teamCount):
-                    TeamsMakeView(store: teamMakeStore(with: teamCount), router: router)
+                    TeamsMakeView(store: teamMakeStore(with: teamCount))
                         .navigationTitle(destination.navigationTitle)
 
                 case .teamOrderEdit(let teams):
-                    TeamsOrderEditView(store: orderEditStore(with: teams), router: router)
+                    TeamsOrderEditView(store: orderEditStore(with: teams))
                         .navigationTitle(destination.navigationTitle)
 
                 case .play(let teams):
-                    MolkkyPlayView(store: playStore(with: teams), router: router)
+                    MolkkyPlayView(store: playStore(with: teams))
                         .navigationTitle(destination.navigationTitle)
 
                 case .result(let teams):
-                    ResultView(store: resultStore(from: teams), router: router)
+                    ResultView(store: resultStore(from: teams))
                         .navigationTitle(destination.navigationTitle)
                 }
             }

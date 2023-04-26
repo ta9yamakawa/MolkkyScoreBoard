@@ -74,16 +74,23 @@ struct TeamsMakeFeature: ReducerProtocol {
             state.teams[teamIndex].members.removeLast()
 
             removeValidationIfNeeded(from: teamIndex, memberIndex: membersLastIndex, with: &state)
+            updateEnableGoNext(with: &state)
             return .none
 
         case .didTapDecisionButton:
-            //            state.teams = []
+            for index in 0..<state.teams.count {
+                let newScore = TeamScore(from: state.teams)
+                state.teams[index].score.append(newScore)
+            }
+
+            let path: DestinationType = state.teams.count == 1 ? .play(teams: state.teams) : .teamOrderEdit(teams: state.teams)
+            PageRouter.shared.path.append(path)
             return .none
         }
     }
 }
 
-// Private Methods
+// MARK: Private Methods
 private extension TeamsMakeFeature {
     /// バリデーションを実施する
     /// - Parameters:
@@ -105,6 +112,12 @@ private extension TeamsMakeFeature {
             let index = InvalidTeamIndex(team: teamIndex,
                                          member: memberIndex,
                                          errorType: .maxLimitLength(count))
+
+            // invalidIndexに重複した情報が入るのを防ぐ
+            guard !state.invalidIndex.contains(index) else {
+                return
+            }
+
             state.invalidIndex.append(index)
         }
     }

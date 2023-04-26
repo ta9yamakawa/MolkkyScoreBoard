@@ -50,17 +50,22 @@ private extension OrderingTeamView {
             return ""
         }
 
+        let noName = "名無し"
+        let memberName = member.name.isEmpty ? noName : member.name
+
         switch members.count {
         case 1:
-            return "\(member.name)さん"
+            return "\(memberName)さん"
 
         case 2:
             let otherMember = members[1]
-            return "\(member.name)さんと\(otherMember.name)さん"
+            let otherMemberName = otherMember.name.isEmpty ? noName : otherMember.name
+            return "\(memberName)さんと\(otherMemberName)さん"
 
         case 3, 4:
             let otherMember = members[1]
-            return "\(member.name)さんと\(otherMember.name)さん 他"
+            let otherMemberName = otherMember.name.isEmpty ? noName : otherMember.name
+            return "\(memberName)さんと\(otherMemberName)さん 他"
 
         default:
             return ""

@@ -14,9 +14,6 @@ struct TeamsOrderEditView: View {
     /// Store
     let store: StoreOf<TeamsOrderEditFeature>
 
-    /// Router
-    @ObservedObject var router: PageRouter
-
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
@@ -46,7 +43,6 @@ struct TeamsOrderEditView: View {
 
                 Button("決定") {
                     viewStore.send(.didTapDecideButton)
-                    router.path.append(DestinationType.play(teams: viewStore.state.teams))
                 }
                 .font(Font.system(size: 20))
                 .foregroundColor(.white)
@@ -59,24 +55,12 @@ struct TeamsOrderEditView: View {
     }
 }
 
-// MARK: Private Methods
-private extension TeamsOrderEditView {
-    /// Storeを取得
-    /// - Parameter teams: チーム情報
-    /// - Returns: StoreOf<MolkkyPlayFeature>
-    func store(teams: [Team]) -> StoreOf<MolkkyPlayFeature> {
-        let initialState = MolkkyPlayFeature.State(teams: teams)
-        return Store(initialState: initialState,
-                     reducer: MolkkyPlayFeature())
-    }
-}
-
 // MARK: Previews
 struct TeamsOrderEditView_Previews: PreviewProvider {
     static var previews: some View {
         let state = TeamsOrderEditFeature.State(teams: TeamsMock().data)
         let store = Store(initialState: state,
                           reducer: TeamsOrderEditFeature())
-        TeamsOrderEditView(store: store, router: PageRouter())
+        TeamsOrderEditView(store: store)
     }
 }
