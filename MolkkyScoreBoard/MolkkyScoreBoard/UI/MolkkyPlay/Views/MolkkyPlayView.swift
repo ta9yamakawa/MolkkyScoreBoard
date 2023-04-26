@@ -11,6 +11,12 @@ import ComposableArchitecture
 /// モルックプレイ画面
 struct MolkkyPlayView: View {
 
+    typealias PlayViewStore = ViewStore<MolkkyPlayFeature.State,
+                                        MolkkyPlayFeature.Action>
+
+    /// アラートの表示管理フラグ
+    @State private var isPresentedAlert = false
+
     /// Store
     let store: StoreOf<MolkkyPlayFeature>
 
@@ -19,10 +25,14 @@ struct MolkkyPlayView: View {
             WithViewStore(store) { viewStore in
                 HStack {
                     Button(action: {
-                        viewStore.send(.didTapCloseButton)
+                        isPresentedAlert.toggle()
                     }, label: {
                         Image(systemName: "xmark")
                     })
+                    .alert(isPresented: $isPresentedAlert) {
+                        gameFinishConfirmAlert(with: viewStore)
+                    }
+
                     Spacer()
                 }
                 .padding()
@@ -37,6 +47,27 @@ struct MolkkyPlayView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+    }
+}
+
+// MARK: Private Methods
+private extension MolkkyPlayView {
+    /// ゲームの終了確認アラートを取得する
+    /// - Parameter viewStore: PlayViewStore
+    /// - Returns: Alert
+    func gameFinishConfirmAlert(with viewStore: PlayViewStore) -> Alert {
+        let title = Text("ゲームを中断しますか？")
+        let finishButton: Alert.Button = .default(Text("中断する"),
+                                                  action: {
+            viewStore.send(.didTapCloseButton)
+        })
+        let cancelButton: Alert.Button = .cancel(Text("キャンセル"))
+
+        let alert = Alert(title: title,
+                          primaryButton: finishButton,
+                          secondaryButton: cancelButton)
+
+        return alert
     }
 }
 
