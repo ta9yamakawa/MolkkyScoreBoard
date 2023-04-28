@@ -19,6 +19,8 @@ struct SpecialThanksView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(AppColor.base.color)
     }
 }
 

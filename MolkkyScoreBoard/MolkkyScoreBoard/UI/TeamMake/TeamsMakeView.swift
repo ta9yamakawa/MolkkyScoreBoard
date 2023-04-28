@@ -16,10 +16,10 @@ struct TeamsMakeView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            VStack {
+            VStack(spacing: .zero) {
                 TeamMembersMakeView(viewStore: viewStore)
                 
-                Divider().background(Color.black)
+                Divider().background(Color.black).padding(.bottom)
 
                 Button("決定") {
                     viewStore.send(.didTapDecisionButton)
@@ -32,6 +32,7 @@ struct TeamsMakeView: View {
                 .cornerRadius(4)
                 .disabled(!viewStore.state.enableGoNext)
             }
+            .background(AppColor.base.color)
         }
     }
 }

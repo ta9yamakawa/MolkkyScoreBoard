@@ -24,6 +24,7 @@ struct ResultTeamsView: View {
                                               trailing: 10))
             }
         }
+        .scrollContentBackground(.hidden)
     }
 }
 

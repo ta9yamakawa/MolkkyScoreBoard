@@ -46,6 +46,7 @@ struct MolkkyPlayView: View {
                 TeamScoresView(viewStore: viewStore)
             }
         }
+        .background(AppColor.base.color)
         .navigationBarBackButtonHidden(true)
     }
 }

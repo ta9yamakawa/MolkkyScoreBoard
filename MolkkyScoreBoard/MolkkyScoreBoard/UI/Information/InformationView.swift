@@ -43,6 +43,8 @@ struct InformationView: View {
                 Text("バージョン：\(AppVersion.currentVersion)")
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(AppColor.base.color)
     }
 }
 
@@ -50,4 +52,8 @@ struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView()
     }
+}
+
+extension List {
+
 }

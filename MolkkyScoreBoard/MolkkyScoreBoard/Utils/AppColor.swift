@@ -34,6 +34,7 @@ enum AppColor {
         return Color(name)
     }
 
+    /// UIColor
     var uiColor: UIColor {
         return UIColor(color)
     }

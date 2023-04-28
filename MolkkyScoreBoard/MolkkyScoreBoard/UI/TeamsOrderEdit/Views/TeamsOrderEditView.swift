@@ -16,7 +16,7 @@ struct TeamsOrderEditView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            VStack {
+            VStack(spacing: .zero) {
                 Text("プレイするチームの順番に\n並び替えてください")
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
@@ -37,9 +37,10 @@ struct TeamsOrderEditView: View {
                                                          destination: destination))
                     })
                 }
+                .scrollContentBackground(.hidden)
                 .environment(\.editMode, .constant(.active))
 
-                Divider().background(Color.black)
+                Divider().background(Color.black).padding(.bottom)
 
                 Button("決定") {
                     viewStore.send(.didTapDecideButton)
@@ -51,6 +52,7 @@ struct TeamsOrderEditView: View {
                 .background(Color.orange)
                 .cornerRadius(4)
             }
+            .background(AppColor.base.color)
         }
     }
 }

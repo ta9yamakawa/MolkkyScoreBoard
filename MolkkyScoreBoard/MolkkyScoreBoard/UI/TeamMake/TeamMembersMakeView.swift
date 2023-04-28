@@ -43,7 +43,9 @@ struct TeamMembersMakeView: View {
                                                    teamIndex: teamIndex)
                 }
             }
-        }.padding(.top)
+        }
+        .scrollContentBackground(.hidden)
+        .background(AppColor.base.color)
     }
 }
 
