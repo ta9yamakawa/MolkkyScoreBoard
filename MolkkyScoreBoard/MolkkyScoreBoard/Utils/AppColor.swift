@@ -14,8 +14,6 @@ enum AppColor {
     case accent
     /// メインカラー
     case main
-    /// メインカラー2
-    case main2
     /// ベースカラー
     case base
 
@@ -26,8 +24,6 @@ enum AppColor {
             return "accent"
         case .main:
             return "main"
-        case .main2:
-            return "main2"
         case .base:
             return "base"
         }
