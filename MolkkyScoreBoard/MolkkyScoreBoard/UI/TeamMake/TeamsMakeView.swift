@@ -17,7 +17,7 @@ struct TeamsMakeView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
-                IntroductionTextView(message: "各チームのメンバーを入力してください。",
+                IntroductionTextView(message: "各チームのメンバーを入力してください",
                                      annotation: "空欄の場合は「名無し」と表示されます")
 
                 TeamMembersMakeView(viewStore: viewStore)

@@ -9,11 +9,16 @@ import SwiftUI
 
 /// 説明文のView
 struct IntroductionTextView: View {
-
+    /// メッセージ
     let message: String
 
+    /// 注釈
     let annotation: String?
 
+    /// Initialize
+    /// - Parameters:
+    ///   - message: メッセージ
+    ///   - annotation: 注釈（省略可）
     init(message: String, annotation: String? = nil) {
         self.message = message
         self.annotation = annotation
@@ -29,10 +34,11 @@ struct IntroductionTextView: View {
                     .font(.footnote)
             }
         }
-        .padding(.top, 20)
+        .padding(.top, 25)
     }
 }
 
+// MARK: Previews
 struct IntroductionTextView_Previews: PreviewProvider {
     static var previews: some View {
         IntroductionTextView(message: "ここにメッセージを表示します",
