@@ -32,6 +32,7 @@
 		B064DD0329D9D99E009AE6A2 /* NameFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */; };
 		B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */; };
 		B064DD0C29DDE068009AE6A2 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0B29DDE068009AE6A2 /* AppVersion.swift */; };
+		B06E162229FE70D000ADFC2F /* IntroductionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */; };
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
@@ -88,6 +89,7 @@
 		B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFormsView.swift; sourceTree = "<group>"; };
 		B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidationResult.swift; sourceTree = "<group>"; };
 		B064DD0B29DDE068009AE6A2 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
+		B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTextView.swift; sourceTree = "<group>"; };
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				B08AF48029E1653D00BDB776 /* WebView */,
 				B08A671329D4A9F20073D63B /* Router */,
 				B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */,
+				B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				B08AF48229E1654D00BDB776 /* WrappedWebView.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B08A671529D4AA160073D63B /* DestinationType.swift in Sources */,
+				B06E162229FE70D000ADFC2F /* IntroductionTextView.swift in Sources */,
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */,

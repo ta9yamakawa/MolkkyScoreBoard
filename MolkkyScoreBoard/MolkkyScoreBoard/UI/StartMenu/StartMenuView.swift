@@ -24,10 +24,7 @@ struct StartMenuView: View {
 
     var body: some View {
         VStack(spacing: 30) {
-            Text("何チームでモルックを\nプレイしますか？")
-                .font(Font.system(size: 20))
-                .multilineTextAlignment(.center)
-                .padding(.top, 40)
+            IntroductionTextView(message: "何チームでモルックを\nプレイしますか？")
 
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach((minTeamCount...maxTeamCount),
