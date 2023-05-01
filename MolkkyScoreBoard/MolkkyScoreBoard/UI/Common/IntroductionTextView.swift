@@ -28,6 +28,7 @@ struct IntroductionTextView: View {
         VStack(spacing: 5) {
             Text(message)
                 .font(Font.system(size: 18))
+                .lineLimit(0)
 
             if let annotation = annotation {
                 Text(annotation)
