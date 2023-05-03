@@ -78,8 +78,8 @@ struct TeamsMakeFeature: ReducerProtocol {
             return .none
 
         case .didTapDecisionButton:
-            for index in 0..<state.teams.count {
-                let newScore = TeamScore(from: state.teams)
+            state.teams.enumerated().forEach { index, team in
+                let newScore = TeamScore(from: team)
                 state.teams[index].score.append(newScore)
             }
 
