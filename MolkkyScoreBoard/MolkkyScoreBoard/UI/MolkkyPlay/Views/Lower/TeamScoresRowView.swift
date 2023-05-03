@@ -19,49 +19,46 @@ struct TeamScoresRowView: View {
     let index: Int
 
     var body: some View {
-        let bounds = UIScreen.main.bounds
         let team = viewStore.state.teams[index]
 
-        HStack {
-            HStack(spacing: 20) {
-                if viewStore.state.playingOrder == index {
-                    Image(systemName: "arrow.right")
-                }
+        GeometryReader { geometry in
+            HStack {
+                HStack(spacing: 20) {
+                    if viewStore.state.playingOrder == index {
+                        Image(systemName: "arrow.right")
+                    }
 
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("チーム\(team.id)")
-                        .multilineTextAlignment(.leading)
-                        .font(Font.system(size: 10))
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("チーム\(team.id)")
+                            .multilineTextAlignment(.leading)
+                            .font(Font.system(size: 10))
 
-                    Text("\(memberName(from: team))さん")
-                        .multilineTextAlignment(.leading)
-                        .bold()
+                        Text("\(memberName(from: team))さん")
+                            .multilineTextAlignment(.leading)
+                            .bold()
 
-                    HStack(spacing: 5) {
-                        Circle()
-                            .frame(width: 20)
-                            .foregroundColor(circleColor(from: team,
-                                                         count: 1))
-                        Circle()
-                            .frame(width: 20)
-                            .foregroundColor(circleColor(from: team,
-                                                         count: 2))
-                        Circle()
-                            .frame(width: 20)
-                            .foregroundColor(circleColor(from: team,
-                                                         count: 3))
+                        HStack(spacing: 5) {
+                            ForEach (1..<4) { count in
+                                Circle()
+                                    .frame(width: 20)
+                                    .foregroundColor(circleColor(from: team,
+                                                                 count: count))
+                            }
+                        }
                     }
                 }
+                .frame(width: geometry.size.width / 2)
+
+                Text("\(team.score.last?.score ?? 0)")
+                    .frame(width: geometry.size.width / 4)
+
+                Text("\(team.totalScore())")
+                    .frame(width: geometry.size.width / 4)
             }
-            .frame(width: bounds.width / 2)
-
-            Text("\(team.score.last?.score ?? 0)")
-                .frame(width: bounds.width / 4)
-
-            Text("\(team.totalScore())")
-                .frame(width: bounds.width / 4)
+            .frame(height: 70)
+            .padding(.top, 10)
         }
-        .padding(.top, 10)
+        .frame(height: 80)
     }
 }
 
