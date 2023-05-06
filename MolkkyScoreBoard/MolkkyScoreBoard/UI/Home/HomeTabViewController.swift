@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// TabViewのHosting管理クラス
 final class HomeTabViewController: UIViewController {
 
+    /// Instantiate
+    /// - Returns: UIHostingController<HomeTabView>
     static func instantiate() -> UIHostingController<HomeTabView> {
         let viewController = UIHostingController(rootView: HomeTabView())
         return viewController
