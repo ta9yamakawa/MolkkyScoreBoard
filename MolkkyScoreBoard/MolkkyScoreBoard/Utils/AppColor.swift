@@ -16,6 +16,8 @@ enum AppColor {
     case main
     /// ベースカラー
     case base
+    /// エラーカラー
+    case error
 
     /// カラーアセットの名前
     private var name: String {
@@ -26,6 +28,8 @@ enum AppColor {
             return "main"
         case .base:
             return "base"
+        case .error:
+            return "error"
         }
     }
 
