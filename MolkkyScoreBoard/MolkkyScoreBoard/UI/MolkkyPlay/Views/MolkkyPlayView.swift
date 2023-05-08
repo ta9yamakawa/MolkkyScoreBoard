@@ -18,35 +18,37 @@ struct MolkkyPlayView: View {
     @State private var isPresentedAlert = false
 
     /// Store
-    let store: StoreOf<MolkkyPlayFeature>
+    @State var store: StoreOf<MolkkyPlayFeature>? = nil
 
     var body: some View {
-        VStack(spacing: 20) {
-            WithViewStore(store) { viewStore in
-                HStack {
-                    Button(action: {
-                        isPresentedAlert.toggle()
-                    }, label: {
-                        Image(systemName: "xmark")
-                    })
-                    .alert(isPresented: $isPresentedAlert) {
-                        gameFinishConfirmAlert(with: viewStore)
+        if let store = store {
+            VStack(spacing: 20) {
+                WithViewStore(store) { viewStore in
+                    HStack {
+                        Button(action: {
+                            isPresentedAlert.toggle()
+                        }, label: {
+                            Image(systemName: "xmark")
+                        })
+                        .alert(isPresented: $isPresentedAlert) {
+                            gameFinishConfirmAlert(with: viewStore)
+                        }
+
+                        Spacer()
                     }
+                    .padding()
 
-                    Spacer()
+
+                    SkittlesView(viewStore: viewStore)
+                        .padding(.bottom, 10)
+
+                    PlayingButtonsView(viewStore: viewStore)
+
+                    TeamScoresView(viewStore: viewStore)
                 }
-                .padding()
-
-
-                SkittlesView(viewStore: viewStore)
-                    .padding(.bottom, 10)
-
-                PlayingButtonsView(viewStore: viewStore)
-
-                TeamScoresView(viewStore: viewStore)
             }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
