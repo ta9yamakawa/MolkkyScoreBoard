@@ -8,7 +8,7 @@
 import Foundation
 
 /// チームスコア
-struct TeamScore: Identifiable, Hashable, Equatable {
+struct TeamScore: Identifiable, Hashable {
     /// ID
     let id = UUID()
     /// 第何セットか
@@ -26,11 +26,9 @@ struct TeamScore: Identifiable, Hashable, Equatable {
     }
 
     /// Initialize
-    /// - Parameter teams: チーム情報
-    init(from teams: [Team]) {
-        if
-            let team = teams.first,
-            let setNo = team.score.last?.setNo {
+    /// - Parameter team: チーム情報
+    init(from team: Team) {
+        if let setNo = team.score.last?.setNo {
             self.setNo = setNo + 1
         } else {
             self.setNo = 1

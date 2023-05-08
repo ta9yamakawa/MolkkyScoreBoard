@@ -10,18 +10,19 @@ import SwiftUI
 /// チームスコアのタイトルView
 struct TeamScoresTitleView: View {
     var body: some View {
-        let bounds = UIScreen.main.bounds
-
-        HStack(spacing: .zero) {
-            Text("チーム")
-                .frame(width: bounds.width / 2)
-            Text("セット")
-                .frame(width: bounds.width / 4)
-            Text("合計")
-                .frame(width: bounds.width / 4)
+        GeometryReader { geometry in
+            HStack(spacing: .zero) {
+                Text("チーム")
+                    .frame(width: geometry.size.width / 2)
+                Text("セット")
+                    .frame(width: geometry.size.width / 4)
+                Text("合計")
+                    .frame(width: geometry.size.width / 4)
+            }
+            .frame(height: 40)
+            .background(Color.orange)
         }
-        .padding(.vertical, 8)
-        .background(Color.orange)
+        .frame(height: 40)
     }
 }
 

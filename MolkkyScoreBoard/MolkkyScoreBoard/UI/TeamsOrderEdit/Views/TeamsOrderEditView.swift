@@ -17,12 +17,7 @@ struct TeamsOrderEditView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack(spacing: .zero) {
-                Text("プレイするチームの順番に\n並び替えてください")
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 20)
-                    .font(Font.system(size: 20))
+                IntroductionTextView(message: "チームのプレイ順に並び替えてください")
 
                 List {
                     ForEach(viewStore.state.teams) { team in

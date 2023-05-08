@@ -15,7 +15,6 @@
 		B038DE3329B8F1F70030276E /* TeamScoresRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DE3229B8F1F70030276E /* TeamScoresRowView.swift */; };
 		B038DE3629BA38990030276E /* TeamsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DE3529BA38990030276E /* TeamsMock.swift */; };
 		B038DE3829BC84A50030276E /* TeamScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038DE3729BC84A50030276E /* TeamScore.swift */; };
-		B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */; };
 		B04E138929990F730055CA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138829990F730055CA7F /* Assets.xcassets */; };
 		B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E138B29990F730055CA7F /* Preview Assets.xcassets */; };
 		B04E1394299913E30055CA7F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B04E1393299913E30055CA7F /* ComposableArchitecture */; };
@@ -32,6 +31,9 @@
 		B064DD0329D9D99E009AE6A2 /* NameFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */; };
 		B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */; };
 		B064DD0C29DDE068009AE6A2 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064DD0B29DDE068009AE6A2 /* AppVersion.swift */; };
+		B06E162229FE70D000ADFC2F /* IntroductionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */; };
+		B06E16262A0409B200ADFC2F /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E16252A0409B200ADFC2F /* HomeTabViewController.swift */; };
+		B06E16282A040D7000ADFC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E16272A040D7000ADFC2F /* AppDelegate.swift */; };
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
@@ -74,7 +76,6 @@
 		B038DE3529BA38990030276E /* TeamsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMock.swift; sourceTree = "<group>"; };
 		B038DE3729BC84A50030276E /* TeamScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScore.swift; sourceTree = "<group>"; };
 		B04E138129990F710055CA7F /* MolkkyScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MolkkyScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyScoreBoardApp.swift; sourceTree = "<group>"; };
 		B04E138829990F730055CA7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B04E138B29990F730055CA7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B04E13962999155C0055CA7F /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
@@ -91,6 +92,9 @@
 		B064DD0229D9D99E009AE6A2 /* NameFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFormsView.swift; sourceTree = "<group>"; };
 		B064DD0429DB3F84009AE6A2 /* NameValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidationResult.swift; sourceTree = "<group>"; };
 		B064DD0B29DDE068009AE6A2 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
+		B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTextView.swift; sourceTree = "<group>"; };
+		B06E16252A0409B200ADFC2F /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		B06E16272A040D7000ADFC2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -267,7 +271,6 @@
 				B04E13A12999186E0055CA7F /* Home */,
 				B04E139A299917700055CA7F /* Information */,
 				B0DE7F5929AFA9D400B30CC0 /* MolkkyPlay */,
-				B04E138429990F710055CA7F /* MolkkyScoreBoardApp.swift */,
 				B0CF124429C765D60061E9C3 /* Result */,
 				B04E1399299917540055CA7F /* StartMenu */,
 				B04E13A7299D38DA0055CA7F /* TeamMake */,
@@ -280,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				B04E13962999155C0055CA7F /* HomeTabView.swift */,
+				B06E16252A0409B200ADFC2F /* HomeTabViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -291,6 +295,7 @@
 				B08A671329D4A9F20073D63B /* Router */,
 				B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */,
 				B08AF48029E1653D00BDB776 /* WebView */,
+				B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				B08AF49729E99D2400BDB776 /* AppColor.swift */,
+				B06E16272A040D7000ADFC2F /* AppDelegate.swift */,
 				B064DD0B29DDE068009AE6A2 /* AppVersion.swift */,
 			);
 			path = Utils;
@@ -538,9 +544,10 @@
 				B02ED78929A510B10037B9DF /* TeamsOrderEditFeature.swift in Sources */,
 				B0CF125929CB60320061E9C3 /* ResultTeamView.swift in Sources */,
 				B064DD0129D9D549009AE6A2 /* TeamMembersMakeView.swift in Sources */,
+				B06E16282A040D7000ADFC2F /* AppDelegate.swift in Sources */,
 				B0DE7F6529B102E200B30CC0 /* TeamScoresView.swift in Sources */,
-				B04E138529990F710055CA7F /* MolkkyScoreBoardApp.swift in Sources */,
 				B0DE7F5B29AFA9EE00B30CC0 /* MolkkyPlayView.swift in Sources */,
+				B06E16262A0409B200ADFC2F /* HomeTabViewController.swift in Sources */,
 				B0DE7F5F29B0F9A100B30CC0 /* SkittleView.swift in Sources */,
 				B0DE7F6A29B38F7D00B30CC0 /* Skittle.swift in Sources */,
 				B08A671E29D760A70073D63B /* NameValidator.swift in Sources */,
@@ -555,6 +562,7 @@
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B08A671529D4AA160073D63B /* DestinationType.swift in Sources */,
 				B08AF49829E99D2400BDB776 /* AppColor.swift in Sources */,
+				B06E162229FE70D000ADFC2F /* IntroductionTextView.swift in Sources */,
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
 				B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */,
@@ -712,6 +720,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MolkkyScoreBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "みんモル";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -742,6 +751,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MolkkyScoreBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "みんモル";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
