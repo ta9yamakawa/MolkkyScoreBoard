@@ -29,6 +29,7 @@ struct MolkkyPlayView: View {
                             isPresentedAlert.toggle()
                         }, label: {
                             Image(systemName: "xmark")
+                                .foregroundColor(AppColor.black.color)
                         })
                         .alert(isPresented: $isPresentedAlert) {
                             gameFinishConfirmAlert(with: viewStore)

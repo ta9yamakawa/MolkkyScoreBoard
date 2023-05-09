@@ -113,6 +113,12 @@ struct MolkkyPlayFeature: ReducerProtocol {
             return .none
         }
     }
+
+    /// Undoができるかを判別する
+    /// - Returns: true: Undo可能 / false: Undo不可能
+    func canUndo() -> Bool {
+        return undoManager.actions.last != nil
+    }
 }
 
 // MARK: Private Methods

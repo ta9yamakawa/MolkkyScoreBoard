@@ -23,29 +23,34 @@ struct TeamScoresRowView: View {
 
         GeometryReader { geometry in
             HStack {
-                HStack(spacing: 20) {
-                    if viewStore.state.playingOrder == index {
-                        Image(systemName: "arrow.right")
-                    }
+                HStack(spacing: 10) {
+                    Image(systemName: "arrowtriangle.right.fill")
+                        .foregroundColor(viewStore.state.playingOrder == index ? .black : .clear)
+                        .padding(.leading, 25)
 
                     VStack(alignment: .leading, spacing: 5) {
                         Text("チーム\(team.id)")
                             .multilineTextAlignment(.leading)
-                            .font(Font.system(size: 10))
+                            .font(Font.system(size: 12))
 
                         Text("\(memberName(from: team))さん")
+                            .fixedSize(horizontal: true, vertical: false)
                             .multilineTextAlignment(.leading)
                             .bold()
+                            .font(Font.system(size: 16))
 
                         HStack(spacing: 5) {
                             ForEach (1..<4) { count in
                                 Circle()
-                                    .frame(width: 20)
+                                    .frame(width: 18)
                                     .foregroundColor(circleColor(from: team,
                                                                  count: count))
                             }
                         }
                     }
+
+                    Spacer()
+
                 }
                 .frame(width: geometry.size.width / 2)
 
@@ -70,7 +75,8 @@ private extension TeamScoresRowView {
     ///   - count: 得点の上限
     /// - Returns: 円の色
     func circleColor(from team: Team, count: Int) -> Color {
-        return team.mistakeCount < count ? .gray : .red
+        let isMistake = team.mistakeCount < count
+        return isMistake ? AppColor.cancel.color : AppColor.error.color
     }
 
     /// チームメンバーの名前を取得する

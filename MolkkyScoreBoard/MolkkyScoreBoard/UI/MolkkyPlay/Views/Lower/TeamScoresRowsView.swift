@@ -25,7 +25,7 @@ struct TeamScoresRowsView: View {
                     Divider()
                         .padding(.top, 10)
                 }
-                .background(teamBackgroundColor(from: team))
+                .background(teamBackgroundColor(from: team, index: index))
             }
         }
     }
@@ -36,8 +36,14 @@ private extension TeamScoresRowsView {
     /// チーム行の背景色を取得する
     /// - Parameter team: Team
     /// - Returns: チーム行の背景色
-    func teamBackgroundColor(from team: Team) -> Color {
-        return team.isDisqualified ? .gray : .clear
+    func teamBackgroundColor(from team: Team, index: Int) -> Color {
+        if viewStore.state.playingOrder == index {
+            return AppColor.accent3.color
+        } else if team.isDisqualified {
+            return .gray
+        } else {
+            return .clear
+        }
     }
 }
 

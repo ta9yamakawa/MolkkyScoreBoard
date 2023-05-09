@@ -26,7 +26,7 @@ struct SkittleView: View {
         .frame(width: 60, height: 60)
         .font(Font.system(size: 24))
         .bold()
-        .foregroundColor(foregroundColor(with: selectedSkittles))
+        .foregroundColor(AppColor.white.color)
         .background(backgroundColor(with: selectedSkittles))
         .clipShape(Circle())
     }
@@ -34,25 +34,12 @@ struct SkittleView: View {
 
 // MARK: Private Methods
 private extension SkittleView {
-    /// 文字色を取得する
-    /// - Parameter selecteds: 選択済みのスキットル(配列)
-    /// - Returns: 文字色
-    func foregroundColor(with selecteds: [Skittle]) -> Color {
-        return isSelected(in: selecteds) ? .black : .white
-    }
-
     /// 背景色を取得する
     /// - Parameter selecteds: 選択済みのスキットル(配列)
     /// - Returns: 背景色
     func backgroundColor(with selecteds: [Skittle]) -> Color {
-        return isSelected(in: selecteds) ? .green : .blue
-    }
-
-    /// 選択されたスキットルかどうか
-    /// - Parameter selecteds: 選択済みのスキットル(配列)
-    /// - Returns: true: 選択済み / false: 未選択
-    func isSelected(in selecteds: [Skittle]) -> Bool {
-        return selecteds.contains(Skittle(number: number))
+        let isSelected = selecteds.contains(Skittle(number: number))
+        return isSelected ? AppColor.main.color : AppColor.skittle.color
     }
 }
 

@@ -23,7 +23,7 @@ struct PlayingButtonsView: View {
             .font(Font.system(size: 20))
             .foregroundColor(.white)
             .frame(width: 80, height: 40)
-            .background(Color.gray)
+            .background(AppColor.cancel.color)
             .cornerRadius(4)
             .padding(EdgeInsets(top: 0,
                                 leading: 10,
@@ -39,9 +39,9 @@ struct PlayingButtonsView: View {
                 }
             }
             .font(Font.system(size: 20))
-            .foregroundColor(.white)
+            .foregroundColor(AppColor.white.color)
             .frame(width: 80, height: 40)
-            .background(Color.orange)
+            .background(AppColor.accent2.color)
             .cornerRadius(4)
             .padding(EdgeInsets(top: 0,
                                 leading: 0,
