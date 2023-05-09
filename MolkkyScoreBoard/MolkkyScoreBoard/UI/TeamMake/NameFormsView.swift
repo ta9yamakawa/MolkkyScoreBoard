@@ -84,7 +84,7 @@ private extension NameFormsView {
             return .clear
         }
 
-        return .red
+        return AppColor.error.color
     }
 }
 

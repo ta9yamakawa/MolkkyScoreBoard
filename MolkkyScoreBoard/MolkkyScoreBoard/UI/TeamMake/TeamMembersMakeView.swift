@@ -36,6 +36,7 @@ struct TeamMembersMakeView: View {
                                                  index: teamIndex) {
                         let invalid = viewStore.state.invalidIndex
                         Text(invalid[0].errorType?.message ?? "失敗している")
+                            .foregroundColor(AppColor.error.color)
                     }
                     
                     TeamMemberCountEditButtonsView(viewStore: viewStore,

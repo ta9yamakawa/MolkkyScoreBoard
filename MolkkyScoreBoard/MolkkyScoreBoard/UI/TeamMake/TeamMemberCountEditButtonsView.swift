@@ -40,7 +40,7 @@ struct TeamMemberCountEditButtonsView: View {
             }, label: {
                 Image(systemName: "plus.circle")
                     .resizable()
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(AppColor.lightBlue.color)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
             })
@@ -52,7 +52,7 @@ struct TeamMemberCountEditButtonsView: View {
             }, label: {
                 Image(systemName: "minus.circle")
                     .resizable()
-                    .foregroundColor(Color.red)
+                    .foregroundColor(AppColor.accent.color)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
             })
