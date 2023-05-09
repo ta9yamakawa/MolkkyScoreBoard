@@ -32,6 +32,8 @@ enum AppColor {
     case font
     /// 白色
     case white
+    /// 黒色
+    case black
     /// 薄めの青
     case lightBlue
 
@@ -58,6 +60,8 @@ enum AppColor {
             return "font"
         case .white:
             return "white"
+        case .black:
+            return "black"
         case .lightBlue:
             return "lightBlue"
         }

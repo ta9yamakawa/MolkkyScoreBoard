@@ -14,7 +14,7 @@ struct HomeTabView: View {
     /// タブの種類
     private enum TabType: String {
         case play = "プレイ"
-        case information = "インフォメーション"
+        case information = "情報"
     }
 
     /// 選択中のタブ

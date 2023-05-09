@@ -15,8 +15,10 @@ struct SpecialThanksView: View {
                 Section(role.rawValue) {
                     ForEach(role.members, id: \.self) { member in
                         Text(member)
+                            .foregroundColor(AppColor.black.color)
                     }
                 }
+                .foregroundColor(AppColor.font.color)
             }
         }
         .scrollContentBackground(.hidden)
