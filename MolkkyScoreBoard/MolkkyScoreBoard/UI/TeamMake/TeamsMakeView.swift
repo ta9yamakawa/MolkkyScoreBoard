@@ -31,7 +31,8 @@ struct TeamsMakeView: View {
                 .foregroundColor(.white)
                 .padding(.vertical, 12)
                 .padding(.horizontal, 24)
-                .background(viewStore.state.enableGoNext ? Color.orange : Color.gray)
+                .background(viewStore.state.enableGoNext ?
+                            AppColor.accent2.color : AppColor.cancel.color)
                 .cornerRadius(4)
                 .disabled(!viewStore.state.enableGoNext)
             }

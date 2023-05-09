@@ -44,7 +44,7 @@ struct TeamsOrderEditView: View {
                 .foregroundColor(.white)
                 .frame(width: 140)
                 .padding(.vertical, 12)
-                .background(Color.orange)
+                .background(AppColor.accent2.color)
                 .cornerRadius(4)
             }
             .background(AppColor.base.color)
