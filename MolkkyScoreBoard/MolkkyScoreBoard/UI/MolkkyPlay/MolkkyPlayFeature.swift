@@ -36,6 +36,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var playingOrder = 0
         /// 試合を終わらせるか
         var shouldFinishMatch = false
+        /// Undoのアクション管理配列
+        var undoActions: [PlayAction] = []
 
         /// Initialize
         /// - Parameter teams: Team
@@ -89,6 +91,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
             state.playingOrder = lastAction.playingOrder
 
             undoManager.delete(lastAction)
+            state.undoActions = undoManager.actions
             return .none
 
         case .didTapCloseButton:
@@ -100,6 +103,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
             let team = state.teams[playingOrder]
             let action = PlayAction(team: team, playingOrder: playingOrder)
             undoManager.add(action)
+            state.undoActions = undoManager.actions
 
             update(from: &state)
             resetSkittles(from: &state)
@@ -112,12 +116,6 @@ struct MolkkyPlayFeature: ReducerProtocol {
             PageRouter.shared.path.append(.result(teams: state.teams))
             return .none
         }
-    }
-
-    /// Undoができるかを判別する
-    /// - Returns: true: Undo可能 / false: Undo不可能
-    func canUndo() -> Bool {
-        return undoManager.actions.last != nil
     }
 }
 

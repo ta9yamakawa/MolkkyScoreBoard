@@ -17,18 +17,20 @@ struct PlayingButtonsView: View {
 
     var body: some View {
         HStack() {
+            let canUndo = !viewStore.state.undoActions.isEmpty
             Button("戻る") {
                 viewStore.send(.didTapUndoButton)
             }
             .font(Font.system(size: 20))
-            .foregroundColor(.white)
+            .foregroundColor(canUndo ? AppColor.white.color : .clear)
             .frame(width: 80, height: 40)
-            .background(AppColor.cancel.color)
+            .background(canUndo ? AppColor.main.color : .clear)
             .cornerRadius(4)
             .padding(EdgeInsets(top: 0,
                                 leading: 10,
                                 bottom: 0,
                                 trailing: 0))
+            .disabled(viewStore.state.undoActions.isEmpty)
 
             Spacer()
 
