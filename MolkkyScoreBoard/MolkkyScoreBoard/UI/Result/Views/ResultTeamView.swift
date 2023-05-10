@@ -19,9 +19,9 @@ struct ResultTeamView: View {
             Text("\(team.ranking)")
                 .font(Font.system(size: 14))
                 .bold()
-                .foregroundColor(Color.white)
+                .foregroundColor(AppColor.white.color)
                 .padding(.all, 5)
-                .background(Color.blue.cornerRadius(2))
+                .background(AppColor.main.color)
 
             VStack(spacing: 5) {
                 HStack {
