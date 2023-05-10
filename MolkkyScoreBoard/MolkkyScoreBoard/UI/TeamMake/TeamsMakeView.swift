@@ -24,13 +24,15 @@ struct TeamsMakeView: View {
                 
                 Divider().background(Color.black).padding(.bottom)
 
-                Button("決定") {
+                Button(action: {
                     viewStore.send(.didTapDecisionButton)
-                }
-                .font(Font.system(size: 20))
+                }, label: {
+                    Text("決定")
+                        .frame(width: 100)
+                        .font(Font.system(size: 20))
+                        .padding(.vertical, 12)
+                })
                 .foregroundColor(.white)
-                .padding(.vertical, 12)
-                .padding(.horizontal, 24)
                 .background(viewStore.state.enableGoNext ?
                             AppColor.accent2.color : AppColor.cancel.color)
                 .cornerRadius(4)

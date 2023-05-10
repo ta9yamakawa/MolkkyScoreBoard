@@ -37,13 +37,15 @@ struct TeamsOrderEditView: View {
 
                 Divider().background(Color.black).padding(.bottom)
 
-                Button("決定") {
+                Button(action: {
                     viewStore.send(.didTapDecideButton)
-                }
-                .font(Font.system(size: 20))
+                }, label: {
+                    Text("決定")
+                        .frame(width: 100)
+                        .font(Font.system(size: 20))
+                        .padding(.vertical, 12)
+                })
                 .foregroundColor(.white)
-                .frame(width: 140)
-                .padding(.vertical, 12)
                 .background(AppColor.accent2.color)
                 .cornerRadius(4)
             }
