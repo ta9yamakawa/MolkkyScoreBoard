@@ -22,7 +22,7 @@ enum SpecialThanksRole: String, CaseIterable {
         case .appIconDraft:
             return ["nina", "あおい", "おーじ"]
         case .supporter:
-            return ["Shiho", "しょーた"]
+            return ["Shiho", "しょーた", "まろにー"]
         }
     }
 }
