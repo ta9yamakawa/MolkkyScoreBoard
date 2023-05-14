@@ -34,7 +34,9 @@ struct TeamScoresRowsView: View {
 // MARK: Private Methods
 private extension TeamScoresRowsView {
     /// チーム行の背景色を取得する
-    /// - Parameter team: Team
+    /// - Parameters:
+    ///   - team: Team
+    ///   - index: チームのインデックス
     /// - Returns: チーム行の背景色
     func teamBackgroundColor(from team: Team, index: Int) -> Color {
         if viewStore.state.playingOrder == index {
