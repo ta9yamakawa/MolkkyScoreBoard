@@ -24,7 +24,7 @@ struct OrderingTeamView: View {
 
             VStack(spacing: 5) {
                 HStack {
-                    Text("Team\(team.id)")
+                    Text("チーム\(team.id)")
                         .font(Font.system(size: 24))
                         .fontWeight(.bold)
                         .padding(.top, 10)
