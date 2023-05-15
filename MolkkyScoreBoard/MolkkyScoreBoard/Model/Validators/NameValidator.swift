@@ -12,7 +12,7 @@ final class NameValidator: Validator {
     let name: String
 
     /// 最大文字列
-    private static let maxCharacterCount: Int = 8
+    private static let maxCharacterCount: Int = 7
 
     /// Initialize
     /// - Parameter name: 名前
@@ -23,7 +23,7 @@ final class NameValidator: Validator {
     /// 検証を実施
     /// - Returns: NameValidationResult
     func validate() -> NameValidationResult {
-        guard name.count < type(of: self).maxCharacterCount else {
+        guard name.count <= type(of: self).maxCharacterCount else {
             return .maxLimitLength(type(of: self).maxCharacterCount)
         }
 
