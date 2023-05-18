@@ -18,11 +18,11 @@ enum SpecialThanksRole: String, CaseIterable {
     var members: [String] {
         switch self {
         case .designer:
-            return ["hoge"]
+            return ["くろ"]
         case .appIconDraft:
-            return ["xxx", "yyy", "zzz"]
+            return ["nina", "あおい", "おーじ"]
         case .supporter:
-            return ["abc"]
+            return ["Shiho", "しょーた", "まろにー"]
         }
     }
 }

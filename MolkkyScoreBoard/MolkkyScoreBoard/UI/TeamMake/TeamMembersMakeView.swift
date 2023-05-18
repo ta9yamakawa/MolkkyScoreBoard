@@ -24,7 +24,7 @@ struct TeamMembersMakeView: View {
                     id: \.index) { teamIndex, team in
                 VStack {
                     HStack {
-                        Text("Team\(team.id)")
+                        Text("チーム\(team.id)")
                         Spacer()
                     }.padding(.leading)
 
