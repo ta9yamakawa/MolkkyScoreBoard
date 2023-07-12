@@ -31,7 +31,7 @@ struct HomeTabView: View {
             TabView(selection: $selectedTab) {
                 StartMenuView()
                     .tabItem {
-                        Image("two-skittle")
+                        Image("icon-play-tab")
                         Text("プレイ")
                     }
                     .tag(TabType.play)

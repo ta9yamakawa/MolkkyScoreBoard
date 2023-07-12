@@ -16,8 +16,8 @@ final class TabViewAppearance {
         tabBarAppearance.configureWithOpaqueBackground()
         tabBarAppearance.backgroundColor = AppColor.base.uiColor
 
-        let normalColor = UIColor.darkGray
-        let selectedColor = AppColor.accent.uiColor
+        let normalColor = UIColor.systemGray2
+        let selectedColor = AppColor.main.uiColor
 
         let textAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: normalColor,
                                                              .font: UIFont.systemFont(ofSize: 10, weight: .medium)]
