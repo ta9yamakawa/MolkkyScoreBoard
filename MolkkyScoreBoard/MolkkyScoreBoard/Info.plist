@@ -11,7 +11,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>accent3</string>
+		<string>main</string>
 		<key>UIImageName</key>
 		<string>splash</string>
 	</dict>
