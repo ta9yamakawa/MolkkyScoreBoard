@@ -44,6 +44,7 @@ struct TeamMembersMakeView: View {
                                                    teamIndex: teamIndex)
                 }
             }
+                    .listRowBackground(AppColor.bgList.color)
         }
         .scrollContentBackground(.hidden)
         .background(AppColor.base.color)

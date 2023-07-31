@@ -23,6 +23,7 @@ struct ResultTeamsView: View {
                                               bottom: 10,
                                               trailing: 10))
             }
+            .listRowBackground(AppColor.bgList.color)
         }
         .scrollContentBackground(.hidden)
     }

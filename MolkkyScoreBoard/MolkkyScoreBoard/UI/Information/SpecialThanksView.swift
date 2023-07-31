@@ -18,6 +18,7 @@ struct SpecialThanksView: View {
                             .foregroundColor(AppColor.black.color)
                     }
                 }
+                .listRowBackground(AppColor.bgList.color)
                 .foregroundColor(AppColor.font.color)
             }
         }

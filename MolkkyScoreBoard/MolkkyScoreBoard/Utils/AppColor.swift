@@ -34,8 +34,12 @@ enum AppColor {
     case white
     /// 黒色
     case black
-    /// 薄めの青
-    case lightBlue
+    /// プラスボタンの緑色カラー
+    case plus
+    /// マイナスボタンの赤色カラー
+    case minus
+    /// リストの背景色
+    case bgList
 
     /// カラーアセットの名前
     private var name: String {
@@ -62,8 +66,12 @@ enum AppColor {
             return "white"
         case .black:
             return "black"
-        case .lightBlue:
-            return "lightBlue"
+        case .plus:
+            return "plus"
+        case .minus:
+            return "minus"
+        case .bgList:
+            return "bg-list"
         }
     }
 

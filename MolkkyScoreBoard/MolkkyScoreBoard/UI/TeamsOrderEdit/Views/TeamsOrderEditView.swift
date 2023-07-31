@@ -31,6 +31,7 @@ struct TeamsOrderEditView: View {
                         viewStore.send(.didMovedTeamView(source: source,
                                                          destination: destination))
                     })
+                    .listRowBackground(AppColor.bgList.color)
                 }
                 .scrollContentBackground(.hidden)
                 .environment(\.editMode, .constant(.active))
