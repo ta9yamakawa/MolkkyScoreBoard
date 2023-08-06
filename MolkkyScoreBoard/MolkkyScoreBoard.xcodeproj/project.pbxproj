@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B016184C2A7FFF6100E8C6AE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B016184B2A7FFF6100E8C6AE /* Settings.bundle */; };
 		B02ED78029A26DFA0037B9DF /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B02ED77F29A26DFA0037B9DF /* Algorithms */; };
 		B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */; };
 		B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B016184B2A7FFF6100E8C6AE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberCountEditButtonsView.swift; sourceTree = "<group>"; };
 		B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditView.swift; sourceTree = "<group>"; };
 		B02ED78829A510B10037B9DF /* TeamsOrderEditFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditFeature.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				B04E138A29990F730055CA7F /* Preview Content */,
 				B04E139C299917A80055CA7F /* UI */,
 				B064DD0A29DDE00F009AE6A2 /* Utils */,
+				B016184B2A7FFF6100E8C6AE /* Settings.bundle */,
 			);
 			path = MolkkyScoreBoard;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				B04E137D29990F710055CA7F /* Sources */,
 				B04E137E29990F710055CA7F /* Frameworks */,
 				B04E137F29990F710055CA7F /* Resources */,
+				B016184D2A80008B00E8C6AE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -476,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B016184C2A7FFF6100E8C6AE /* Settings.bundle in Resources */,
 				B08AF49629E996D100BDB776 /* Color.xcassets in Resources */,
 				B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */,
 				B04E138929990F730055CA7F /* Assets.xcassets in Resources */,
@@ -483,6 +488,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B016184D2A80008B00E8C6AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd $SRCROOT\n/usr/local/bin/license-plist --output-path $PRODUCT_NAME/Settings.bundle\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B04E137D29990F710055CA7F /* Sources */ = {
