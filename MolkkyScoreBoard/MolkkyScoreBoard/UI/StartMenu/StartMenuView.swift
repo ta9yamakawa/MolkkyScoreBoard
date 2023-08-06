@@ -35,6 +35,7 @@ struct StartMenuView: View {
 
             Spacer()
         }
+        .background(AppColor.base.color)
     }
 }
 

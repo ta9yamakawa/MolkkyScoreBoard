@@ -14,7 +14,7 @@ struct HomeTabView: View {
     /// タブの種類
     private enum TabType: String {
         case play = "プレイ"
-        case information = "インフォメーション"
+        case information = "情報"
     }
 
     /// 選択中のタブ
@@ -23,7 +23,7 @@ struct HomeTabView: View {
     /// Initialize
     init() {
         NavigationViewAppearance.configure()
-        UITabBar.appearance().backgroundColor = .systemGray6
+        TabViewAppearance.configure()
     }
 
     var body: some View {
@@ -31,7 +31,7 @@ struct HomeTabView: View {
             TabView(selection: $selectedTab) {
                 StartMenuView()
                     .tabItem {
-                        Image(systemName: "pencil.and.outline")
+                        Image("icon-play-tab")
                         Text("プレイ")
                     }
                     .tag(TabType.play)

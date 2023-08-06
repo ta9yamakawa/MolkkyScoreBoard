@@ -34,6 +34,7 @@ struct InformationView: View {
                     SpecialThanksView()
                 })
             }
+            .listRowBackground(AppColor.bgList.color)
 
             Section {
                 NavigationLink("プライバシーポリシー", destination: {
@@ -42,10 +43,14 @@ struct InformationView: View {
                 })
                 Text("バージョン：\(AppVersion.currentVersion)")
             }
+            .listRowBackground(AppColor.bgList.color)
         }
+        .scrollContentBackground(.hidden)
+        .background(AppColor.base.color)
     }
 }
 
+// MARK: Previews
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView()

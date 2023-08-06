@@ -16,7 +16,7 @@ struct TeamsOrderEditView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            VStack {
+            VStack(spacing: .zero) {
                 IntroductionTextView(message: "チームのプレイ順に並び替えてください")
 
                 List {
@@ -31,21 +31,26 @@ struct TeamsOrderEditView: View {
                         viewStore.send(.didMovedTeamView(source: source,
                                                          destination: destination))
                     })
+                    .listRowBackground(AppColor.bgList.color)
                 }
+                .scrollContentBackground(.hidden)
                 .environment(\.editMode, .constant(.active))
 
-                Divider().background(Color.black)
+                Divider().background(Color.black).padding(.bottom)
 
-                Button("決定") {
+                Button(action: {
                     viewStore.send(.didTapDecideButton)
-                }
-                .font(Font.system(size: 20))
+                }, label: {
+                    Text("決定")
+                        .frame(width: 100)
+                        .font(Font.system(size: 20))
+                        .padding(.vertical, 12)
+                })
                 .foregroundColor(.white)
-                .frame(width: 140)
-                .padding(.vertical, 12)
-                .background(Color.orange)
+                .background(AppColor.accent2.color)
                 .cornerRadius(4)
             }
+            .background(AppColor.base.color)
         }
     }
 }

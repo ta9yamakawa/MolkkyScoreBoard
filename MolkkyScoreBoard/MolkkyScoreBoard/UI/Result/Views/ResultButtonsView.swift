@@ -23,8 +23,8 @@ struct ResultButtonsView: View {
             }
             .padding(8)
             .font(Font.system(size: 20))
-            .foregroundColor(.white)
-            .background(Color.gray)
+            .foregroundColor(AppColor.white.color)
+            .background(AppColor.main.color)
             .cornerRadius(4)
             .padding(EdgeInsets(top: 0,
                                 leading: 0,
@@ -36,8 +36,8 @@ struct ResultButtonsView: View {
             }
             .padding(8)
             .font(Font.system(size: 20))
-            .foregroundColor(.white)
-            .background(Color.orange)
+            .foregroundColor(AppColor.white.color)
+            .background(AppColor.accent2.color)
             .cornerRadius(4)
             .padding(EdgeInsets(top: 0,
                                 leading: 0,

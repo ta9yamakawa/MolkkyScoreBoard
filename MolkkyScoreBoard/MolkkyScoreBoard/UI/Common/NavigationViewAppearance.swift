@@ -14,16 +14,17 @@ final class NavigationViewAppearance {
     static func configure() {
         // バーの設定
         let appearance = UINavigationBarAppearance()
-        let image = UIImage(systemName: "chevron.backward")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        let image = UIImage(systemName: "chevron.backward")?.withTintColor(AppColor.font.uiColor,
+                                                                           renderingMode: .alwaysOriginal)
         appearance.configureWithOpaqueBackground()
         appearance.setBackIndicatorImage(image, transitionMaskImage: image)
-        appearance.backgroundColor = UIColor.systemGreen
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white,
+        appearance.backgroundColor = AppColor.main.uiColor
+        appearance.titleTextAttributes = [.foregroundColor: AppColor.font.uiColor,
                                           .font : UIFont.boldSystemFont(ofSize: 20)]
 
         // ボタンの設定
         let backItemAppearance = UIBarButtonItemAppearance()
-        backItemAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+        backItemAppearance.normal.titleTextAttributes = [.foregroundColor : AppColor.font.uiColor]
         appearance.backButtonAppearance = backItemAppearance
 
         UINavigationBar.appearance().standardAppearance = appearance

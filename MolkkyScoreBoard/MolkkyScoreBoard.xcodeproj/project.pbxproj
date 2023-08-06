@@ -43,6 +43,9 @@
 		B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48D29E5D43400BDB776 /* ParentWebViewModel.swift */; };
 		B08AF49029E7294A00BDB776 /* SpecialThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF48F29E7294A00BDB776 /* SpecialThanksView.swift */; };
 		B08AF49429E72A3400BDB776 /* SpecialThanksRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF49329E72A3400BDB776 /* SpecialThanksRole.swift */; };
+		B08AF49629E996D100BDB776 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B08AF49529E996D100BDB776 /* Color.xcassets */; };
+		B08AF49829E99D2400BDB776 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF49729E99D2400BDB776 /* AppColor.swift */; };
+		B08AF49A29E9A0CF00BDB776 /* TabViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */; };
 		B0A475A229A516CE003485B1 /* OrderingTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A475A129A516CE003485B1 /* OrderingTeamView.swift */; };
 		B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */; };
 		B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AEE9D3299E96CD0026AA42 /* Team.swift */; };
@@ -101,6 +104,9 @@
 		B08AF48D29E5D43400BDB776 /* ParentWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebViewModel.swift; sourceTree = "<group>"; };
 		B08AF48F29E7294A00BDB776 /* SpecialThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialThanksView.swift; sourceTree = "<group>"; };
 		B08AF49329E72A3400BDB776 /* SpecialThanksRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialThanksRole.swift; sourceTree = "<group>"; };
+		B08AF49529E996D100BDB776 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		B08AF49729E99D2400BDB776 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewAppearance.swift; sourceTree = "<group>"; };
 		B0A475A129A516CE003485B1 /* OrderingTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingTeamView.swift; sourceTree = "<group>"; };
 		B0AEE9D1299E963A0026AA42 /* TeamsMakeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMakeFeature.swift; sourceTree = "<group>"; };
 		B0AEE9D3299E96CD0026AA42 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -218,14 +224,15 @@
 			isa = PBXGroup;
 			children = (
 				B04E138829990F730055CA7F /* Assets.xcassets */,
+				B08AF49529E996D100BDB776 /* Color.xcassets */,
 				B04E13982999162A0055CA7F /* Info.plist */,
 				B0532B0E29BF71FB003D4568 /* Manager */,
 				B038DE3429BA38850030276E /* Mock */,
 				B02ED78329A507A80037B9DF /* Model */,
 				B04E138A29990F730055CA7F /* Preview Content */,
+				B0FA11E729DF21870064100B /* Settings.bundle */,
 				B04E139C299917A80055CA7F /* UI */,
 				B064DD0A29DDE00F009AE6A2 /* Utils */,
-				B0FA11E729DF21870064100B /* Settings.bundle */,
 			);
 			path = MolkkyScoreBoard;
 			sourceTree = "<group>";
@@ -284,9 +291,10 @@
 		B04E13A2299BF12C0055CA7F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B08AF48029E1653D00BDB776 /* WebView */,
-				B08A671329D4A9F20073D63B /* Router */,
 				B04E13A3299BF1540055CA7F /* NavigationViewAppearance.swift */,
+				B08A671329D4A9F20073D63B /* Router */,
+				B08AF49929E9A0CF00BDB776 /* TabViewAppearance.swift */,
+				B08AF48029E1653D00BDB776 /* WebView */,
 				B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */,
 			);
 			path = Common;
@@ -312,6 +320,7 @@
 		B064DD0A29DDE00F009AE6A2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B08AF49729E99D2400BDB776 /* AppColor.swift */,
 				B06E16272A040D7000ADFC2F /* AppDelegate.swift */,
 				B064DD0B29DDE068009AE6A2 /* AppVersion.swift */,
 			);
@@ -473,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0FA11E829DF21870064100B /* Settings.bundle in Resources */,
+				B08AF49629E996D100BDB776 /* Color.xcassets in Resources */,
 				B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */,
 				B04E138929990F730055CA7F /* Assets.xcassets in Resources */,
 			);
@@ -543,6 +553,7 @@
 				B08A671E29D760A70073D63B /* NameValidator.swift in Sources */,
 				B0CF124A29C8CEFD0061E9C3 /* ResultButtonsView.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
+				B08AF49A29E9A0CF00BDB776 /* TabViewAppearance.swift in Sources */,
 				B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */,
 				B0CF124829C766160061E9C3 /* ResultFeature.swift in Sources */,
 				B08AF49029E7294A00BDB776 /* SpecialThanksView.swift in Sources */,
@@ -550,6 +561,7 @@
 				B08AF48229E1654D00BDB776 /* WrappedWebView.swift in Sources */,
 				B04E13A6299D343D0055CA7F /* TeamSelectButtonView.swift in Sources */,
 				B08A671529D4AA160073D63B /* DestinationType.swift in Sources */,
+				B08AF49829E99D2400BDB776 /* AppColor.swift in Sources */,
 				B06E162229FE70D000ADFC2F /* IntroductionTextView.swift in Sources */,
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
@@ -710,9 +722,8 @@
 				INFOPLIST_FILE = MolkkyScoreBoard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "みんモル";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -742,9 +753,8 @@
 				INFOPLIST_FILE = MolkkyScoreBoard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "みんモル";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (

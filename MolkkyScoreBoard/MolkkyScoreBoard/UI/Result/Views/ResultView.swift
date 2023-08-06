@@ -22,6 +22,7 @@ struct ResultView: View {
                     .padding()
             }
         }
+        .background(AppColor.base.color)
         .navigationBarBackButtonHidden(true)
     }
 }

@@ -29,6 +29,7 @@ struct MolkkyPlayView: View {
                             isPresentedAlert.toggle()
                         }, label: {
                             Image(systemName: "xmark")
+                                .foregroundColor(AppColor.font.color)
                         })
                         .alert(isPresented: $isPresentedAlert) {
                             gameFinishConfirmAlert(with: viewStore)
@@ -47,6 +48,7 @@ struct MolkkyPlayView: View {
                     TeamScoresView(viewStore: viewStore)
                 }
             }
+            .background(AppColor.base.color)
             .navigationBarBackButtonHidden(true)
         }
     }

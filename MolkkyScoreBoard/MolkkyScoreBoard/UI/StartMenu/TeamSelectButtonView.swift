@@ -14,14 +14,17 @@ struct TeamSelectButtonView: View {
     let teamCount: Int
 
     var body: some View {
-        Button("\(teamCount)チーム") {
+        Button(action: {
             PageRouter.shared.path.append(.teamMake(teamCount: teamCount))
-        }
-        .font(Font.system(size: 20))
+        },
+               label: {
+            Text("\(teamCount)チーム")
+                .font(Font.system(size: 20))
+                .frame(width: 130)
+                .padding(.vertical, 12)
+        })
         .foregroundColor(.white)
-        .frame(width: 140)
-        .padding(.vertical, 12)
-        .background(Color.orange)
+        .background(AppColor.main.color)
         .cornerRadius(4)
     }
 }

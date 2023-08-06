@@ -18,9 +18,9 @@ struct OrderingTeamView: View {
             Text("\(team.order + 1)")
                 .font(Font.system(size: 14))
                 .bold()
-                .foregroundColor(Color.white)
+                .foregroundColor(AppColor.white.color)
                 .padding(.all, 5)
-                .background(Color.blue.cornerRadius(2))
+                .background(AppColor.main.color.cornerRadius(2))
 
             VStack(spacing: 5) {
                 HStack {
