@@ -64,7 +64,6 @@
 		B0DE7F6529B102E200B30CC0 /* TeamScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */; };
 		B0DE7F6729B37EEC00B30CC0 /* TeamScoresTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6629B37EEC00B30CC0 /* TeamScoresTitleView.swift */; };
 		B0DE7F6A29B38F7D00B30CC0 /* Skittle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE7F6929B38F7D00B30CC0 /* Skittle.swift */; };
-		B0FA11E829DF21870064100B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0FA11E729DF21870064100B /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,7 +124,6 @@
 		B0DE7F6429B102E200B30CC0 /* TeamScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScoresView.swift; sourceTree = "<group>"; };
 		B0DE7F6629B37EEC00B30CC0 /* TeamScoresTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScoresTitleView.swift; sourceTree = "<group>"; };
 		B0DE7F6929B38F7D00B30CC0 /* Skittle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skittle.swift; sourceTree = "<group>"; };
-		B0FA11E729DF21870064100B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +228,6 @@
 				B038DE3429BA38850030276E /* Mock */,
 				B02ED78329A507A80037B9DF /* Model */,
 				B04E138A29990F730055CA7F /* Preview Content */,
-				B0FA11E729DF21870064100B /* Settings.bundle */,
 				B04E139C299917A80055CA7F /* UI */,
 				B064DD0A29DDE00F009AE6A2 /* Utils */,
 			);
@@ -423,8 +420,6 @@
 				B04E137D29990F710055CA7F /* Sources */,
 				B04E137E29990F710055CA7F /* Frameworks */,
 				B04E137F29990F710055CA7F /* Resources */,
-				B04D4C8429DF21F800A50B2C /* Build Release */,
-				B04D4C8529DF222A00A50B2C /* Run LicensePlist */,
 			);
 			buildRules = (
 			);
@@ -481,7 +476,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FA11E829DF21870064100B /* Settings.bundle in Resources */,
 				B08AF49629E996D100BDB776 /* Color.xcassets in Resources */,
 				B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */,
 				B04E138929990F730055CA7F /* Assets.xcassets in Resources */,
@@ -489,47 +483,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B04D4C8429DF21F800A50B2C /* Build Release */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Build Release";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release\n";
-		};
-		B04D4C8529DF222A00A50B2C /* Run LicensePlist */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run LicensePlist";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/LicensePlist \\\n--product license-plist\n\n.build/checkouts/LicensePlist/.build/release/license-plist --xcodeproj-path $PROJECT_FILE_PATH --package-path Package.swift --output-path $SRCROOT/$TARGET_NAME/Settings.bundle\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B04E137D29990F710055CA7F /* Sources */ = {
