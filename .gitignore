@@ -36,5 +36,6 @@ DerivedData/
 xcuserdata/
 *.moved-aside
 !.gitkeep
-*/BuildTools/*
-**/Settings.bundle/*
+**/Settings.bundle/com.mono0926.LicensePlist
+**/Settings.bundle/com.mono0926.LicensePlist.latest_result.txt
+**/Settings.bundle/com.mono0926.LicensePlist.plist
