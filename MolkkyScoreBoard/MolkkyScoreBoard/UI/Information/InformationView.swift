@@ -17,12 +17,12 @@ struct InformationView: View {
         List {
             Section {
                 NavigationLink("モルック公式ルール", destination: {
-                    ParentWebView(url: "https://molkky.jp/molkky/",
+                    ParentWebView(url: URLConstants.officialRule.rawValue,
                                   viewModel: webViewModel)
                 })
 
                 NavigationLink("アプリ制作秘話", destination: {
-                    ParentWebView(url: "https://note.com/present1206/n/ndcf826bbf70d",
+                    ParentWebView(url: URLConstants.developerNote.rawValue,
                                   viewModel: webViewModel)
                 })
                 NavigationLink("Special Thanks", destination: {
@@ -31,7 +31,7 @@ struct InformationView: View {
             }
             .listRowBackground(AppColor.bgList.color)
 
-            if let url = URL(string: "https://apps.apple.com/app/id6458591735") {
+            if let url = URL(string: URLConstants.appStore.rawValue) {
                 Section {
                     Link("ストアでレビューを書く", destination: url)
                         .foregroundColor(.black)
@@ -40,7 +40,7 @@ struct InformationView: View {
 
             Section {
                 NavigationLink("プライバシーポリシー", destination: {
-                    ParentWebView(url: "https://ta9yamakawa.github.io/MolkkyPrivacyPolicy/PrivacyPolicy/ja",
+                    ParentWebView(url: URLConstants.privacyPolicy.rawValue,
                                   viewModel: webViewModel)
                 })
                 Text("バージョン：\(AppVersion.currentVersion)")

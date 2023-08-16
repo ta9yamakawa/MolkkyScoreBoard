@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B016184C2A7FFF6100E8C6AE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B016184B2A7FFF6100E8C6AE /* Settings.bundle */; };
+		B01618552A8D18C000E8C6AE /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01618542A8D18C000E8C6AE /* URLConstants.swift */; };
 		B02ED78029A26DFA0037B9DF /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B02ED77F29A26DFA0037B9DF /* Algorithms */; };
 		B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */; };
 		B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		B016184B2A7FFF6100E8C6AE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		B01618542A8D18C000E8C6AE /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberCountEditButtonsView.swift; sourceTree = "<group>"; };
 		B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditView.swift; sourceTree = "<group>"; };
 		B02ED78829A510B10037B9DF /* TeamsOrderEditFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditFeature.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B01618532A8D18B100E8C6AE /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				B01618542A8D18C000E8C6AE /* URLConstants.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
 		B02ED78329A507A80037B9DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +330,7 @@
 		B064DD0A29DDE00F009AE6A2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B01618532A8D18B100E8C6AE /* URL */,
 				B08AF49729E99D2400BDB776 /* AppColor.swift */,
 				B06E16272A040D7000ADFC2F /* AppDelegate.swift */,
 				B064DD0B29DDE068009AE6A2 /* AppVersion.swift */,
@@ -532,6 +543,7 @@
 				B08A671E29D760A70073D63B /* NameValidator.swift in Sources */,
 				B0CF124A29C8CEFD0061E9C3 /* ResultButtonsView.swift in Sources */,
 				B04E13A0299918120055CA7F /* InformationView.swift in Sources */,
+				B01618552A8D18C000E8C6AE /* URLConstants.swift in Sources */,
 				B08AF49A29E9A0CF00BDB776 /* TabViewAppearance.swift in Sources */,
 				B064DCFF29D7698C009AE6A2 /* InvalidTeamIndex.swift in Sources */,
 				B0CF124829C766160061E9C3 /* ResultFeature.swift in Sources */,
