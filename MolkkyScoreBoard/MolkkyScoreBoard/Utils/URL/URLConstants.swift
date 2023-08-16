@@ -5,8 +5,6 @@
 //  Created by ta9yamakawa on 2023/08/16.
 //
 
-import Foundation
-
 /// URLの定数を列挙帯
 enum URLConstants: String {
     /// 公式ルール

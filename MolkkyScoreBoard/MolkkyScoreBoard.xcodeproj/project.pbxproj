@@ -330,10 +330,10 @@
 		B064DD0A29DDE00F009AE6A2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				B01618532A8D18B100E8C6AE /* URL */,
 				B08AF49729E99D2400BDB776 /* AppColor.swift */,
 				B06E16272A040D7000ADFC2F /* AppDelegate.swift */,
 				B064DD0B29DDE068009AE6A2 /* AppVersion.swift */,
+				B01618532A8D18B100E8C6AE /* URL */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
