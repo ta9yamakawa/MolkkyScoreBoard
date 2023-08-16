@@ -31,6 +31,13 @@ struct InformationView: View {
             }
             .listRowBackground(AppColor.bgList.color)
 
+            if let url = URL(string: "https://apps.apple.com/app/id6458591735") {
+                Section {
+                    Link("ストアでレビューを書く", destination: url)
+                        .foregroundColor(.black)
+                }
+            }
+
             Section {
                 NavigationLink("プライバシーポリシー", destination: {
                     ParentWebView(url: "https://ta9yamakawa.github.io/MolkkyPrivacyPolicy/PrivacyPolicy/ja",
