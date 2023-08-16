@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B016184C2A7FFF6100E8C6AE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B016184B2A7FFF6100E8C6AE /* Settings.bundle */; };
 		B01618552A8D18C000E8C6AE /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01618542A8D18C000E8C6AE /* URLConstants.swift */; };
+		B01618582A8D245800E8C6AE /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01618572A8D245800E8C6AE /* UserDefaultsConstants.swift */; };
+		B016185B2A8D294300E8C6AE /* StoreReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016185A2A8D294300E8C6AE /* StoreReviewHandler.swift */; };
 		B02ED78029A26DFA0037B9DF /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B02ED77F29A26DFA0037B9DF /* Algorithms */; };
 		B02ED78229A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */; };
 		B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */; };
@@ -71,6 +73,8 @@
 /* Begin PBXFileReference section */
 		B016184B2A7FFF6100E8C6AE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B01618542A8D18C000E8C6AE /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
+		B01618572A8D245800E8C6AE /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
+		B016185A2A8D294300E8C6AE /* StoreReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewHandler.swift; sourceTree = "<group>"; };
 		B02ED78129A3D22D0037B9DF /* TeamMemberCountEditButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberCountEditButtonsView.swift; sourceTree = "<group>"; };
 		B02ED78529A5084F0037B9DF /* TeamsOrderEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditView.swift; sourceTree = "<group>"; };
 		B02ED78829A510B10037B9DF /* TeamsOrderEditFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOrderEditFeature.swift; sourceTree = "<group>"; };
@@ -149,6 +153,22 @@
 				B01618542A8D18C000E8C6AE /* URLConstants.swift */,
 			);
 			path = URL;
+			sourceTree = "<group>";
+		};
+		B01618562A8D244000E8C6AE /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				B01618572A8D245800E8C6AE /* UserDefaultsConstants.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		B01618592A8D276D00E8C6AE /* StoreReview */ = {
+			isa = PBXGroup;
+			children = (
+				B016185A2A8D294300E8C6AE /* StoreReviewHandler.swift */,
+			);
+			path = StoreReview;
 			sourceTree = "<group>";
 		};
 		B02ED78329A507A80037B9DF /* Model */ = {
@@ -330,10 +350,12 @@
 		B064DD0A29DDE00F009AE6A2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B01618592A8D276D00E8C6AE /* StoreReview */,
 				B08AF49729E99D2400BDB776 /* AppColor.swift */,
 				B06E16272A040D7000ADFC2F /* AppDelegate.swift */,
 				B064DD0B29DDE068009AE6A2 /* AppVersion.swift */,
 				B01618532A8D18B100E8C6AE /* URL */,
+				B01618562A8D244000E8C6AE /* UserDefaults */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -528,6 +550,7 @@
 			files = (
 				B0DE7F6329B0FE2D00B30CC0 /* PlayingButtonsView.swift in Sources */,
 				B04E13A4299BF1540055CA7F /* NavigationViewAppearance.swift in Sources */,
+				B016185B2A8D294300E8C6AE /* StoreReviewHandler.swift in Sources */,
 				B0AEE9D2299E963A0026AA42 /* TeamsMakeFeature.swift in Sources */,
 				B038DE3329B8F1F70030276E /* TeamScoresRowView.swift in Sources */,
 				B0CF125629CA867D0061E9C3 /* ResultTeamsView.swift in Sources */,
@@ -556,6 +579,7 @@
 				B06E162229FE70D000ADFC2F /* IntroductionTextView.swift in Sources */,
 				B0CF124629C765FB0061E9C3 /* ResultView.swift in Sources */,
 				B0AEE9D4299E96CD0026AA42 /* Team.swift in Sources */,
+				B01618582A8D245800E8C6AE /* UserDefaultsConstants.swift in Sources */,
 				B08AF48E29E5D43400BDB776 /* ParentWebViewModel.swift in Sources */,
 				B08AF49429E72A3400BDB776 /* SpecialThanksRole.swift in Sources */,
 				B038DE3129B8EC4C0030276E /* TeamScoresRowsView.swift in Sources */,
