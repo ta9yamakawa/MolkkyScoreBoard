@@ -42,7 +42,7 @@ struct StartMenuView: View {
         .onAppear(perform: {
 
             let userDefaults = UserDefaults.standard
-            let key = UserDefaultsConstants.Key.launchHomeCount.rawValue
+            let key = UserDefaultsKeys.launchHomeCount.rawValue
             var count = userDefaults.integer(forKey: key)
             count += 1
             userDefaults.set(count, forKey: key)
