@@ -33,9 +33,16 @@ struct InformationView: View {
 
             if let url = URL(string: URLConstants.appStore.rawValue) {
                 Section {
-                    Link("ストアでレビューを書く", destination: url)
-                        .foregroundColor(.black)
+                    HStack {
+                        Link("ストアでレビューを書く", destination: url)
+                            .foregroundColor(.black)
+                        Spacer()
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(Color(uiColor: .systemGray2))
+                    }
+
                 }
+                .listRowBackground(AppColor.bgList.color)
             }
 
             Section {
