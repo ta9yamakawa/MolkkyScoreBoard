@@ -11,7 +11,7 @@ import Foundation
 final class StoreReviewHandler {
 
     // MARK: Constants
-    
+
     /// シングルトン
     static let shared = StoreReviewHandler()
 

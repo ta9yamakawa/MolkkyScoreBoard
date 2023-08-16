@@ -34,11 +34,7 @@ struct ResultFeature: ReducerProtocol {
         case .didTapFinishButton:
             PageRouter.shared.path.removeAll()
 
-            let userDefaults = UserDefaults.standard
-            let key = UserDefaultsKeys.playCompletedCount.rawValue
-            var count = userDefaults.integer(forKey: key)
-            count += 1
-            userDefaults.set(count, forKey: key)
+            UserDefaultsInteger.shared.increment(forKey: .playCompletedCount)
             return .none
 
         case .didTapNextMatchButton:

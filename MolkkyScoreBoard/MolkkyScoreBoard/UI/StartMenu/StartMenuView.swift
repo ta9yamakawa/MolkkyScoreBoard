@@ -40,13 +40,7 @@ struct StartMenuView: View {
             Spacer()
         }
         .onAppear(perform: {
-
-            let userDefaults = UserDefaults.standard
-            let key = UserDefaultsKeys.launchHomeCount.rawValue
-            var count = userDefaults.integer(forKey: key)
-            count += 1
-            userDefaults.set(count, forKey: key)
-
+            UserDefaultsInteger.shared.increment(forKey: .launchHomeCount)
             requestStoreReview()
         })
         .background(AppColor.base.color)
