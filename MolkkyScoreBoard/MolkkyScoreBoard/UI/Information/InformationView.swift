@@ -10,26 +10,21 @@ import SwiftUI
 /// インフォメーション画面
 struct InformationView: View {
 
+    /// Web View Model
+    private let webViewModel = ParentWebViewModel()
+
     var body: some View {
         List {
             Section {
                 NavigationLink("モルック公式ルール", destination: {
                     ParentWebView(url: "https://molkky.jp/molkky/",
-                                  viewModel: ParentWebViewModel())
+                                  viewModel: webViewModel)
                 })
 
-                // FIXME: 記事公開後にNavigationLinkにする
-                VStack(spacing: 3) {
-                    HStack {
-                        Text("アプリ製作秘話")
-                        Spacer()
-                    }
-                    HStack {
-                        Text("※次バージョンで公開予定👷‍♂️").font(Font.system(size: 12))
-                        Spacer()
-                    }
-                }
-
+                NavigationLink("アプリ制作秘話", destination: {
+                    ParentWebView(url: "https://note.com/present1206/n/ndcf826bbf70d",
+                                  viewModel: webViewModel)
+                })
                 NavigationLink("Special Thanks", destination: {
                     SpecialThanksView()
                 })
@@ -39,7 +34,7 @@ struct InformationView: View {
             Section {
                 NavigationLink("プライバシーポリシー", destination: {
                     ParentWebView(url: "https://ta9yamakawa.github.io/MolkkyPrivacyPolicy/PrivacyPolicy/ja",
-                                  viewModel: ParentWebViewModel())
+                                  viewModel: webViewModel)
                 })
                 Text("バージョン：\(AppVersion.currentVersion)")
             }
