@@ -43,9 +43,11 @@ struct MolkkyPlayView: View {
                     SkittlesView(viewStore: viewStore)
                         .padding(.bottom, 10)
 
-                    PlayingButtonsView(viewStore: viewStore)
+                    ScrollViewReader { reader in
+                        PlayingButtonsView(viewStore: viewStore, reader: reader)
 
-                    TeamScoresView(viewStore: viewStore)
+                        TeamScoresView(viewStore: viewStore)
+                    }
                 }
             }
             .background(AppColor.base.color)

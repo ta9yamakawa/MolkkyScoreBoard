@@ -25,6 +25,7 @@ struct TeamScoresRowsView: View {
                     Divider()
                         .padding(.top, 10)
                 }
+                .id(index) // スクロール用にidの紐付けが必要
                 .background(teamBackgroundColor(from: team, index: index))
             }
         }
