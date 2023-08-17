@@ -33,6 +33,8 @@ struct ResultFeature: ReducerProtocol {
         switch action {
         case .didTapFinishButton:
             PageRouter.shared.path.removeAll()
+
+            UserDefaultsInteger.shared.increment(forKey: .playCompletedCount)
             return .none
 
         case .didTapNextMatchButton:

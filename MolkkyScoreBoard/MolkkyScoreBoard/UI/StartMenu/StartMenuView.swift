@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import StoreKit
 
 /// プレイスタート画面
 struct StartMenuView: View {
+
+    /// ストアレビュー訴求用
+    @Environment(\.requestReview) private var requestReview
 
     /// 最小チーム数
     private let minTeamCount = 1
@@ -35,7 +39,25 @@ struct StartMenuView: View {
 
             Spacer()
         }
+        .onAppear(perform: {
+            UserDefaultsInteger.shared.increment(forKey: .launchHomeCount)
+            requestStoreReview()
+        })
         .background(AppColor.base.color)
+    }
+}
+
+// MARK: Private Methods
+private extension StartMenuView {
+    /// ストアレビューを訴求する
+    func requestStoreReview() {
+        guard StoreReviewHandler.shared.shouldRequest() else {
+            return
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+            requestReview()
+        }
     }
 }
 
