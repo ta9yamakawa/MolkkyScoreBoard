@@ -37,7 +37,7 @@ struct InformationView: View {
                         Link("ストアでレビューを書く", destination: url)
                             .foregroundColor(.black)
                         Spacer()
-                        Image(systemName: "square.and.pencil")
+                        Image(systemName: "arrow.up.forward.square")
                             .foregroundColor(Color(uiColor: .systemGray2))
                     }
 
