@@ -15,6 +15,7 @@ struct PlayingButtonsView: View {
     let viewStore: ViewStore<MolkkyPlayFeature.State,
                              MolkkyPlayFeature.Action>
 
+    /// Reader
     let reader: ScrollViewProxy
 
     var body: some View {
