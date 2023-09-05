@@ -44,6 +44,8 @@ struct ResultFeature: ReducerProtocol {
             state.teams.enumerated().forEach { index, team in
                 let newScore = TeamScore(from: team)
                 state.teams[index].score.append(newScore)
+                // 公式ルール的に、投げる順番はリセットされる
+                state.teams[index].memberOrder = .zero
             }
 
             let path: DestinationType = state.teams.count == 1 ? .play(teams: state.teams) : .teamOrderEdit(teams: state.teams)
