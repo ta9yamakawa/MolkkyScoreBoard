@@ -38,15 +38,10 @@ struct ResultFeature: ReducerProtocol {
             return .none
 
         case .didTapNextMatchButton:
-            resetIsDisqualified(from: &state)
             sortByPlayingOrder(from: &state)
 
-            state.teams.enumerated().forEach { index, team in
-                let newScore = TeamScore(from: team)
-                state.teams[index].score.append(newScore)
-            }
-
-            let path: DestinationType = state.teams.count == 1 ? .play(teams: state.teams) : .teamOrderEdit(teams: state.teams)
+            let newTeams = state.teams.map { $0.teamForNextMatch(with: $0) }
+            let path: DestinationType = newTeams.count == 1 ? .play(teams: newTeams) : .teamOrderEdit(teams: newTeams)
             PageRouter.shared.path.append(path)
             return .none
         }
@@ -55,17 +50,6 @@ struct ResultFeature: ReducerProtocol {
 
 // MARK: Private Methods
 private extension ResultFeature {
-    /// 失格のフラグを全てリセットする
-    /// - Parameter state: State
-    func resetIsDisqualified(from state: inout State) {
-        let teamCount = state.teams.count
-
-        for index in 0..<teamCount {
-            state.teams[index].mistakeCount = .zero
-            state.teams[index].isDisqualified = false
-        }
-    }
-
     /// プレイ順に入れ替える
     /// - Parameter state: State
     func sortByPlayingOrder(from state: inout State) {
