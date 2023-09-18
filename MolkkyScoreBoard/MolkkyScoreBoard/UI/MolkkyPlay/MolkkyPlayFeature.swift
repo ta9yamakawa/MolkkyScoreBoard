@@ -243,17 +243,13 @@ private extension MolkkyPlayFeature {
     /// 1チームだけ残った場合、自動的に50点を獲得させる
     /// - Parameter state: State
     func raiseMaxScoreIfNeeded(from state: inout State) {
-        guard isOnlyTeamRemained(from: state) else {
+        guard 
+            isOnlyTeamRemained(from: state),
+            let index = state.teams.firstIndex(where: { !$0.isDisqualified }) else {
             return
         }
 
-        for index in 0..<state.teams.count {
-            guard !state.teams[index].isDisqualified else {
-                continue
-            }
-
-            state.teams[index].score[state.setNo - 1].score = type(of: self).maxLimitScore
-        }
+        state.teams[index].score[state.setNo - 1].score = type(of: self).maxLimitScore
     }
 
     /// 複数チームでプレイ中に1チームだけ残ったかどうか
