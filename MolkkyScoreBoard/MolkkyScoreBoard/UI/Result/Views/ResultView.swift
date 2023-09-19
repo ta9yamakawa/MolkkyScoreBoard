@@ -23,7 +23,6 @@ struct ResultView: View {
             }
         }
         .background(AppColor.base.color)
-        .navigationBarBackButtonHidden(true)
     }
 }
 

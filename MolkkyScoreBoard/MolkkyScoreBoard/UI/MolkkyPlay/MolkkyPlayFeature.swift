@@ -101,19 +101,21 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case .didTapDecideButton:
             let playingOrder = state.playingOrder
             let team = state.teams[playingOrder]
-            let action = PlayAction(team: team, playingOrder: playingOrder)
-            undoManager.add(action)
-            state.undoActions = undoManager.actions
 
             update(from: &state)
             resetSkittles(from: &state)
+
+            let action = PlayAction(team: team, playingOrder: playingOrder)
+            undoManager.add(action)
+            state.undoActions = undoManager.actions
 
             return .none
 
         case .finishMatch:
             raiseMaxScoreIfNeeded(from: &state)
-            sortByRanking(from: &state)
-            PageRouter.shared.path.append(.result(teams: state.teams))
+
+            let sortedTeams = rankSortedTeams(with: state.teams)
+            PageRouter.shared.path.append(.result(teams: sortedTeams))
             return .none
         }
     }
@@ -125,6 +127,12 @@ private extension MolkkyPlayFeature {
     /// 更新系の処理
     /// - Parameter state: State
     func update(from state: inout State) {
+        // ※結果画面から戻ったとき、失格チームが謝って得点を入れてしまった場合を想定して条件をつけています。
+//        if !state.shouldFinishMatch {
+//            updateScore(from: &state)
+//            updateMistakeCount(from: &state)
+//        }
+
         updateScore(from: &state)
         updateMistakeCount(from: &state)
 
@@ -139,9 +147,13 @@ private extension MolkkyPlayFeature {
     /// チームの得点を更新する
     /// - Parameter state: State
     func updateScore(from state: inout State) {
-        let score = calculatePoint(from: state)
         let index = state.playingOrder
 
+        guard !state.teams[index].isDisqualified else {
+            return
+        }
+
+        let score = calculatePoint(from: state)
         let totalScore = state.teams[index].score[state.setNo - 1].score + score
         state.teams[index].score[state.setNo - 1].score = updateScoreIfNeeded(totalScore)
     }
@@ -156,8 +168,13 @@ private extension MolkkyPlayFeature {
     /// 失敗した回数を更新する
     /// - Parameter state: State
     func updateMistakeCount(from state: inout State) {
-        let score = calculatePoint(from: state)
         let index = state.playingOrder
+
+        guard !state.teams[index].isDisqualified else {
+            return
+        }
+
+        let score = calculatePoint(from: state)
 
         if score == .zero {
             state.teams[index].mistakeCount += 1
@@ -259,18 +276,22 @@ private extension MolkkyPlayFeature {
         return (disqualifiedTeams.count + 1) == state.teams.count && state.teams.count > 1
     }
 
-    /// ランキング順に入れ替える
-    /// - Parameter state: State
-    func sortByRanking(from state: inout State) {
-        let totalScores = state.teams.map { $0.totalScore() }
+    /// ランキング順に入れ替えたチーム情報
+    /// - Parameter oldTeams: ソート前のチーム情報
+    /// - Returns: ソート完了したチーム情報
+    func rankSortedTeams(with oldTeams: [Team]) -> [Team] {
+        var newTeams = oldTeams
+        let totalScores = newTeams.map { $0.totalScore() }
         let index = totalScores.indices.sorted { totalScores[$0] > totalScores[$1] }
-        state.teams = index.map { state.teams[$0] }
+        newTeams = index.map { newTeams[$0] }
 
         var ranking = 1
-        for index in 0..<state.teams.count {
-            state.teams[index].ranking = ranking
+        for index in 0..<newTeams.count {
+            newTeams[index].ranking = ranking
 
             ranking += 1
         }
+
+        return newTeams
     }
 }

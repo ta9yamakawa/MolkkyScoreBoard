@@ -40,10 +40,12 @@ private extension TeamScoresRowsView {
     ///   - index: チームのインデックス
     /// - Returns: チーム行の背景色
     func teamBackgroundColor(from team: Team, index: Int) -> Color {
+        guard !team.isDisqualified else {
+            return .gray
+        }
+
         if viewStore.state.playingOrder == index {
             return AppColor.accent3.color
-        } else if team.isDisqualified {
-            return .gray
         } else {
             return .clear
         }
