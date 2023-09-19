@@ -102,12 +102,16 @@ struct MolkkyPlayFeature: ReducerProtocol {
             let playingOrder = state.playingOrder
             let team = state.teams[playingOrder]
 
+            // ※結果画面から戻ってきて、その後undoをせずに決定を押すと不要なログが残ってしまう
+            // よって、既に失格になっているチームの「決定」かを確認するようにしている
+            if !team.isDisqualified {
+                let action = PlayAction(team: team, playingOrder: playingOrder)
+                undoManager.add(action)
+                state.undoActions = undoManager.actions
+            }
+
             update(from: &state)
             resetSkittles(from: &state)
-
-            let action = PlayAction(team: team, playingOrder: playingOrder)
-            undoManager.add(action)
-            state.undoActions = undoManager.actions
 
             return .none
 
@@ -127,12 +131,6 @@ private extension MolkkyPlayFeature {
     /// 更新系の処理
     /// - Parameter state: State
     func update(from state: inout State) {
-        // ※結果画面から戻ったとき、失格チームが謝って得点を入れてしまった場合を想定して条件をつけています。
-//        if !state.shouldFinishMatch {
-//            updateScore(from: &state)
-//            updateMistakeCount(from: &state)
-//        }
-
         updateScore(from: &state)
         updateMistakeCount(from: &state)
 
