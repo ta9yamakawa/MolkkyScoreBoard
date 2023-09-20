@@ -40,7 +40,7 @@ struct ResultFeature: ReducerProtocol {
         case .didTapNextMatchButton:
             sortByPlayingOrder(from: &state)
 
-            let newTeams = state.teams.map { $0.teamForNextMatch(with: $0) }
+            let newTeams = state.teams.map { $0.teamForNextMatch() }
             let path: DestinationType = newTeams.count == 1 ? .play(teams: newTeams) : .teamOrderEdit(teams: newTeams)
             PageRouter.shared.path.append(path)
             return .none

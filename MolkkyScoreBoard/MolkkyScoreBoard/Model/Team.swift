@@ -34,10 +34,10 @@ struct Team: Identifiable, Hashable {
     }
     
     /// 次の試合に向けたチームのデータを作成する
-    /// - Parameter team: Team
-    func teamForNextMatch(with team: Team) -> Team {
-        var newTeam = team
-        let newScore = TeamScore(from: team)
+    /// - Returns: リセットされたチームデータ
+    func teamForNextMatch() -> Team {
+        var newTeam = self
+        let newScore = TeamScore(from: self)
         newTeam.score.append(newScore)
 
         // 失敗回数と失格になったかのフラグをリセットする
