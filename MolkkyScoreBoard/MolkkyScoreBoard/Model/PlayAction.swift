@@ -8,7 +8,7 @@
 /// プレイ時のチームごとのアクションのデータ
 struct PlayAction: Equatable {
     /// チーム
-    let team: Team
+    let teams: [Team]
     /// プレイ順
     let playingOrder: Int
 }

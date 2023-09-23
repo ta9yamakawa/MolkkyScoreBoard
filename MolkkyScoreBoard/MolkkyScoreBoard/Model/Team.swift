@@ -32,4 +32,18 @@ struct Team: Identifiable, Hashable {
         }.reduce(0, +)
         return totalScore
     }
+    
+    /// 次の試合に向けたチームのデータを作成する
+    /// - Returns: リセットされたチームデータ
+    func teamForNextMatch() -> Team {
+        var newTeam = self
+        let newScore = TeamScore(from: self)
+        newTeam.score.append(newScore)
+
+        // 失敗回数と失格になったかのフラグをリセットする
+        newTeam.mistakeCount = .zero
+        newTeam.isDisqualified = false
+
+        return newTeam
+    }
 }
