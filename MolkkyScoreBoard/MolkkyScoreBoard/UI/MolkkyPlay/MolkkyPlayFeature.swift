@@ -28,7 +28,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
     struct State: Equatable {
         /// チーム情報
         var teams: [Team]
-        /// 後半かどうか
+        /// セット数
         let setNo: Int
         /// 選択されたスキットル
         var selectedSkittles: [Skittle] = []
@@ -87,7 +87,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
                 return .none
             }
 
-            state.teams[lastAction.playingOrder] = lastAction.team
+            state.teams = lastAction.teams
             state.playingOrder = lastAction.playingOrder
 
             undoManager.delete(lastAction)
@@ -102,10 +102,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
             let playingOrder = state.playingOrder
             let team = state.teams[playingOrder]
 
-            // ※結果画面から戻ってきて、その後undoをせずに決定を押すと不要なログが残ってしまう
-            // よって、既に失格になっているチームの「決定」かを確認するようにしている
-            if !team.isDisqualified {
-                let action = PlayAction(team: team, playingOrder: playingOrder)
+            // ※結果画面から戻ってきて、その後決定を押すと不要なログが残ってしまうケースがある
+            // よって、失格になっているチームが選択できる時と50点とったチームの時はログに残さないようにする
+            if !team.isDisqualified && !isOverMatch(from: state) {
+                let action = PlayAction(teams: state.teams, playingOrder: playingOrder)
                 undoManager.add(action)
                 state.undoActions = undoManager.actions
             }
@@ -131,8 +131,10 @@ private extension MolkkyPlayFeature {
     /// 更新系の処理
     /// - Parameter state: State
     func update(from state: inout State) {
-        updateScore(from: &state)
-        updateMistakeCount(from: &state)
+        if !isOverMatch(from: state) {
+            updateScore(from: &state)
+            updateMistakeCount(from: &state)
+        }
 
         judgeFinishMatch(from: &state)
 
@@ -243,16 +245,11 @@ private extension MolkkyPlayFeature {
     /// 試合を終わらせるかを判断する
     /// - Parameter state: State
     func judgeFinishMatch(from state: inout State) {
-        let disqualifiedTeams = state.teams.filter({ $0.isDisqualified })
-        let index = state.playingOrder
-        let playedTeam = state.teams[index]
-        let playedTeamScore = playedTeam.score[state.setNo - 1].score
-
         // 1チームでプレイ中に3回ミスしたかどうか
+        let disqualifiedTeams = state.teams.filter({ $0.isDisqualified })
         let isOnlyTeamDisqualified = (state.teams.count == 1) && (disqualifiedTeams.count == 1)
-        // 50点に達したチームがいるかどうか
-        let isOverMatch = playedTeamScore == type(of: self).maxLimitScore
-        state.shouldFinishMatch = isOnlyTeamRemained(from: state) || isOnlyTeamDisqualified || isOverMatch
+
+        state.shouldFinishMatch = isOnlyTeamRemained(from: state) || isOnlyTeamDisqualified || isOverMatch(from: state)
     }
 
     /// 1チームだけ残った場合、自動的に50点を獲得させる
@@ -269,9 +266,20 @@ private extension MolkkyPlayFeature {
 
     /// 複数チームでプレイ中に1チームだけ残ったかどうか
     /// - Parameter state: State
+    /// - Returns: true: 1チーム残った / false: 複数チーム残っている
     func isOnlyTeamRemained(from state: State) -> Bool {
         let disqualifiedTeams = state.teams.filter({ $0.isDisqualified })
         return (disqualifiedTeams.count + 1) == state.teams.count && state.teams.count > 1
+    }
+    
+    /// 50点とったチームがいて試合が終了するか
+    /// - Parameter state: State
+    /// - Returns: true: 試合終了 / false: 継続
+    func isOverMatch(from state: State) -> Bool {
+        let index = state.playingOrder
+        let playedTeam = state.teams[index]
+        let playedTeamScore = playedTeam.score[state.setNo - 1].score
+        return playedTeamScore == type(of: self).maxLimitScore
     }
 
     /// ランキング順に入れ替えたチーム情報
