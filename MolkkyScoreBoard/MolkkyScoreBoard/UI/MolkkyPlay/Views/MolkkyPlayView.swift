@@ -22,36 +22,40 @@ struct MolkkyPlayView: View {
 
     var body: some View {
         if let store = store {
-            VStack(spacing: 20) {
-                WithViewStore(store) { viewStore in
-                    HStack {
-                        Button(action: {
-                            isPresentedAlert.toggle()
-                        }, label: {
-                            Image(systemName: "xmark")
-                                .foregroundColor(AppColor.font.color)
-                        })
-                        .alert(isPresented: $isPresentedAlert) {
-                            gameFinishConfirmAlert(with: viewStore)
+            ZStack {
+                VStack(spacing: 20) {
+                    WithViewStore(store) { viewStore in
+                        HStack {
+                            Button(action: {
+                                isPresentedAlert.toggle()
+                            }, label: {
+                                Image(systemName: "xmark")
+                                    .foregroundColor(AppColor.font.color)
+                            })
+                            .alert(isPresented: $isPresentedAlert) {
+                                gameFinishConfirmAlert(with: viewStore)
+                            }
+
+                            Spacer()
                         }
-
-                        Spacer()
-                    }
-                    .padding()
+                        .padding()
 
 
-                    SkittlesView(viewStore: viewStore)
-                        .padding(.bottom, 10)
+                        SkittlesView(viewStore: viewStore)
+                            .padding(.bottom, 10)
 
-                    ScrollViewReader { reader in
-                        PlayingButtonsView(viewStore: viewStore, reader: reader)
+                        ScrollViewReader { reader in
+                            PlayingButtonsView(viewStore: viewStore, reader: reader)
 
-                        TeamScoresView(viewStore: viewStore)
+                            TeamScoresView(viewStore: viewStore)
+                        }
                     }
                 }
+                .background(AppColor.base.color)
+                .navigationBarBackButtonHidden(true)
+
+                MolkkyPlayPartyMissionView().ignoresSafeArea()
             }
-            .background(AppColor.base.color)
-            .navigationBarBackButtonHidden(true)
         }
     }
 }

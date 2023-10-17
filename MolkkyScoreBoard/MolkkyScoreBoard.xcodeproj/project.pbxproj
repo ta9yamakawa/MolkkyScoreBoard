@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B013F4032ADEE0E2008AA594 /* MolkkyPlayPartyMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B013F4022ADEE0E2008AA594 /* MolkkyPlayPartyMissionView.swift */; };
 		B016184C2A7FFF6100E8C6AE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B016184B2A7FFF6100E8C6AE /* Settings.bundle */; };
 		B01618552A8D18C000E8C6AE /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01618542A8D18C000E8C6AE /* URLConstants.swift */; };
 		B01618582A8D245800E8C6AE /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01618572A8D245800E8C6AE /* UserDefaultsKeys.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B013F4022ADEE0E2008AA594 /* MolkkyPlayPartyMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolkkyPlayPartyMissionView.swift; sourceTree = "<group>"; };
 		B016184B2A7FFF6100E8C6AE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B01618542A8D18C000E8C6AE /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		B01618572A8D245800E8C6AE /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				B038DE2D29B8EBA30030276E /* Lower */,
 				B0DE7F5A29AFA9EE00B30CC0 /* MolkkyPlayView.swift */,
 				B038DE2C29B8EB9A0030276E /* Upper */,
+				B013F4022ADEE0E2008AA594 /* MolkkyPlayPartyMissionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				B08AF49429E72A3400BDB776 /* SpecialThanksRole.swift in Sources */,
 				B038DE3129B8EC4C0030276E /* TeamScoresRowsView.swift in Sources */,
 				B064DD0529DB3F84009AE6A2 /* NameValidationResult.swift in Sources */,
+				B013F4032ADEE0E2008AA594 /* MolkkyPlayPartyMissionView.swift in Sources */,
 				B02ED78629A5084F0037B9DF /* TeamsOrderEditView.swift in Sources */,
 				B0532B1229BF769B003D4568 /* PlayAction.swift in Sources */,
 				B038DE3829BC84A50030276E /* TeamScore.swift in Sources */,
