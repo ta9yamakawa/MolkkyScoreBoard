@@ -20,6 +20,8 @@ struct MolkkyPlayView: View {
     /// Store
     @State var store: StoreOf<MolkkyPlayFeature>? = nil
 
+    @State var opacity = 0.0
+
     var body: some View {
         if let store = store {
             ZStack {
@@ -55,6 +57,18 @@ struct MolkkyPlayView: View {
                 .navigationBarBackButtonHidden(true)
 
                 MolkkyPlayPartyMissionView().ignoresSafeArea()
+                    .opacity(opacity)
+
+                // アニメーションの適用
+                    .animation(.linear(duration: 0.2))
+
+                // ビューが表示された時の処理
+                    .onAppear {
+                        opacity = 1.0
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            opacity = .zero
+                        }
+                    }
             }
         }
     }
