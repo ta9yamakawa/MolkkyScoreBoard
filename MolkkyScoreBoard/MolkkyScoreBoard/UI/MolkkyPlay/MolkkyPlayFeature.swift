@@ -39,8 +39,9 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var shouldFinishMatch = false
         /// Undoのアクション管理配列
         var undoActions: [PlayAction] = []
-        /// ミッション
+        /// お題
         var mission: Mission = .normal
+        /// お題のフェード用透過度合い
         var animationViewOpacity = 0.0
 
         /// Initialize
@@ -67,6 +68,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case didTapDecideButton
         /// 試合が終了した
         case finishMatch
+        /// お題のフェードアウト
         case fadeOutMission
     }
 

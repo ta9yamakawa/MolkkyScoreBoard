@@ -27,9 +27,13 @@ struct MolkkyPlayView: View {
                     MolkkyPlayPartyMissionView(mission: viewStore.mission.rawValue)
                         .ignoresSafeArea()
                         .opacity(viewStore.animationViewOpacity)
-                        .animation(.linear(duration: 0.2), value: viewStore.animationViewOpacity)
+                        .animation(.linear(duration: 0.3), value: viewStore.animationViewOpacity)
                         .onChange(of: viewStore.animationViewOpacity) { _ in
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            guard viewStore.animationViewOpacity != .zero else {
+                                return
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 viewStore.send(.fadeOutMission)
                             }
                         }
