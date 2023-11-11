@@ -5,6 +5,7 @@
 //  Created by ta9yamakawa on 2023/03/02.
 //
 
+import SwiftUI
 import ComposableArchitecture
 
 /// プレイ画面 Feature
@@ -38,6 +39,9 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var shouldFinishMatch = false
         /// Undoのアクション管理配列
         var undoActions: [PlayAction] = []
+        /// ミッション
+        var mission: Mission = .normal
+        var animationViewOpacity = 0.0
 
         /// Initialize
         /// - Parameter teams: Team
@@ -63,6 +67,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case didTapDecideButton
         /// 試合が終了した
         case finishMatch
+        case fadeOutMission
     }
 
     // MARK: Reduce
@@ -112,6 +117,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
             update(from: &state)
             resetSkittles(from: &state)
+            updateMission(from: &state)
 
             return .none
 
@@ -120,6 +126,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
             let sortedTeams = rankSortedTeams(with: state.teams)
             PageRouter.shared.path.append(.result(teams: sortedTeams))
+            return .none
+
+        case .fadeOutMission:
+            state.animationViewOpacity = .zero
             return .none
         }
     }
@@ -299,5 +309,13 @@ private extension MolkkyPlayFeature {
         }
 
         return newTeams
+    }
+
+    func updateMission(from state: inout State) {
+        guard let nextMission = Mission.allCases.randomElement() else {
+            return
+        }
+        state.mission = nextMission
+        state.animationViewOpacity = 1.0
     }
 }

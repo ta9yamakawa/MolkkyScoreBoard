@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+/// パーティモードでプレイする際のお題View
 struct MolkkyPlayPartyMissionView: View {
+    /// お題文
+    var mission: String
+
     var body: some View {
-        
         VStack {
-            Text("Now Loading...")
+            Text(mission)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .font(.title)
@@ -19,8 +22,4 @@ struct MolkkyPlayPartyMissionView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.orange.opacity(0.6))
     }
-}
-
-#Preview {
-    MolkkyPlayPartyMissionView()
 }
