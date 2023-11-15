@@ -189,7 +189,12 @@ private extension MolkkyPlayFeature {
         let score = calculatePoint(from: state)
 
         if score == .zero {
-            state.teams[index].mistakeCount += 1
+            // お題が「ミスったら失格」だった場合の計算
+            if state.mission == .suddenDeath {
+                state.teams[index].mistakeCount = type(of: self).maxMistakeCount
+            } else {
+                state.teams[index].mistakeCount += 1
+            }
         } else {
             state.teams[index].mistakeCount = .zero
         }
@@ -313,6 +318,8 @@ private extension MolkkyPlayFeature {
         return newTeams
     }
 
+    /// お題を更新する
+    /// - Parameter state: State
     func updateMission(from state: inout State) {
         guard let nextMission = Mission.allCases.randomElement() else {
             return
