@@ -37,8 +37,9 @@ struct StartMenuView: View {
                 }
             }
 
+            Divider()
+
             ModeSwitchView()
-                .padding(.top, 20)
 
             Spacer()
         }
