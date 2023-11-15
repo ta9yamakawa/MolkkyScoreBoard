@@ -37,6 +37,9 @@ struct StartMenuView: View {
                 }
             }
 
+            ModeSwitchView()
+                .padding(.top, 20)
+
             Spacer()
         }
         .onAppear(perform: {
@@ -57,6 +60,27 @@ private extension StartMenuView {
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
             requestReview()
+        }
+    }
+}
+
+private struct ModeSwitchView: View {
+
+    @State private var isPartyMode = false
+
+    var body: some View {
+        HStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 5) {
+                Text("パーティモード")
+                    .font(.system(size: 16))
+                Text("投げるたびにランダムでお題が変わります。\n息抜きにプレイしたい時に！")
+                    .font(.system(size: 12))
+                    .lineLimit(2)
+            }
+
+            Toggle("", isOn: $isPartyMode)
+                .labelsHidden()
+                .tint(AppColor.accent2.color)
         }
     }
 }
