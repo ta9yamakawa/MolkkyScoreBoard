@@ -58,6 +58,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
     /// Action
     enum Action: Equatable {
+        /// 画面表示
+        case start
         /// スキットルをタップした
         case didTapSkittle(_ skittle: Skittle)
         /// 戻るボタンをタップした
@@ -81,6 +83,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
     /// - Returns: EffectTask<Action>
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
+        case .start:
+            updateMission(from: &state)
+            return .none
+
         case .didTapSkittle(let skittle):
             if let index = state.selectedSkittles.firstIndex(of: skittle) {
                 state.selectedSkittles.remove(at: index)

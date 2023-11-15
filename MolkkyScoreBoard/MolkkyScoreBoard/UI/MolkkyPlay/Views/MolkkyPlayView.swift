@@ -13,6 +13,9 @@ struct MolkkyPlayView: View {
 
     /// Store
     @State var store: StoreOf<MolkkyPlayFeature>? = nil
+    
+    /// ゲームが開始されているか
+    @State private var isDoneStart = false
 
     var body: some View {
         if let store = store {
@@ -39,6 +42,12 @@ struct MolkkyPlayView: View {
                         }
 
                 }
+                .onAppear(perform: {
+                    if !isDoneStart {
+                        viewStore.send(.start)
+                        isDoneStart = true
+                    }
+                })
             }
         }
     }
