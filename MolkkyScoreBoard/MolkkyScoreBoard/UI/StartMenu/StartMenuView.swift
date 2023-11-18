@@ -82,6 +82,10 @@ private struct ModeSwitchView: View {
             Toggle("", isOn: $isPartyMode)
                 .labelsHidden()
                 .tint(AppColor.accent2.color)
+                .onChange(of: isPartyMode) { newValue in
+                    UserDefaultsBool.shared.update(forKey: .isPartyMode,
+                                                   to: newValue)
+                }
         }
     }
 }

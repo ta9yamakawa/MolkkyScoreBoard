@@ -84,6 +84,9 @@ struct MolkkyPlayFeature: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .start:
+            guard UserDefaultsBool.shared.get(forKey: .isPartyMode) else {
+                return .none
+            }
             updateMission(from: &state)
             return .none
 
@@ -327,7 +330,9 @@ private extension MolkkyPlayFeature {
     /// お題を更新する
     /// - Parameter state: State
     func updateMission(from state: inout State) {
-        guard let nextMission = Mission.allCases.randomElement() else {
+        guard
+            UserDefaultsBool.shared.get(forKey: .isPartyMode),
+            let nextMission = Mission.allCases.randomElement() else {
             return
         }
         state.mission = nextMission
