@@ -65,8 +65,11 @@ private extension StartMenuView {
     }
 }
 
+// MARK: モード切り替えSwitch
+/// モード切り替えView
 private struct ModeSwitchView: View {
 
+    /// パーティモードかどうか
     @State private var isPartyMode = UserDefaultsBool.shared.get(forKey: .isPartyMode)
 
     var body: some View {
