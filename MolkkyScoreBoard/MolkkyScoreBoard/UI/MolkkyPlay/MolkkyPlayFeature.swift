@@ -105,6 +105,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
             state.teams = lastAction.teams
             state.playingOrder = lastAction.playingOrder
+            state.mission = lastAction.mission
 
             undoManager.delete(lastAction)
             state.undoActions = undoManager.actions
@@ -121,7 +122,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
             // ※結果画面から戻ってきて、その後決定を押すと不要なログが残ってしまうケースがある
             // よって、失格になっているチームが選択できる時と50点とったチームの時はログに残さないようにする
             if !team.isDisqualified && !isOverMatch(from: state) {
-                let action = PlayAction(teams: state.teams, playingOrder: playingOrder)
+                let action = PlayAction(teams: state.teams, playingOrder: playingOrder, mission: state.mission)
                 undoManager.add(action)
                 state.undoActions = undoManager.actions
             }

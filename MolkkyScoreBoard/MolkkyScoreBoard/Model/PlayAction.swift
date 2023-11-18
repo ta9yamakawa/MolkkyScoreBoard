@@ -11,4 +11,6 @@ struct PlayAction: Equatable {
     let teams: [Team]
     /// プレイ順
     let playingOrder: Int
+    /// ミッション
+    let mission: Mission
 }
