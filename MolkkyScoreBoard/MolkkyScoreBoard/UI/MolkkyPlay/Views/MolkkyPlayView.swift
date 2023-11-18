@@ -80,7 +80,13 @@ private struct PlayView: View {
 
                 Spacer()
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
+
+            // パーティモードのお題
+            if UserDefaultsBool.shared.get(forKey: .isPartyMode) {
+                Text(viewStore.mission.rawValue)
+            }
 
             SkittlesView(viewStore: viewStore)
                 .padding(.bottom, 10)

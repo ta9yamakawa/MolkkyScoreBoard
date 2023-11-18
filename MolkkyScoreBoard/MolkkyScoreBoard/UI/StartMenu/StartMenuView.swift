@@ -67,7 +67,7 @@ private extension StartMenuView {
 
 private struct ModeSwitchView: View {
 
-    @State private var isPartyMode = false
+    @State private var isPartyMode = UserDefaultsBool.shared.get(forKey: .isPartyMode)
 
     var body: some View {
         HStack(spacing: 10) {
