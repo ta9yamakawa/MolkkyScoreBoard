@@ -12,4 +12,7 @@ enum UserDefaultsKeys: String {
 
     /// プレイ完了回数
     case playCompletedCount
+
+    /// パーティモードかどうか
+    case isPartyMode
 }

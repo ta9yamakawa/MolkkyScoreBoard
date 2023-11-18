@@ -37,6 +37,10 @@ struct StartMenuView: View {
                 }
             }
 
+            Divider()
+
+            ModeSwitchView()
+
             Spacer()
         }
         .onAppear(perform: {
@@ -57,6 +61,34 @@ private extension StartMenuView {
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
             requestReview()
+        }
+    }
+}
+
+// MARK: モード切り替えSwitch
+/// モード切り替えView
+private struct ModeSwitchView: View {
+
+    /// パーティモードかどうか
+    @State private var isPartyMode = UserDefaultsBool.shared.get(forKey: .isPartyMode)
+
+    var body: some View {
+        HStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 5) {
+                Text("パーティモード")
+                    .font(.system(size: 16))
+                Text("投げるたびにランダムでお題が変わります。\n息抜きにプレイしたい時に！")
+                    .font(.system(size: 12))
+                    .lineLimit(2)
+            }
+
+            Toggle("", isOn: $isPartyMode)
+                .labelsHidden()
+                .tint(AppColor.accent2.color)
+                .onChange(of: isPartyMode) { newValue in
+                    UserDefaultsBool.shared.update(forKey: .isPartyMode,
+                                                   to: newValue)
+                }
         }
     }
 }

@@ -5,6 +5,7 @@
 //  Created by ta9yamakawa on 2023/03/02.
 //
 
+import SwiftUI
 import ComposableArchitecture
 
 /// プレイ画面 Feature
@@ -38,6 +39,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
         var shouldFinishMatch = false
         /// Undoのアクション管理配列
         var undoActions: [PlayAction] = []
+        /// お題
+        var mission: Mission = .normal
+        /// お題のフェード用透過度合い
+        var animationViewOpacity = 0.0
 
         /// Initialize
         /// - Parameter teams: Team
@@ -53,6 +58,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
     /// Action
     enum Action: Equatable {
+        /// 画面表示
+        case start
         /// スキットルをタップした
         case didTapSkittle(_ skittle: Skittle)
         /// 戻るボタンをタップした
@@ -63,6 +70,8 @@ struct MolkkyPlayFeature: ReducerProtocol {
         case didTapDecideButton
         /// 試合が終了した
         case finishMatch
+        /// お題のフェードアウト
+        case fadeOutMission
     }
 
     // MARK: Reduce
@@ -74,6 +83,13 @@ struct MolkkyPlayFeature: ReducerProtocol {
     /// - Returns: EffectTask<Action>
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
+        case .start:
+            guard UserDefaultsBool.shared.get(forKey: .isPartyMode) else {
+                return .none
+            }
+            updateMission(from: &state)
+            return .none
+
         case .didTapSkittle(let skittle):
             if let index = state.selectedSkittles.firstIndex(of: skittle) {
                 state.selectedSkittles.remove(at: index)
@@ -89,6 +105,7 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
             state.teams = lastAction.teams
             state.playingOrder = lastAction.playingOrder
+            state.mission = lastAction.mission
 
             undoManager.delete(lastAction)
             state.undoActions = undoManager.actions
@@ -105,13 +122,14 @@ struct MolkkyPlayFeature: ReducerProtocol {
             // ※結果画面から戻ってきて、その後決定を押すと不要なログが残ってしまうケースがある
             // よって、失格になっているチームが選択できる時と50点とったチームの時はログに残さないようにする
             if !team.isDisqualified && !isOverMatch(from: state) {
-                let action = PlayAction(teams: state.teams, playingOrder: playingOrder)
+                let action = PlayAction(teams: state.teams, playingOrder: playingOrder, mission: state.mission)
                 undoManager.add(action)
                 state.undoActions = undoManager.actions
             }
 
             update(from: &state)
             resetSkittles(from: &state)
+            updateMission(from: &state)
 
             return .none
 
@@ -120,6 +138,10 @@ struct MolkkyPlayFeature: ReducerProtocol {
 
             let sortedTeams = rankSortedTeams(with: state.teams)
             PageRouter.shared.path.append(.result(teams: sortedTeams))
+            return .none
+
+        case .fadeOutMission:
+            state.animationViewOpacity = .zero
             return .none
         }
     }
@@ -177,7 +199,12 @@ private extension MolkkyPlayFeature {
         let score = calculatePoint(from: state)
 
         if score == .zero {
-            state.teams[index].mistakeCount += 1
+            // お題が「ミスったら失格」だった場合の計算
+            if state.mission == .suddenDeath {
+                state.teams[index].mistakeCount = type(of: self).maxMistakeCount
+            } else {
+                state.teams[index].mistakeCount += 1
+            }
         } else {
             state.teams[index].mistakeCount = .zero
         }
@@ -299,5 +326,17 @@ private extension MolkkyPlayFeature {
         }
 
         return newTeams
+    }
+
+    /// お題を更新する
+    /// - Parameter state: State
+    func updateMission(from state: inout State) {
+        guard
+            UserDefaultsBool.shared.get(forKey: .isPartyMode),
+            let nextMission = Mission.allCases.randomElement() else {
+            return
+        }
+        state.mission = nextMission
+        state.animationViewOpacity = 1.0
     }
 }

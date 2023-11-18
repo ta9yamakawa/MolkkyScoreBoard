@@ -11,57 +11,98 @@ import ComposableArchitecture
 /// モルックプレイ画面
 struct MolkkyPlayView: View {
 
-    typealias PlayViewStore = ViewStore<MolkkyPlayFeature.State,
-                                        MolkkyPlayFeature.Action>
-
-    /// アラートの表示管理フラグ
-    @State private var isPresentedAlert = false
-
     /// Store
     @State var store: StoreOf<MolkkyPlayFeature>? = nil
+    
+    /// ゲームが開始されているか
+    @State private var isDoneStart = false
 
     var body: some View {
         if let store = store {
-            VStack(spacing: 20) {
-                WithViewStore(store) { viewStore in
-                    HStack {
-                        Button(action: {
-                            isPresentedAlert.toggle()
-                        }, label: {
-                            Image(systemName: "xmark")
-                                .foregroundColor(AppColor.font.color)
-                        })
-                        .alert(isPresented: $isPresentedAlert) {
-                            gameFinishConfirmAlert(with: viewStore)
+            WithViewStore(store) { viewStore in
+                ZStack {
+                    // プレイ画面
+                    PlayView(viewStore: viewStore)
+                        .background(AppColor.base.color)
+                        .navigationBarBackButtonHidden(true)
+
+                    // ミッションのお題画面（フェードで出し分け）
+                    MolkkyPlayPartyMissionView(mission: viewStore.mission.rawValue)
+                        .ignoresSafeArea()
+                        .opacity(viewStore.animationViewOpacity)
+                        .animation(.linear(duration: 0.3), value: viewStore.animationViewOpacity)
+                        .onChange(of: viewStore.animationViewOpacity) { _ in
+                            guard viewStore.animationViewOpacity != .zero else {
+                                return
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                viewStore.send(.fadeOutMission)
+                            }
                         }
 
-                        Spacer()
-                    }
-                    .padding()
-
-
-                    SkittlesView(viewStore: viewStore)
-                        .padding(.bottom, 10)
-
-                    ScrollViewReader { reader in
-                        PlayingButtonsView(viewStore: viewStore, reader: reader)
-
-                        TeamScoresView(viewStore: viewStore)
-                    }
                 }
+                .onAppear(perform: {
+                    if !isDoneStart {
+                        viewStore.send(.start)
+                        isDoneStart = true
+                    }
+                })
             }
-            .background(AppColor.base.color)
-            .navigationBarBackButtonHidden(true)
         }
     }
 }
 
-// MARK: Private Methods
-private extension MolkkyPlayView {
+// MARK: プレイ画面
+private struct PlayView: View {
+
+    typealias PlayViewStore = ViewStore<MolkkyPlayFeature.State,
+                                        MolkkyPlayFeature.Action>
+
+    /// View Store
+    let viewStore: PlayViewStore
+
+    /// アラートの表示管理フラグ
+    @State private var isPresentedAlert = false
+
+    var body: some View {
+        VStack(spacing: 20) {
+            HStack {
+                Button(action: {
+                    isPresentedAlert.toggle()
+                }, label: {
+                    Image(systemName: "xmark")
+                        .foregroundColor(AppColor.font.color)
+                })
+                .alert(isPresented: $isPresentedAlert) {
+                    gameFinishConfirmAlert(with: viewStore)
+                }
+
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top)
+
+            // パーティモードのお題
+            if UserDefaultsBool.shared.get(forKey: .isPartyMode) {
+                Text(viewStore.mission.rawValue)
+            }
+
+            SkittlesView(viewStore: viewStore)
+                .padding(.bottom, 10)
+
+            ScrollViewReader { reader in
+                PlayingButtonsView(viewStore: viewStore, reader: reader)
+
+                TeamScoresView(viewStore: viewStore)
+            }
+        }
+    }
+
     /// ゲームの終了確認アラートを取得する
     /// - Parameter viewStore: PlayViewStore
     /// - Returns: Alert
-    func gameFinishConfirmAlert(with viewStore: PlayViewStore) -> Alert {
+    private func gameFinishConfirmAlert(with viewStore: PlayViewStore) -> Alert {
         let title = Text("ゲームを中断しますか？")
         let finishButton: Alert.Button = .default(Text("中断する"),
                                                   action: {
