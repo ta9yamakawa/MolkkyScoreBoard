@@ -41,6 +41,7 @@
 		B06E162229FE70D000ADFC2F /* IntroductionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */; };
 		B06E16262A0409B200ADFC2F /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E16252A0409B200ADFC2F /* HomeTabViewController.swift */; };
 		B06E16282A040D7000ADFC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E16272A040D7000ADFC2F /* AppDelegate.swift */; };
+		B07A99B12C08D9AA00465F49 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B07A99B02C08D9AA00465F49 /* PrivacyInfo.xcprivacy */; };
 		B08A671529D4AA160073D63B /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671429D4AA160073D63B /* DestinationType.swift */; };
 		B08A671729D4B2400073D63B /* PageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671629D4B2400073D63B /* PageRouter.swift */; };
 		B08A671A29D75F810073D63B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A671929D75F810073D63B /* Validator.swift */; };
@@ -109,6 +110,7 @@
 		B06E162129FE70D000ADFC2F /* IntroductionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTextView.swift; sourceTree = "<group>"; };
 		B06E16252A0409B200ADFC2F /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		B06E16272A040D7000ADFC2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B07A99B02C08D9AA00465F49 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = MolkkyScoreBoard/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		B08A671429D4AA160073D63B /* DestinationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B08A671629D4B2400073D63B /* PageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRouter.swift; sourceTree = "<group>"; };
 		B08A671929D75F810073D63B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				B04E138329990F710055CA7F /* MolkkyScoreBoard */,
+				B07A99B02C08D9AA00465F49 /* PrivacyInfo.xcprivacy */,
 				B04E138229990F710055CA7F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				B016184C2A7FFF6100E8C6AE /* Settings.bundle in Resources */,
 				B08AF49629E996D100BDB776 /* Color.xcassets in Resources */,
 				B04E138C29990F730055CA7F /* Preview Assets.xcassets in Resources */,
+				B07A99B12C08D9AA00465F49 /* PrivacyInfo.xcprivacy in Resources */,
 				B04E138929990F730055CA7F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
